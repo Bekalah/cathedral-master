@@ -31,11 +31,12 @@ git checkout main  # Back to main
 - ✅ Rust: `rust-engines/Cargo.toml` (workspace config)
 - ✅ Godot: `godot-cathedral/project.godot` (4.4 config)
 
-#### Your Azure Desktop Changes (unknown):
+#### Your Desktop Changes (if any):
 - 🤔 Python design suite (`design_suite_smoketest.py`?)
 - 🤔 Next.js static export (`apps/web/out`?)
 - 🤔 Additional engines or data files?
 - 🤔 Local Godot HTML5 export?
+- 🤔 Rust code changes?
 
 ---
 
@@ -362,7 +363,7 @@ cathedral-master/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml          ✅ My addition
-├── apps/                        🤔 Your Azure work?
+├── apps/                        🤔 Your desktop work?
 │   └── web/                     🤔 Next.js app?
 ├── godot-cathedral/             ✅ My Godot 4.4 config
 ├── packages/
