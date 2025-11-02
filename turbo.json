@@ -1,10 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env"],
-  "pipeline": {
+  "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", "target/**", ".godot/**"]
+      "outputs": ["dist/**", "target/**", ".godot/**"],
+      "env": ["NODE_ENV"]
     },
     "dev": {
       "cache": false,
@@ -16,7 +17,8 @@
       "inputs": ["src/**/*.rs", "src/**/*.ts", "src/**/*.tsx", "tests/**"]
     },
     "lint": {
-      "outputs": []
+      "outputs": [],
+      "cache": false
     },
     "clean": {
       "cache": false
