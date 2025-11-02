@@ -1,7 +1,7 @@
 {
-  "name": "cathedral-magnum-opus",
+  "name": "@openspec/magnum-opus",
   "version": "1.0.0",
-  "description": "🜏 Living codex-engine: Codex 144:99 · Fusion Kink (A×B=D) · Liber Arcanae - Replacing all 13 bekalah GitHub repos",
+  "description": "OpenSpec Magnum Opus v1.0 - Cathedral Master Monorepo | Hermetic RPG + Creative Workstation | Godot 4.4 + Rust + React + Three.js",
   "private": true,
   "workspaces": [
     "packages/*",
