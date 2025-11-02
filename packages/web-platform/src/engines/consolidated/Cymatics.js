@@ -3,7 +3,7 @@
 // and maps frequency energy onto a 33‑node Jacob's Ladder spiral using Three.js.
 
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
-import { createCymaticsBridge } from '../shared/cymatics-bridge.js';
+import { createCymaticsBridge } from '../../shared/cymatics-bridge.js';
 
 // ✦ applySound — main entry
 // url: public‑domain/CC0 audio file
