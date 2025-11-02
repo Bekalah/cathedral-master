@@ -36,6 +36,12 @@ Use Replit's **Version Control** panel (left sidebar):
 ✅ Every push to main branch triggers automatic deployment  
 ✅ Build fix applied (cymatics-bridge.js created)
 
+### Merge Instructions:
+📥 **To merge with your Azure desktop work:**
+1. See `MERGE_GUIDE.md` for complete step-by-step instructions
+2. Run `POST_MERGE_VALIDATION.sh` after merging
+3. All Rust, Godot, and Python compatibility checked
+
 ### Known Issues (Non-Blocking):
 - ⚠️ Rust compilation needs libclang path configured (see RUST_COMPILATION_NOTE.md)
 - ⚠️ Godot integration pending Rust library compilation
