@@ -1,0 +1,34 @@
+# Cloudflare Pages configuration
+name = "openspec-magnum-opus"
+compatibility_date = "2025-11-02"
+
+# Pages build configuration
+[build]
+command = "npm run build --workspace=packages/web-platform"
+cwd = ""
+watch_dirs = ["packages/web-platform/src"]
+
+[build.upload]
+format = "directory"
+dir = "packages/web-platform/dist"
+main = "./index.html"
+
+# Environment variables (optional)
+[env.production]
+NODE_ENV = "production"
+
+[env.preview]
+NODE_ENV = "preview"
+
+# Custom headers
+[[headers]]
+for = "/assets/*"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/*"
+[headers.values]
+X-Frame-Options = "DENY"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
