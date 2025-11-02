@@ -1,34 +1,22 @@
-# Cloudflare Pages configuration
-name = "openspec-magnum-opus"
-compatibility_date = "2025-11-02"
+name = "cathedral-of-circuits"
+compatibility_date = "2024-09-28"
 
-# Pages build configuration
+# Cloudflare Pages-style static site build from the monorepo web app
 [build]
-command = "npm run build --workspace=packages/web-platform"
-cwd = ""
-watch_dirs = ["packages/web-platform/src"]
+command = "pnpm -w install && pnpm -C apps/web run build"
+publish = "apps/web/out"
 
-[build.upload]
-format = "directory"
-dir = "packages/web-platform/dist"
-main = "./index.html"
+# Optional environment variables
+[vars]
+LATTICE_MODE = "production"
+CATHEDRAL_VERSION = "1.0.0"
+JEWEL_INDRA_ACTIVE = "true"
 
-# Environment variables (optional)
-[env.production]
-NODE_ENV = "production"
-
-[env.preview]
-NODE_ENV = "preview"
-
-# Custom headers
-[[headers]]
-for = "/assets/*"
-[headers.values]
-Cache-Control = "public, max-age=31536000, immutable"
+# Optional headers for lattice interconnection
 
 [[headers]]
 for = "/*"
 [headers.values]
-X-Frame-Options = "DENY"
-X-Content-Type-Options = "nosniff"
-Referrer-Policy = "strict-origin-when-cross-origin"
+X-Cathedral-Lattice = "active"
+X-Jewel-Indra = "reflecting"
+Access-Control-Allow-Origin = "*"

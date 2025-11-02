@@ -1,28 +1,19 @@
 {
-  "version": 2,
-  "name": "openspec-magnum-opus",
-  "buildCommand": "npm run build --workspace=packages/web-platform",
-  "outputDirectory": "packages/web-platform/dist",
-  "framework": "vite",
-  "installCommand": "npm install",
-  "devCommand": "npm run dev --workspace=packages/web-platform",
-  "github": {
-    "silent": true
-  },
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
+  "framework": "nextjs",
+  "installCommand": "pnpm -w install",
+  "buildCommand": "pnpm -C apps/web run build",
+  "devCommand": "pnpm -C apps/web run dev",
+  "outputDirectory": "apps/web/out",
+  "regions": ["all"],
+  "redirects": [],
+  "rewrites": [],
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "source": "/(.*)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
     }
   ]
