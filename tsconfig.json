@@ -9,15 +9,13 @@
     { "path": "apps/cosmogenesis-engine" },
     { "path": "apps/magical-mystery-house" },
     { "path": "packages/luxcrux" }
-  },
+  ],
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "bundler",
-
     "resolveJsonModule": true,
     "isolatedModules": true,
-
     "jsx": "react-jsx",
     "strict": true,
     "noUnusedLocals": true,
