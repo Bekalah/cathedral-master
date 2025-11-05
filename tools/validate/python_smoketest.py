@@ -17,6 +17,8 @@ try:
     from hall_of_shadows.cathedral_hall_of_shadows import CathedralHallOfShadows
     hall = CathedralHallOfShadows()
     _ = hall.export_hall_of_shadows()
+except ImportError as e:
+    errors.append(("hall_of_shadows", f"Module not found: {e}"))
 except Exception as e:
     errors.append(("hall_of_shadows", repr(e)))
 
@@ -26,6 +28,8 @@ try:
     suite = CathedralFusionCreativeSuite()
     suite.initialize_arcana_character(ArcanaType.THEMELA_FOOL, "Themela")
     _ = suite.create_custom_character_art()
+except ImportError as e:
+    errors.append(("fusion_creative_suite", f"Module not found: {e}"))
 except Exception as e:
     errors.append(("fusion_creative_suite", repr(e)))
 
