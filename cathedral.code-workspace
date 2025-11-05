@@ -29,7 +29,10 @@
       "javascript": "javascriptreact"
     },
     "terminal.integrated.defaultProfile.osx": "zsh",
-    "terminal.integrated.scrollback": 10000
+    "terminal.integrated.scrollback": 10000,
+    "[jsonc]": {
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    }
   },
   "extensions": {
     "recommendations": [

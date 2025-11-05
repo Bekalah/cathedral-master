@@ -21,10 +21,25 @@ importers:
 
   apps/circuitum99:
     dependencies:
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
       three:
         specifier: ^0.181.0
         version: 0.181.0
     devDependencies:
+      '@types/react':
+        specifier: ^18.3.7
+        version: 18.3.26
+      '@types/react-dom':
+        specifier: ^18.3.0
+        version: 18.3.7(@types/react@18.3.26)
+      typescript:
+        specifier: ^5.6.3
+        version: 5.9.3
       vite:
         specifier: ^6.0.1
         version: 6.4.1(@types/node@20.19.24)(jiti@2.6.1)(terser@5.44.0)(yaml@2.8.1)
