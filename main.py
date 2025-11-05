@@ -467,5 +467,3 @@ if __name__ == "__main__":
         print("Or run using the module: python -m uvicorn main:app --reload")
         import sys
         sys.exit(1)
-        # Note: Configure log_level in uvicorn.run() call above
-    )
