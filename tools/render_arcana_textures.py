@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Azure ML GPU Arcana Texture Renderer for Cathedral of Circuits
+Local GPU Arcana Texture Renderer for Cathedral of Circuits
 Generates 4096x4096 base textures for all 33 Arcana using GPU acceleration
+All rendering and storage is local-only (Azure removed)
 """
 
 import os
@@ -10,11 +11,15 @@ import argparse
 import logging
 from datetime import datetime
 from pathlib import Path
-import torch
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
-import requests
-from azure.storage.blob import BlobServiceClient
+
+try:
+    import torch
+    TORCH_AVAILABLE = True
+except ImportError:
+    TORCH_AVAILABLE = False
+
 try:
     from diffusers import StableDiffusionPipeline, DPMSolverMultistepScheduler
     DIFFUSERS_AVAILABLE = True
@@ -31,27 +36,25 @@ class ArcanaTextureRenderer:
         self.resolution = resolution
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
-        # Azure Storage setup
-        self.blob_service_client = BlobServiceClient.from_connection_string(
-            os.getenv('AZURE_STORAGE_CONNECTION_STRING')
-        )
-        self.container_name = os.getenv('AZURE_CONTAINER_NAME', 'cathedral-datasets')
-
         # Load Arcana data
         self.arcana_data = self.load_arcana_data()
 
-        # Initialize Stable Diffusion (if GPU available)
-        self.use_gpu = torch.cuda.is_available()
+        # Initialize Stable Diffusion (if GPU and diffusers available)
+        self.use_gpu = TORCH_AVAILABLE and DIFFUSERS_AVAILABLE and torch.cuda.is_available()
         if self.use_gpu:
-            self.pipe = StableDiffusionPipeline.from_pretrained(
-                "CompVis/stable-diffusion-v1-4",
-                torch_dtype=torch.float16,
-            )
-            self.pipe.scheduler = DPMSolverMultistepScheduler.from_config(self.pipe.scheduler.config)
-            self.pipe = self.pipe.to("cuda")
-            logger.info("GPU acceleration enabled for texture generation")
+            try:
+                self.pipe = StableDiffusionPipeline.from_pretrained(
+                    "CompVis/stable-diffusion-v1-4",
+                    torch_dtype=torch.float16,
+                )
+                self.pipe.scheduler = DPMSolverMultistepScheduler.from_config(self.pipe.scheduler.config)
+                self.pipe = self.pipe.to("cuda")
+                logger.info("✅ GPU acceleration enabled for texture generation")
+            except Exception as e:
+                logger.warning(f"GPU setup failed: {e} - using CPU rendering")
+                self.use_gpu = False
         else:
-            logger.warning("GPU not available - using CPU rendering only")
+            logger.info("ℹ️  Using CPU procedural rendering (GPU/diffusers not available)")
 
     def load_arcana_data(self):
         """Load the complete Arcana dataset"""
@@ -182,8 +185,8 @@ class ArcanaTextureRenderer:
             logger.error(f"AI generation failed: {e}")
             return self.generate_procedural_texture(arcana_key, arcana_data)
 
-    def save_and_upload_texture(self, img, arcana_key, arcana_data):
-        """Save texture locally and upload to Azure Blob Storage"""
+    def save_texture(self, img, arcana_key, arcana_data):
+        """Save texture locally (Azure removed - local-only storage)"""
         try:
             # Save locally
             arcana_dir = self.output_dir / arcana_key
@@ -204,7 +207,7 @@ class ArcanaTextureRenderer:
                 "element": arcana_data.get(arcana_key, {}).get('element', 'Unknown'),
                 "resolution": f"{self.resolution}x{self.resolution}",
                 "generated_at": datetime.now().isoformat(),
-                "generator": "Azure ML GPU" if self.use_gpu else "CPU Procedural",
+                "generator": "Local GPU" if self.use_gpu else "Local CPU Procedural",
                 "file_size": texture_path.stat().st_size,
                 "format": "PNG"
             }
@@ -212,19 +215,10 @@ class ArcanaTextureRenderer:
             with open(arcana_dir / "metadata.json", 'w') as f:
                 json.dump(metadata, f, indent=2)
 
-            # Upload to Azure Blob Storage
-            blob_client = self.blob_service_client.get_blob_client(
-                container=self.container_name,
-                blob=f"base_textures/{arcana_key}/texture_master.png"
-            )
-
-            with open(texture_path, 'rb') as data:
-                blob_client.upload_blob(data, overwrite=True)
-
-            logger.info(f"✅ Texture saved and uploaded: {arcana_key}")
+            logger.info(f"✅ Texture saved locally: {arcana_key}")
 
         except Exception as e:
-            logger.error(f"❌ Failed to save/upload texture for {arcana_key}: {e}")
+            logger.error(f"❌ Failed to save texture for {arcana_key}: {e}")
 
     def render_all_arcana(self):
         """Render textures for all Arcana"""
@@ -236,8 +230,8 @@ class ArcanaTextureRenderer:
             # Generate texture
             texture = self.generate_ai_texture(arcana_key, self.arcana_data)
 
-            # Save and upload
-            self.save_and_upload_texture(texture, arcana_key, self.arcana_data)
+            # Save locally
+            self.save_texture(texture, arcana_key, self.arcana_data)
 
         logger.info("🎉 All Arcana textures generated!")
 
@@ -252,13 +246,13 @@ class ArcanaTextureRenderer:
         # Generate texture
         texture = self.generate_ai_texture(arcana_key, self.arcana_data)
 
-        # Save and upload
-        self.save_and_upload_texture(texture, arcana_key, self.arcana_data)
+        # Save locally
+        self.save_texture(texture, arcana_key, self.arcana_data)
 
         logger.info(f"✅ Single Arcana texture completed: {arcana_key}")
 
 def main():
-    parser = argparse.ArgumentParser(description='Render Arcana textures using Azure ML GPU')
+    parser = argparse.ArgumentParser(description='Render Arcana textures using local GPU/CPU (Azure removed)')
     parser.add_argument('--arcana', type=str, help='Specific Arcana to render (e.g., 0_fool)')
     parser.add_argument('--resolution', type=int, default=4096, help='Texture resolution (default: 4096)')
     parser.add_argument('--output', type=str, default='artifacts/base_textures', help='Output directory')
