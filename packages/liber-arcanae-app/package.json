@@ -12,8 +12,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@cathedral/mystical-data-unified": "^2.0.0",
-    "@cathedral/sacred-geometry-core": "^1.0.0"
+    "@cathedral/mystical-data-unified": "workspace:*",
+    "@cathedral/sacred-geometry-core": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.0.0"

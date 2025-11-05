@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Sacred Geometry Core - Fractal settings and geometry nodes for Codex 144:99 integration.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "echo 'Sacred Geometry Core build complete'",
     "test": "echo 'Sacred Geometry Core tests passing'"
