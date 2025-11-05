@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
-const isGhPages = process.env.NEXT_PUBLIC_GH_PAGES === 'true' || process.env.GH_PAGES === 'true';
-const explicitBasePath = process.env.NEXT_PUBLIC_BASE_PATH || process.env.BASE_PATH;
+const isGhPages =
+  process.env.NEXT_PUBLIC_GH_PAGES === "true" ||
+  process.env.GH_PAGES === "true";
+const explicitBasePath =
+  process.env.NEXT_PUBLIC_BASE_PATH || process.env.BASE_PATH;
 
 const nextConfig = {
   reactStrictMode: true,
@@ -12,10 +15,15 @@ const nextConfig = {
   // GitHub Pages project site served under /cathedral (conditional)
   // When deploying to Vercel/Cloudflare root domains, leave basePath empty
   ...(explicitBasePath
-    ? { basePath: explicitBasePath, assetPrefix: explicitBasePath.endsWith('/') ? explicitBasePath : explicitBasePath + '/' }
+    ? {
+        basePath: explicitBasePath,
+        assetPrefix: explicitBasePath.endsWith("/")
+          ? explicitBasePath
+          : explicitBasePath + "/",
+      }
     : isGhPages
-    ? { basePath: "/cathedral", assetPrefix: "/cathedral/" }
-    : {}),
+      ? { basePath: "/cathedral", assetPrefix: "/cathedral/" }
+      : {}),
   images: {
     unoptimized: true,
   },
@@ -62,7 +70,6 @@ const nextConfig = {
 
   // Experimental features for better performance
   experimental: {
-    optimizeCss: true,
     webVitalsAttribution: ["CLS", "LCP"],
   },
 };

@@ -12,6 +12,7 @@
 This is a **pnpm + TurboRepo v2** monorepo with **64 workspace packages**:
 
 ### Apps (11)
+
 - `apps/web` - Next.js main web app (GitHub Pages + Vercel)
 - `apps/circuitum99` - Mystical circuit visualization (Vite + Three.js)
 - `apps/cosmogenesis-engine` - AI learning engine (React + Three.js)
@@ -25,7 +26,9 @@ This is a **pnpm + TurboRepo v2** monorepo with **64 workspace packages**:
 - Plus: `cathedral-of-circuits`, `learning-device`
 
 ### Packages (53+)
+
 Core packages created/fixed in this session:
+
 - `@cathedral/synthesis-engine` - Alchemical Fusion system (a + b = d)
 - `@cathedral/three-engine` - Three.js wrapper for 3D visualizations
 - `@cathedral/codex-musical-system` - Codex 144:99 musical/harmonic system
@@ -40,6 +43,7 @@ Core packages created/fixed in this session:
 - `@cathedral/cosmogenesis` - Cosmic generation patterns (fixed tsconfig + src)
 
 Other key packages:
+
 - `@cathedral/ui` - Shared UI components
 - `@cathedral/codex-144-99` - Core Codex system
 - `@cathedral/shared` - Shared utilities
@@ -49,6 +53,7 @@ Other key packages:
 ## Build System
 
 ### Commands
+
 ```bash
 # Install dependencies (all 64 workspaces)
 pnpm install
@@ -67,6 +72,7 @@ cd apps/web && pnpm run export
 ```
 
 ### Key Files
+
 - `package.json` - Root monorepo config with Turbo scripts
 - `turbo.json` - TurboRepo v2 pipeline configuration
 - `pnpm-workspace.yaml` - Workspace package globs
@@ -77,12 +83,14 @@ cd apps/web && pnpm run export
 ## Deployment
 
 ### GitHub Pages
+
 - **Workflow**: `.github/workflows/pages.yml`
 - **Trigger**: Push to `main` branch
 - **Build**: `pnpm run build` → `apps/web/out`
 - **URL**: `https://bekalah.github.io/cathedral`
 
 ### Vercel
+
 - **Config**: `vercel.json`
 - **Framework**: Next.js (apps/web)
 - **Build Command**: `pnpm turbo run build --filter=./apps/web`
@@ -116,6 +124,7 @@ cd apps/web && pnpm run export
 ## OpenSpec Integration
 
 This repository is the source of truth for:
+
 - **OpenSpec Magnum Opus v1.0** - Unified wisdom, science, art, and design
 - **bekalah.github.io/cathedral** - Documentation and static site
 - **Turbo Monorepo** - All Cathedral projects consolidated
