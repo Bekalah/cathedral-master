@@ -2,12 +2,9 @@
   "files": [],
   "references": [
     { "path": "packages/core" },
-    { "path": "apps/circuitum99" },
     { "path": "packages/stone-grimoire" },
     { "path": "packages/liber-arcanae" },
     { "path": "packages/tesseract-bridge" },
-    { "path": "apps/cosmogenesis-engine" },
-    { "path": "apps/magical-mystery-house" },
     { "path": "packages/luxcrux" }
   ],
   "compilerOptions": {
