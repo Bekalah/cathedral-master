@@ -1,5 +1,8 @@
 
-
 > @cathedral/game-engine@1.0.0 build /Users/rebeccalemke/cathedral-real/packages/game-engine
 > tsc
 
+../../tsconfig.json(5,5): error TS6053: File '/Users/rebeccalemke/cathedral-real/apps/circuitum99' not found.
+../../tsconfig.json(9,5): error TS6053: File '/Users/rebeccalemke/cathedral-real/apps/cosmogenesis-engine' not found.
+../../tsconfig.json(10,5): error TS6053: File '/Users/rebeccalemke/cathedral-real/apps/magical-mystery-house' not found.
+ ELIFECYCLE  Command failed with exit code 2.
