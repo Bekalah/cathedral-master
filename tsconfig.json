@@ -28,7 +28,9 @@
       "@cathedral/stone-grimoire": ["packages/stone-grimoire/src"],
       "@cathedral/liber-arcanae": ["packages/liber-arcanae/src"],
       "@cathedral/tesseract-bridge": ["packages/tesseract-bridge/src"],
-      "@cathedral/cosmogenesis-learning-engine": ["apps/cosmogenesis-engine/src"],
+      "@cathedral/cosmogenesis-learning-engine": [
+        "apps/cosmogenesis-engine/src"
+      ],
       "@cathedral/magical-mystery-house": ["apps/magical-mystery-house/src"],
       "@cathedral/luxcrux": ["packages/luxcrux/src"],
       "@cathedral/integration": ["integration"],
