@@ -466,6 +466,5 @@ if __name__ == "__main__":
         print("Install uvicorn with: pip install uvicorn[standard]")
         print("Or run using the module: python -m uvicorn main:app --reload")
         import sys
-        sys.exit(1)
-        # Note: Configure log_level in uvicorn.run() call above
+        sys.exit(1)   log_level="info"
     )

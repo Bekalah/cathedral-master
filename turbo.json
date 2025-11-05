@@ -1,6 +1,3 @@
-// Cathedral Magnum Opus — Unified Wisdom, Science, Art, and Design
-// This project permanently unifies all traditions, wisdom schools, sciences, arts, and design disciplines.
-// All turbo monorepo, OpenSpec, and master-cathedral version 1.0 documentation is aligned in grace, beauty, and harmony.
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": [
@@ -15,26 +12,46 @@
   ],
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", "build/**", ".turbo/cache/**"],
-      "env": ["NODE_ENV"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        "build/**",
+        ".turbo/cache/**"
+      ],
+      "env": [
+        "NODE_ENV"
+      ]
     },
     "dev": {
       "cache": false,
       "persistent": true
     },
     "type-check": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "outputs": []
     },
     "lint": {
       "outputs": [],
-      "env": ["NODE_ENV"]
+      "env": [
+        "NODE_ENV"
+      ]
     },
     "test": {
-      "dependsOn": ["build"],
-      "outputs": ["coverage/**", ".nyc_output/**"],
-      "env": ["NODE_ENV", "CI"]
+      "dependsOn": [
+        "build"
+      ],
+      "outputs": [
+        "coverage/**",
+        ".nyc_output/**"
+      ],
+      "env": [
+        "NODE_ENV",
+        "CI"
+      ]
     },
     "clean": {
       "outputs": [],
@@ -43,20 +60,35 @@
     "openspec-validate": {
       "cache": false,
       "outputs": [],
-      "inputs": ["openspec/**/*.json", "openspec/**/*.md"]
+      "inputs": [
+        "openspec/**/*.json",
+        "openspec/**/*.md"
+      ]
     },
     "openspec-sync": {
-      "dependsOn": ["openspec-validate"],
-      "outputs": ["openspec/changes/**"],
-      "inputs": ["openspec/**/*.json"]
+      "dependsOn": [
+        "openspec-validate"
+      ],
+      "outputs": [
+        "openspec/changes/**"
+      ],
+      "inputs": [
+        "openspec/**/*.json"
+      ]
     },
     "validate-python": {
       "cache": false,
       "outputs": [],
-      "inputs": ["design-suite/**/*.py", "hall-of-mysteries/**/*.py"]
+      "inputs": [
+        "design-suite/**/*.py",
+        "hall-of-mysteries/**/*.py"
+      ]
     },
     "export-json": {
-      "dependsOn": ["validate-python", "openspec-sync"],
+      "dependsOn": [
+        "validate-python",
+        "openspec-sync"
+      ],
       "outputs": [
         "design-suite/outputs/**/*.json",
         "hall-of-mysteries/outputs/**/*.json"
@@ -68,50 +100,110 @@
       ]
     },
     "build-art": {
-      "dependsOn": ["^build", "export-json"],
-      "outputs": ["generated_art/**", "assets/art/**"],
-      "env": ["NODE_ENV"]
+      "dependsOn": [
+        "^build",
+        "export-json"
+      ],
+      "outputs": [
+        "generated_art/**",
+        "assets/art/**"
+      ],
+      "env": [
+        "NODE_ENV"
+      ]
     },
     "build-synth": {
-      "dependsOn": ["build-art"],
-      "outputs": ["generated_synth/**", "assets/audio/**"],
-      "env": ["NODE_ENV"]
+      "dependsOn": [
+        "build-art"
+      ],
+      "outputs": [
+        "generated_synth/**",
+        "assets/audio/**"
+      ],
+      "env": [
+        "NODE_ENV"
+      ]
     },
     "generate-arcana": {
-      "dependsOn": ["build", "export-json"],
-      "outputs": ["data/arcana/**", "generated/arcana/**"],
-      "inputs": ["CATHEDRAL_INTEGRATION_MAP.json"]
+      "dependsOn": [
+        "build",
+        "export-json"
+      ],
+      "outputs": [
+        "data/arcana/**",
+        "generated/arcana/**"
+      ],
+      "inputs": [
+        "CATHEDRAL_INTEGRATION_MAP.json"
+      ]
     },
     "connect-modules": {
-      "dependsOn": ["build-art", "build-synth", "generate-arcana"],
-      "outputs": ["cathedral_manifest.json", "scripts/connections/**"],
-      "inputs": ["CATHEDRAL_INTEGRATION_MAP.json", "openspec/**/*.json"]
+      "dependsOn": [
+        "build-art",
+        "build-synth",
+        "generate-arcana"
+      ],
+      "outputs": [
+        "cathedral_manifest.json",
+        "scripts/connections/**"
+      ],
+      "inputs": [
+        "CATHEDRAL_INTEGRATION_MAP.json",
+        "openspec/**/*.json"
+      ]
     },
     "architect-scribe": {
-      "dependsOn": ["connect-modules"],
-      "outputs": ["docs/grimoire/**", "generated/**"]
+      "dependsOn": [
+        "connect-modules"
+      ],
+      "outputs": [
+        "docs/grimoire/**",
+        "generated/**"
+      ]
     },
     "deploy": {
-      "dependsOn": ["build", "test", "lint", "architect-scribe"],
+      "dependsOn": [
+        "build",
+        "test",
+        "lint",
+        "architect-scribe"
+      ],
       "outputs": [],
-      "env": ["GITHUB_TOKEN", "VERCEL_TOKEN"]
+      "env": [
+        "GITHUB_TOKEN",
+        "VERCEL_TOKEN"
+      ]
     },
     "preview": {
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "outputs": []
     },
     "sync-integration-maps": {
-      "dependsOn": ["export-json"],
+      "dependsOn": [
+        "export-json"
+      ],
       "outputs": [
         "packages/*/integration-map.json",
         "stone-grimoire/integration-map.json"
       ],
-      "inputs": ["CATHEDRAL_INTEGRATION_MAP.json"]
+      "inputs": [
+        "CATHEDRAL_INTEGRATION_MAP.json"
+      ]
     },
     "pr-validate": {
-      "dependsOn": ["openspec-validate", "validate-python", "lint"],
+      "dependsOn": [
+        "openspec-validate",
+        "validate-python",
+        "lint"
+      ],
       "outputs": [],
-      "env": ["GITHUB_TOKEN", "GITHUB_HEAD_REF", "GITHUB_BASE_REF"]
+      "env": [
+        "GITHUB_TOKEN",
+        "GITHUB_HEAD_REF",
+        "GITHUB_BASE_REF"
+      ]
     }
   },
   "globalEnv": [
