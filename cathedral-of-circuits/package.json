@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "turbo": "^2.0.0",
-    "vite": "^5.0.0",
+    "vite": "^6.0.1",
     "typescript": "^5.0.0",
     "eslint": "^8.0.0",
     "prettier": "^3.0.0"
