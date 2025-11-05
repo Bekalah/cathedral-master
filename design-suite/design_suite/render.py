@@ -5,6 +5,7 @@ Renders sacred geometric patterns using matplotlib with proper error handling
 
 import warnings
 import logging
+from typing import Dict, Tuple
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -19,7 +20,6 @@ try:
     import math
     from matplotlib.patches import Polygon, Circle, FancyBboxPatch
     import matplotlib.pyplot as plt
-    from typing import Dict, Tuple
     
     MATPLOTLIB_AVAILABLE = True
     logger.info("Matplotlib successfully imported")
@@ -35,9 +35,20 @@ except ImportError as e:
     
     matplotlib = MockMatplotlib()
     
-    # Create placeholder types
+    # Create placeholder modules
+    import math  # Standard library, should always be available
+    np = type('MockModule', (), {
+        'linspace': lambda *args: [],
+        'sqrt': lambda x: x,
+        'max': lambda x: x,
+        'exp': lambda x: x,
+        'cos': lambda x: x,
+        'sin': lambda x: x,
+        'pi': 3.14159
+    })()
+    
+    # Create placeholder types for matplotlib
     Polygon = Circle = FancyBboxPatch = plt = type('MockModule', (), {})()
-    np = type('MockModule', (), {'linspace': lambda *args: [], 'sqrt': lambda x: x, 'max': lambda x: x, 'exp': lambda x: x, 'cos': lambda x: x, 'sin': lambda x: x})()
 
 
 def _create_triangle(x: float, y: float, scale: float, direction: str = "up") -> Polygon:
