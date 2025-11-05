@@ -8,12 +8,22 @@ DESIGN_SUITE_DIR = REPO_ROOT / "design-suite"
 if str(DESIGN_SUITE_DIR) not in sys.path:
     sys.path.insert(0, str(DESIGN_SUITE_DIR))
 
-from design_suite import (
-    CathedralDesignSuite,
-    build_integration_spec,
-    render_integration_preview,
-)
-from design_suite.hall_of_mysteries_import import FraterAchadSystem
+# Optional imports for design suite validation
+try:
+    from design_suite import (
+        CathedralDesignSuite,
+        build_integration_spec,
+        render_integration_preview,
+    )
+    DESIGN_SUITE_AVAILABLE = True
+except ImportError:
+    DESIGN_SUITE_AVAILABLE = False
+
+try:
+    from design_suite.hall_of_mysteries_import import FraterAchadSystem
+    HALL_OF_MYSTERIES_AVAILABLE = True
+except ImportError:
+    HALL_OF_MYSTERIES_AVAILABLE = False
 
 
 def main() -> int:
