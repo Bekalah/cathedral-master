@@ -8,7 +8,8 @@
     "CATHEDRAL_INTEGRATION_MAP.json",
     "MASTER_INDEX.md",
     "openspec/**/*.json",
-    "openspec/**/*.md"
+    "openspec/**/*.md",
+    "openspec/cathedral-v1-standard.md"
   ],
   "tasks": {
     "build": {

@@ -37,6 +37,7 @@ Every Cathedral workflow file MUST:
 ## Workflow File Patterns
 
 ### Standard Node.js Workflow
+
 ```yaml
 steps:
   - name: Checkout
