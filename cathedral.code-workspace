@@ -32,7 +32,8 @@
     "terminal.integrated.scrollback": 10000,
     "[jsonc]": {
       "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-    }
+    },
+    "godotTools.editorPath.godot3": "/Users/rebeccalemke/cathedral-real/godot-project/project.godot"
   },
   "extensions": {
     "recommendations": [

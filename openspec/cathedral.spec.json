@@ -125,6 +125,12 @@
       "node": "25.0.0",
       "features": "Native SQLite Support, ACID compliance, zero external dependencies"
     },
+    "frameworks": {
+      "next": "16.0.1",
+      "react": "19.2.0", 
+      "typescript": "5.9.3",
+      "features": "Latest Next.js App Router, React 19 features, Enhanced TypeScript"
+    },
     "game_engines": {
       "godot": "4.5.0",
       "rust": "1.75.0",
@@ -133,7 +139,7 @@
     "build_systems": {
       "turbo": "2.6.0",
       "pnpm": "9.15.0",
-      "vite": "latest"
+      "vite": "7.2.1"
     },
     "databases": {
       "primary": "Node.js 25 native SQLite",
