@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import { archetypes } from "@cathedral/soul";
+// Commented out - @cathedral/soul module needs proper configuration
+// import { archetypes } from "@cathedral/soul";
 import { CoutureOverlay } from "./CoutureOverlay";
 
-// Import Morgan Le Fay Avalon System
-import { MorganLeFay } from "../../../src/MorganLeFay.js";
-import { AvalonRealmEngine } from "../../../src/AvalonRealmEngine.js";
-import { TarotCreatureSystem } from "../../../src/TarotCreatureSystem.js";
-import { AvalonNodeIntegration } from "../../../src/AvalonNodeIntegration.js";
+// Commented out - these modules need proper paths or restructuring
+// import { MorganLeFay } from "../../../src/MorganLeFay.js";
+// import { AvalonRealmEngine } from "../../../src/AvalonRealmEngine.js";
+// import { TarotCreatureSystem } from "../../../src/TarotCreatureSystem.js";
+// import { AvalonNodeIntegration } from "../../../src/AvalonNodeIntegration.js";
 
 // Example Arcana avatars (expand with full lore, stats, resonance, etc.)
 const arcanaList = [
@@ -157,22 +158,23 @@ function TarotArena() {
   const [grimoire, setGrimoire] = useState("");
 
   // Initialize Morgan Le Fay Avalon System
-  const [morganLeFay] = useState(() => new MorganLeFay());
-  const [avalonEngine] = useState(() => new AvalonRealmEngine(morganLeFay));
-  const [tarotCreatureSystem] = useState(
-    () => new TarotCreatureSystem(morganLeFay, avalonEngine)
-  );
-  const [avalonNodeIntegration] = useState(
-    () =>
-      new AvalonNodeIntegration(morganLeFay, avalonEngine, tarotCreatureSystem)
-  );
+  // Commented out - Avalon system needs proper module setup
+  // const [morganLeFay] = useState(() => new MorganLeFay());
+  // const [avalonEngine] = useState(() => new AvalonRealmEngine(morganLeFay));
+  // const [tarotCreatureSystem] = useState(
+  //   () => new TarotCreatureSystem(morganLeFay, avalonEngine)
+  // );
+  // const [avalonNodeIntegration] = useState(
+  //   () =>
+  //     new AvalonNodeIntegration(morganLeFay, avalonEngine, tarotCreatureSystem)
+  // );
 
-  // Avalon system state
+  // Avalon system state - temporarily disabled
   const [activeCreatures, setActiveCreatures] = useState<any[]>([]);
   const [currentRealm, setCurrentRealm] = useState<any>(null);
   const [showAvalonInterface, setShowAvalonInterface] = useState(false);
-  const [currentNodeExperience, setCurrentNodeExperience] = useState<any>(null);
-  const [showNodeInterface, setShowNodeInterface] = useState(false);
+  // const [currentNodeExperience, setCurrentNodeExperience] = useState<any>(null);
+  // const [showNodeInterface, setShowNodeInterface] = useState(false);
 
   function handleSelect(avatar: any) {
     setSelected((prev) => {
