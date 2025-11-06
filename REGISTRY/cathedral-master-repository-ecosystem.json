@@ -4,14 +4,14 @@
     "established": "2025-11-06T03:35:09.953Z",
     "philosophy": "Unified wisdom, science, art, and design integration across all repositories",
     "repository_count": 10,
-    "primary_hub": "https://github.com/Bekalah/cathedral"
+    "primary_hub": "https://github.com/Bekalah/cathedral-master"
   },
   "repository_ecosystem": {
-    "master_cathedral": {
+  "master_cathedral": {
       "name": "Cathedral Master Repository",
-      "url": "https://github.com/Bekalah/cathedral",
+  "url": "https://github.com/Bekalah/cathedral-master",
       "role": "Primary deployment hub and monorepo",
-      "deployment": "https://bekalah.github.io/cathedral",
+  "deployment": "https://bekalah.github.io/cathedral-master",
       "status": "ACTIVE",
       "function": "Living monorepo organizing all creative work",
       "github_actions": {
@@ -21,12 +21,12 @@
         "vercel-deploy.yml": "Deploy to Vercel (apps/web)"
       },
       "git_actions_versions": {
-        "checkout": "actions/checkout@v1",
-        "setup_node": "actions/setup-node@v1",
+        "checkout": "actions/checkout@v4",
+        "setup_node": "actions/setup-node@v4",
         "setup_python": "actions/setup-python@v5",
         "configure_pages": "actions/configure-pages@v4",
-        "upload_pages_artifact": "actions/upload-pages-artifact@v1",
-        "deploy_pages": "actions/deploy-pages@v1"
+        "upload_pages_artifact": "actions/upload-pages-artifact@v3",
+        "deploy_pages": "actions/deploy-pages@v4"
       }
     },
     "circuitum99": {
@@ -127,14 +127,14 @@
   },
   "unified_github_actions_v1": {
     "philosophy": "Single version standard across all Cathedral repositories",
-    "primary_repository": "https://github.com/Bekalah/cathedral",
+  "primary_repository": "https://github.com/Bekalah/cathedral-master",
     "standardized_actions": {
-      "checkout": "actions/checkout@v1",
-      "setup_node": "actions/setup-node@v1", 
+      "checkout": "actions/checkout@v4",
+      "setup_node": "actions/setup-node@v4", 
       "setup_python": "actions/setup-python@v5",
       "configure_pages": "actions/configure-pages@v4",
-      "upload_pages_artifact": "actions/upload-pages-artifact@v1",
-      "deploy_pages": "actions/deploy-pages@v1"
+      "upload_pages_artifact": "actions/upload-pages-artifact@v3",
+      "deploy_pages": "actions/deploy-pages@v4"
     },
     "propagation_strategy": "Apply v1 standard to all 10 repositories",
     "enforcement": "Must use consistent versions across all Cathedral repos"

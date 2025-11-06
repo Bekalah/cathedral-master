@@ -71,6 +71,7 @@ jobs:
         env:
           NEXT_PUBLIC_GH_PAGES: "true"
           GH_PAGES: "true"
+          NEXT_PUBLIC_BASE_PATH: "/cathedral-master"
         run: |
           pnpm --filter @bekalah/cathedral-web run export || pnpm --filter cathedral-web run export
 

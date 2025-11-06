@@ -2,7 +2,7 @@ name: Deploy GitHub Pages (apps/web)
 
 on:
   push:
-    branches: [main]
+    branches: [v1_main]
   workflow_dispatch:
 
 permissions:
@@ -24,12 +24,15 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "16"
+          node-version: "20"
+          cache: "pnpm"
 
-      - name: Install pnpm
-        run: npm install -g pnpm@latest
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8.15.0
 
-      - name: Install system dependencies
+      - name: Install system dependencies (optional)
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq \
@@ -39,78 +42,62 @@ jobs:
             g++ \
             || echo "Some dependencies may have failed, continuing..."
 
-      - name: Install dependencies
+      - name: Install dependencies (workspace)
         run: |
-          pnpm install || npm install || echo "Install completed"
+          pnpm -w install --frozen-lockfile || pnpm -w install
 
-      - name: Build project
+      - name: Build monorepo (non-blocking)
         run: |
-          pnpm run build || npm run build || echo "Build completed with warnings"
+          pnpm -w run build || echo "Build completed with warnings"
         continue-on-error: true
 
-      - name: Build web export
+      - name: Build web export (Next.js output=export)
         env:
           NEXT_PUBLIC_GH_PAGES: "true"
+          GH_PAGES: "true"
+          NEXT_PUBLIC_BASE_PATH: "/cathedral-master"
         run: |
-          cd apps/web && \
-          pnpm run export || \
-          npm run export || \
-          echo "Export step completed"
+          cd apps/web
+          pnpm run export || npm run export || echo "Export step completed"
         continue-on-error: true
 
-      - name: Create artifact
+      - name: Verify export output
+        id: outcheck
         run: |
-          mkdir -p dist
-          if [ -d "apps/web/out" ]; then
-            cp -r apps/web/out/* dist/ 2>/dev/null || echo "Copy completed"
-          fi
-          if [ ! -f "dist/index.html" ]; then
-            cat > dist/index.html << 'EOF'
-            <!DOCTYPE html>
-            <html>
-            <head>
-              <meta charset="utf-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1">
-              <title>Cathedral</title>
-              <style>
-                body {
-                  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                  margin: 0;
-                  padding: 40px 20px;
-                  background: #0a0a0a;
-                  color: #ffffff;
-                  text-align: center;
-                  min-height: 100vh;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                }
-                .container {
-                  max-width: 600px;
-                }
-                h1 { color: #4ade80; }
-                .status { color: #a3a3a3; margin: 20px 0; }
-              </style>
-            </head>
-            <body>
-              <div class="container">
-                <h1>🏛️ Cathedral</h1>
-                <p class="status">GitHub Pages deployment ready</p>
-                <p>The site will deploy automatically once builds complete successfully.</p>
-              </div>
-            </body>
-            </html>
-            EOF
+          if [ -d "apps/web/out" ] && [ "$(ls -A apps/web/out)" ]; then
+            echo "has_artifact=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_artifact=false" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Create fallback artifact (placeholder)
+        if: steps.outcheck.outputs.has_artifact == 'false'
+        run: |
+          mkdir -p apps/web/out
+          cat > apps/web/out/index.html << 'HTML'
+          <!doctype html>
+          <meta charset="utf-8"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1"/>
+          <title>Cathedral — Placeholder</title>
+          <style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto;display:grid;place-items:center;height:100dvh;margin:0;background:#0b1020;color:#e8ecff}main{max-width:720px;padding:24px;border:1px solid #334;border-radius:12px;background:rgba(255,255,255,0.02);backdrop-filter:blur(6px)}h1{margin:0 0 8px 0}code{background:#11192c;padding:2px 6px;border-radius:6px}</style>
+          <main>
+            <h1>Cathedral deployment ready</h1>
+            <p>The web export wasn't produced in CI, so a minimal placeholder was published instead.</p>
+            <p>Once <code>apps/web</code> builds successfully, GitHub Pages will deploy the real site.</p>
+          </main>
+          HTML
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: apps/web/out
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
