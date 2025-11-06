@@ -63,3 +63,62 @@ intentional to prevent accidental use of paid services and to keep development s
 	clear, non-actionable message rather than calling paid services.
 
 This policy minimizes surprises and supports offline/local development using free resources.
+
+<!-- SAFE INTEGRATION:START -->
+# Safe Integration Rules for Repository Merges
+
+**CRITICAL:** Never perform destructive git operations that could delete data files. Always preserve existing work while adopting improvements.
+
+## Safe Integration Principles
+
+### 1. Data Protection
+- ✅ **ALWAYS backup before any repository changes**
+- ✅ **NEVER use destructive git operations** (git checkout, git reset --hard)
+- ✅ **NEVER replace entire directories** without careful comparison
+- ✅ **PRESERVE all existing data files** (JSON, configuration, documentation)
+
+### 2. Targeted Improvement Extraction
+- **Only copy specific improved files** from external repositories
+- **Compare file-by-file** before making any changes
+- **Test each integration** step individually
+- **Document all changes** made during integration
+
+### 3. Integration Validation
+- **Validate system functionality** after each change
+- **Test all applications build** successfully
+- **Verify no data loss** occurred
+- **Maintain rollback capability** for every operation
+
+### 4. Emergency Procedures
+If data loss occurs:
+1. **STOP IMMEDIATELY**
+2. **Run:** `git restore . && git clean -fd`
+3. **Verify:** All data files present
+4. **Restart:** With safer, incremental approach
+
+### 5. Repository Integration Checklist
+- [ ] Analyze external repository structure
+- [ ] Identify specific improvements vs existing work
+- [ ] Create backup/rollback plan
+- [ ] Copy individual improved files (never wholesale)
+- [ ] Test after each integration step
+- [ ] Validate complete system functionality
+- [ ] Document all changes and improvements
+
+**PRINCIPLE:** Preserve all existing work while carefully adopting only clearly superior improvements from external sources.
+
+## Version Management Rules
+
+### Latest Stable Versions Policy
+- **Always use latest stable versions** for all dependencies
+- **Update regularly** to prevent security vulnerabilities
+- **Test thoroughly** after any version updates
+- **Document all version changes** in change logs
+
+**Implementation:**
+- Monitor latest stable versions for: Node.js, pnpm, Turbo, TypeScript, React, Next.js
+- Update .nvmrc to match latest stable Node
+- Update package.json engines to use latest stable versions
+- Test all applications after version updates
+- Maintain compatibility across all 64+ packages
+<!-- SAFE INTEGRATION:END -->

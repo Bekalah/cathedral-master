@@ -2,7 +2,7 @@
 
 **ONE MASTER TURBOREPO** - Unified monorepo with real implementations (zero placeholders).
 
-> Hermetic RPG + Creative Workstation | Godot 4.4 + Rust + React + Three.js | Codex 144:99 | 22 Major Arcana Faculty
+> Hermetic RPG + Creative Workstation | Godot 4.5.0 + Rust + React + Three.js | Codex 144:99 | 22 Major Arcana Faculty
 
 **Repository:** https://github.com/bekalah/cathedral-master  
 **Documentation:** [CATHEDRAL_MASTER_SETUP.md](./CATHEDRAL_MASTER_SETUP.md)

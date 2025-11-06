@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "engines": {
-    "node": ">=18.17.0"
+    "node": "25.0.0"
   },
   "scripts": {
     "dev": "next dev --turbo",
@@ -13,7 +13,7 @@
     "build:analyze": "ANALYZE=true next build",
     "start": "next start",
     "start:prod": "NODE_ENV=production next start",
-  "export": "next build && next export",
+    "export": "next build",
     "serve:export": "npx serve out",
     "type-check": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch",
@@ -102,7 +102,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Bekalah/cathedral-master.git",
+    "url": "https://github.com/Bekalah/cathedral.git",
     "directory": "apps/web"
   },
   "homepage": "https://bekalah.github.io/cathedral",

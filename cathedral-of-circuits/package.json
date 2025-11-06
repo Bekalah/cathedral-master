@@ -9,9 +9,9 @@
     "dev": "turbo run dev",
     "preview": "turbo run preview",
     "clean": "turbo run clean && rm -rf node_modules .turbo dist",
-    "gem-towers": "echo '🎭 Gem Tower System Active' && cd apps/gem-tower-explorer && npm run build",
-    "fusion-kink": "echo '💎 Fusion Kink Generator Active' && cd apps/fusion-kink-studio && npm run build",
-    "sacred-geometry": "echo '🔺 Sacred Geometry Engine Active' && cd packages/sacred-geometry-core && npm run build"
+    "gem-towers": "node tools/gem-tower-engine.js",
+    "fusion-kink": "node tools/fusion-kink-generator.js",
+    "sacred-geometry": "node tools/sacred-geometry-engine.js"
   },
   "devDependencies": {
     "turbo": "^2.0.0",
@@ -22,7 +22,7 @@
   },
   "packageManager": "pnpm@9.15.0",
   "engines": {
-    "node": ">=18.0.0",
+    "node": "25.0.0",
     "pnpm": ">=9.0.0"
   },
   "workspaces": [

@@ -1,0 +1,40 @@
+[package]
+name = "cathedral-game-engine"
+version = "1.0.0"
+edition = "2021"
+authors = ["Rebecca Respawn <bekalah>"]
+description = "Cathedral v1.0 Game Engine - Godot 4.5 + Rust + Bevy integration"
+
+[lib]
+name = "cathedral_game_engine"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+godot = "0.6"
+bevy = "0.14"
+bevy_ecs = "0.14"
+bevy_render = "0.14"
+bevy_window = "0.14"
+bevy_core = "0.14"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Godot bindings
+[dependencies.godot]
+version = "0.6"
+features = ["serde"]
+
+[features]
+default = []
+dev = ["godot/debug"]
+
+[package.metadata.cargo-rustc-linker]
+# Linker flags for Godot
+rustflags = [
+  "-L", "native=godot-rust-integration",
+  "-l", "godot",
+  "-l", "godot_extra",
+  "-l", "godot_php",
+  "-l", "godot_ios",
+  "-l", "godot_android"
+]

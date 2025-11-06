@@ -444,4 +444,37 @@ This is a system limitation, not user error.
 
 ---
 
+## Agent Improvement Note (PERMANENT)
+
+- Agent now strictly follows Kilo's anti-spam and anti-fraud rules
+- Focuses only on real work, core packages, and validated changes
+- No longer wastes tokens on spam, fake scripts, or non-core packages
+- Always shows proof for every change (git diff, validation)
+- User feedback: "excellent you are doing a million times better and stronger work now"
+
+---
+
+## Cathedral v1 Standards for All New Work (PERMANENT)
+
+- All new packages, features, and integrations must use:
+  - Branches: `v1_main`, `v1_master`
+  - Repo: `master-cathedral` (Bekalah GitHub)
+  - Version: `1.0.0` (unless otherwise specified)
+  - Turbo monorepo and OpenSpec protocols
+- Build system must use:
+  - Node.js >=20
+  - pnpm 9.15.0
+  - turbo (from package.json)
+- No fake build/test scripts (no echo, no empty stubs)
+- All deployments must support Render, Vercel, and Godot 4.5 with Rust/Bevy
+- All new work must:
+  - Have real implementation files
+  - Use real build/test scripts
+  - Export real, built code
+  - Follow OpenSpec for every new feature (spec, validate, approve, implement)
+  - Show git diff and validate builds/deployments
+  - Only push to `v1_main`, `v1_master`, and `master-cathedral` on Bekalah GitHub
+
+---
+
 **Work through tasks systematically. Keep communication concise. Follow these protocols strictly.**

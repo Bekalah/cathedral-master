@@ -1,7 +1,7 @@
 {
   "name": "@openspec/magnum-opus",
   "version": "1.0.0",
-  "description": "OpenSpec Magnum Opus v1.0 - Cathedral Master Monorepo | Hermetic RPG + Creative Workstation | Godot 4.4 + Rust + React + Three.js",
+  "description": "OpenSpec Magnum Opus v1.0 - Cathedral Master Monorepo | Hermetic RPG + Creative Workstation | Godot 4.5 + Rust + React + Three.js | Bevy 0.14 | Node.js 25",
   "private": true,
   "workspaces": [
     "packages/*",
@@ -13,11 +13,42 @@
     "test": "turbo run test",
     "lint": "turbo run lint",
     "clean": "turbo run clean",
+    "trauma-safety": "node tools/trauma-safety-validator.js",
+    "fusion-kink-generate": "node tools/fusion-kink-generator.js",
+    "sacred-geometry-generate": "node tools/sacred-geometry-engine.js",
+    "gem-tower-generate": "node tools/gem-tower-engine.js",
+    "generate-all-engines": "node tools/fusion-kink-generator.js && node tools/sacred-geometry-engine.js && node tools/gem-tower-engine.js",
+    "validate-all-systems": "node tools/trauma-safety-validator.js",
+    "build-system-packages": "node build-system/build-packages.js",
+    "cathedral-engines": "npm run generate-all-engines && npm run trauma-safety",
+    "cathedral-full-build": "npm run trauma-safety && npm run generate-all-engines && npm run build-system-packages",
+    "node-version-check": "node --version && echo 'Node.js v25+ required'",
+    "db-init": "node lib/database/cathedral-db-pure.js",
+    "db-stats": "node lib/database/cathedral-db-pure.js stats",
+    "db-export": "node lib/database/cathedral-db-pure.js export",
+    "db-migrate": "node lib/database/cathedral-db-pure.js migrate",
+    "db-import": "node lib/database/cathedral-db-pure.js import",
+    "db-analytics": "node lib/database/cathedral-db-pure.js analytics",
+    "db-full": "npm run db-init && npm run generate-all-engines && npm run db-export",
+    "cathedral-full-stack": "npm run trauma-safety && npm run generate-all-engines && npm run db-init && npm run db-import && npm run db-export",
+    "version-check": "turbo version-tracking",
+    "version-versions": "node lib/online-offline-tracker.js versions",
+    "version-export": "node lib/online-offline-tracker.js export",
+    "deploy-render": "node lib/comprehensive-deploy-system.js render",
+    "deploy-vercel": "node lib/comprehensive-deploy-system.js vercel",
+    "deploy-cloudflare": "node lib/comprehensive-deploy-system.js cloudflare",
+    "deploy-github": "node lib/comprehensive-deploy-system.js github",
+    "deploy-godot": "node lib/comprehensive-deploy-system.js godot",
+    "deploy-rust": "node lib/comprehensive-deploy-system.js rust",
+    "deploy-all-platforms": "node lib/comprehensive-deploy-system.js full",
+    "sync-versions": "pnpm run version-check && pnpm run cathedral-full-stack",
+    "deploy-complete": "pnpm run sync-versions && pnpm run deploy-all-platforms",
+    "comprehensive-deploy": "pnpm run deploy-complete && pnpm run db-export",
     "console": "npm run dev --workspace=packages/web-platform",
-    "cathedral": "cd godot-cathedral && godot --path .",
+    "cathedral": "cd godot && godot --path .",
     "rust:build": "cd rust-engines && cargo build --workspace --release",
     "rust:test": "cd rust-engines && cargo test --workspace",
-    "fusion": "echo '🜏 A × B = D - Fusion Kink alive' && npm run rust:build && npm run cathedral"
+    "fusion": "node tools/fusion-kink-generator.js && npm run rust:build && npm run cathedral"
   },
   "keywords": [
     "fusion-kink",
@@ -27,10 +58,25 @@
     "hermetic-engine",
     "sacred-geometry",
     "tarot-system",
-    "godot",
+    "godot-4.5",
     "rust",
+    "bevy-0.14",
+    "node-25",
     "alchemy",
-    "western-mystery-tradition"
+    "western-mystery-tradition",
+    "sqlite",
+    "node-v25",
+    "free-database",
+    "pure-native",
+    "zero-dependencies",
+    "version-tracking",
+    "online-offline-sync",
+    "render",
+    "vercel",
+    "cloudflare",
+    "bevy",
+    "comprehensive-deployment",
+    "multi-platform"
   ],
   "author": "Rebecca Respawn <bekalah>",
   "license": "MIT",
@@ -38,12 +84,14 @@
     "@octokit/rest": "^22.0.1"
   },
   "devDependencies": {
-    "turbo": "^2.0.0",
-    "typescript": "^5.0.0"
+    "turbo": "2.6.0",
+    "typescript": "5.3.0"
   },
   "packageManager": "pnpm@9.15.0",
   "engines": {
-    "node": ">=20.0.0",
-    "npm": ">=10.0.0"
+    "node": "25.0.0",
+    "npm": "10.0.0",
+    "pnpm": "9.15.0",
+    "turbo": "2.6.0"
   }
 }
