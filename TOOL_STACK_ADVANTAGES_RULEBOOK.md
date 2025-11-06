@@ -9,6 +9,7 @@ This rule book documents the specific advantages of your current tool stack vers
 ## 🔥 **NODE.JS 25.0.0 - GAME CHANGER**
 
 ### **Why This Version is Superior**
+
 - ✅ **Native SQLite Support** - Built-in, no external dependencies
 - ✅ **Zero-dependency database** - Perfect for your philosophy
 - ✅ **15-20% memory optimization** over Node.js 22
@@ -18,10 +19,11 @@ This rule book documents the specific advantages of your current tool stack vers
 - ✅ **Direct native access** - No wrapper overhead
 
 ### **Database Advantages**
+
 ```javascript
 // Node.js 25 Native SQLite
-const sqlite = require('sqlite').verbose();
-const db = sqlite.open('./cathedral.db'); // Direct access!
+const sqlite = require("sqlite").verbose();
+const db = sqlite.open("./cathedral.db"); // Direct access!
 
 // Benefits:
 // - No sqlite3 package needed
@@ -31,6 +33,7 @@ const db = sqlite.open('./cathedral.db'); // Direct access!
 ```
 
 ### **Performance Benefits**
+
 - **Memory Usage**: 15-20% improvement over v22
 - **Build Speed**: 10-15% faster compilation
 - **Database Operations**: Native speed, no wrapper overhead
@@ -41,6 +44,7 @@ const db = sqlite.open('./cathedral.db'); // Direct access!
 ## 🎮 **GODOT 4.5.0 - PRODUCTION READY**
 
 ### **Why This Version is Superior**
+
 - ✅ **Forward+ Rendering** - Modern, high-performance graphics
 - ✅ **Text-to-Speech Integration** - Built-in accessibility
 - ✅ **Screen Reader Support** - Full accessibility compliance
@@ -49,6 +53,7 @@ const db = sqlite.open('./cathedral.db'); // Direct access!
 - ✅ **Cross-Platform Export** - All platforms from one codebase
 
 ### **Cathedral-Specific Advantages**
+
 ```gdscript
 # Autoload System (Perfect for your architecture)
 # In project.godot:
@@ -64,6 +69,7 @@ CodexSystem="*res://scripts/core/codex_system.gd"
 ```
 
 ### **Rendering & Performance**
+
 - **Forward+**: Modern rendering pipeline
 - **Accessibility**: Built-in support for neurodivergent users
 - **Performance**: Optimized for your 1920x1080 target
@@ -74,6 +80,7 @@ CodexSystem="*res://scripts/core/codex_system.gd"
 ## 🦀 **RUST 1.75.0 + BEVY 0.14.0 - MODERN GAME ENGINE**
 
 ### **Why This Stack is Superior**
+
 - ✅ **Memory Safety** - Zero-cost abstractions
 - ✅ **Performance** - Near C++ performance with safety
 - ✅ **Bevy 0.14**: Latest features and optimizations
@@ -81,6 +88,7 @@ CodexSystem="*res://scripts/core/codex_system.gd"
 - ✅ **Ecosystem** - Modern, growing, well-maintained
 
 ### **Bevy 0.14 Specific Advantages**
+
 ```rust
 // Modern Bevy Features
 use bevy::prelude::*;
@@ -103,6 +111,7 @@ fn main() {
 ```
 
 ### **Ecosystem Package Benefits**
+
 - **bevy_egui 0.27**: Modern UI system
 - **bevy_rapier2d 0.25**: 2D physics engine
 - **bevy_sprite 0.14**: Optimized 2D graphics
@@ -114,6 +123,7 @@ fn main() {
 ## ⚡ **VITE 7.2.1 - MODERN BUILD SYSTEM**
 
 ### **Why Vite 7.2.1 is Superior**
+
 - ✅ **Lightning Fast HMR** - Instant hot module replacement
 - ✅ **ES Modules Native** - No bundle needed in development
 - ✅ **Modern JavaScript** - Latest ES features
@@ -123,24 +133,26 @@ fn main() {
 - ✅ **Latest Features** - 7.2.1 brings performance improvements and new features
 
 ### **Cathedral-Specific Configuration**
+
 ```typescript
 // vite.config.ts - Optimized for your system
 export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        format: 'es', // Modern ES modules
-      }
-    }
+        format: "es", // Modern ES modules
+      },
+    },
   },
   define: {
-    __CODEX_VERSION__: JSON.stringify('144:99'),
-    __CATHEDRAL_VERSION__: JSON.stringify('2.0.0'),
-  }
+    __CODEX_VERSION__: JSON.stringify("144:99"),
+    __CATHEDRAL_VERSION__: JSON.stringify("2.0.0"),
+  },
 });
 ```
 
 ### **Performance Benefits**
+
 - **Development**: Instant HMR, no waiting
 - **Production**: Optimized bundling with tree shaking
 - **Build Speed**: Much faster than Webpack
@@ -151,6 +163,7 @@ export default defineConfig({
 ## 🚀 **TURBO 2.6.0 - MONOREPO MASTER**
 
 ### **Why Turbo is Superior**
+
 - ✅ **Remote Caching** - Share builds across machines
 - ✅ **Intelligent Caching** - Only rebuilds what's changed
 - ✅ **Parallel Execution** - Maximum performance
@@ -159,6 +172,7 @@ export default defineConfig({
 - ✅ **Package Graph Analysis** - Dependency-aware builds
 
 ### **Cathedral Pipeline Advantages**
+
 ```json
 {
   "tasks": {
@@ -172,6 +186,7 @@ export default defineConfig({
 ```
 
 ### **Performance Benefits**
+
 - **Build Speed**: Parallel execution across 57 packages
 - **Caching**: Dramatically reduced rebuild times
 - **CI/CD**: Faster pipelines with remote caching
@@ -182,6 +197,7 @@ export default defineConfig({
 ## 📦 **PNPM 9.15.0 - EFFICIENT PACKAGE MANAGER**
 
 ### **Why pnpm is Superior**
+
 - ✅ **Symlink Architecture** - Saves disk space (50-75% less)
 - ✅ **Fast Installation** - 2-3x faster than npm
 - ✅ **Strict Dependency Management** - Prevents conflicts
@@ -190,12 +206,12 @@ export default defineConfig({
 - ✅ **Concurrent Installation** - Parallel package installation
 
 ### **Workspace Benefits**
+
 ```yaml
 # pnpm-workspace.yaml
 packages:
-  - 'packages/*'
-  - 'apps/*'
-
+  - "packages/*"
+  - "apps/*"
 # Benefits:
 # - Single node_modules for all packages
 # - Symlinks prevent duplication
@@ -204,6 +220,7 @@ packages:
 ```
 
 ### **Performance Benefits**
+
 - **Disk Space**: 50-75% reduction in node_modules
 - **Install Speed**: 2-3x faster than npm
 - **Network**: Efficient package downloading
@@ -214,6 +231,7 @@ packages:
 ## 🔷 **NEXT.JS 16.0.1 - REACT FULL-STACK FRAMEWORK**
 
 ### **Why Next.js 16.0.1 is Superior**
+
 - ✅ **App Router** - Modern, file-based routing system
 - ✅ **Server Components** - Native React server components
 - ✅ **Streaming & Suspense** - Progressive loading
@@ -224,6 +242,7 @@ packages:
 ### **🔷 TYPESCRIPT 5.9.3 - TYPE SAFETY MASTER**
 
 ### **Why TypeScript 5.9.3 is Superior**
+
 - ✅ **Enhanced Type Inference** - Better type deduction
 - ✅ **Template Literal Types** - Advanced type manipulation
 - ✅ **Satisfies Operator** - Type-safe configuration objects
@@ -232,23 +251,25 @@ packages:
 - ✅ **Better IDE Integration** - Improved IntelliSense
 
 ### **Cathedral Type Benefits**
+
 ```typescript
 // Enhanced type safety for your systems
 interface ArcanaData {
   id: string;
   combinations: readonly number[]; // Const type parameters
-  geometry: `sacred-${'ratio' | 'spiral' | 'fractal'}`; // Template literal types
+  geometry: `sacred-${"ratio" | "spiral" | "fractal"}`; // Template literal types
 }
 
 // Satisfies operator for configuration
 const traumaConfig = {
-  safetyLevel: 'maximum',
+  safetyLevel: "maximum",
   escRoutes: 3,
-  neurodivergentSupport: true
+  neurodivergentSupport: true,
 } satisfies TraumaConfig;
 ```
 
 ### **Development Benefits**
+
 - **Type Safety**: Compile-time error catching
 - **IntelliSense**: Better IDE support with 5.3
 - **Refactoring**: Safe, automated code changes
@@ -259,6 +280,7 @@ const traumaConfig = {
 ## ☁️ **DEPLOYMENT PLATFORMS**
 
 ### **VERCEL - EDGE & FUNCTIONS**
+
 - ✅ **Node.js 25 Support** - Latest runtime
 - ✅ **Edge Functions** - Global distribution
 - ✅ **Automatic HTTPS** - SSL by default
@@ -266,6 +288,7 @@ const traumaConfig = {
 - ✅ **Analytics** - Built-in performance monitoring
 
 ### **RENDER - SIMPLE DEPLOYMENT**
+
 - ✅ **Node.js 25** - Latest runtime support
 - ✅ **Auto-Deploy** - Git-based deployments
 - ✅ **Environment Variables** - Secure configuration
@@ -273,6 +296,7 @@ const traumaConfig = {
 - ✅ **Blue/Green Deployments** - Zero-downtime updates
 
 ### **CLOUDFLARE - GLOBAL DISTRIBUTION**
+
 - ✅ **Pages** - Static site hosting
 - ✅ **KV Namespaces** - Key-value storage
 - ✅ **Durable Objects** - Stateful compute at edge
@@ -280,6 +304,7 @@ const traumaConfig = {
 - ✅ **D1 Database** - SQLite at the edge
 
 ### **GITHUB ACTIONS - CI/CD**
+
 - ✅ **Matrix Builds** - Test across multiple environments
 - ✅ **Caching** - Dependency and build caching
 - ✅ **Marketplace** - Thousands of available actions
@@ -291,6 +316,7 @@ const traumaConfig = {
 ## 🎯 **STACK SYNERGY ADVANTAGES**
 
 ### **Why This Combination is Powerful**
+
 1. **Node.js 25 Native SQLite** = Zero database dependencies
 2. **Godot 4.5 + Rust/Bevy** = Modern game development
 3. **Vite + Turbo** = Lightning-fast builds
@@ -299,12 +325,14 @@ const traumaConfig = {
 6. **Multi-Platform Deploy** = Global distribution
 
 ### **Performance Stack Benefits**
+
 - **Build Speed**: Vite + Turbo + pnpm = fastest possible
 - **Runtime Performance**: Node.js 25 + Native SQLite = optimal
 - **Development Experience**: TypeScript 5.3 + HMR = instant feedback
 - **Deployment**: Multi-platform = global reach
 
 ### **Maintenance Benefits**
+
 - **Dependencies**: Node.js 25 native features = fewer external deps
 - **Updates**: All latest stable versions = future-proof
 - **Documentation**: TypeScript + modern tools = self-documenting
@@ -315,6 +343,7 @@ const traumaConfig = {
 ## 🧠 **RULE BOOK RULES**
 
 ### **Always Remember These Advantages**
+
 1. **Node.js 25 = Native SQLite, no external database deps**
 2. **Godot 4.5 = Forward+ rendering, built-in accessibility**
 3. **Bevy 0.14 = Modern ECS, memory safety, performance**
@@ -325,6 +354,7 @@ const traumaConfig = {
 8. **Multi-platform = Global distribution, redundancy**
 
 ### **When to Leverage Each Tool**
+
 - **Database needs** → Use Node.js 25 native SQLite
 - **Game development** → Godot 4.5 + Bevy 0.14
 - **Fast development** → Vite HMR + TypeScript 5.3
@@ -333,6 +363,7 @@ const traumaConfig = {
 - **Global deployment** → Vercel + Cloudflare + Render
 
 ### **Performance Optimization Rules**
+
 - **Use native features first** (Node.js 25 SQLite)
 - **Leverage parallel execution** (Turbo)
 - **Minimize dependencies** (All tools support this)
@@ -342,3 +373,15 @@ const traumaConfig = {
 ---
 
 **This rule book ensures I always remember and leverage the specific advantages of your tool stack for maximum performance and efficiency! 🚀**
+
+---
+
+{
+"packageManager": "pnpm@9.15.0",
+"engines": { "node": ">=20.0.0" },
+"devDependencies": {
+"turbo": "^2.0.0",
+"typescript": "^5.0.0",
+"next": "latest"
+}
+}
