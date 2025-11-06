@@ -2,9 +2,9 @@ name: CI (lightweight)
 
 on:
   push:
-    branches: [main, wip/**, feature/**]
+    branches: [v1_main]
   pull_request:
-    branches: [main]
+    branches: [v1_main]
   workflow_dispatch:
 
 concurrency:

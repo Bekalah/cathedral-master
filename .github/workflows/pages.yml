@@ -2,14 +2,7 @@ name: Deploy GitHub Pages (apps/web)
 
 on:
   push:
-    branches: [main]
-    paths:
-      - "apps/web/**"
-      - ".github/workflows/pages.yml"
-      - "package.json"
-      - "pnpm-lock.yaml"
-      - "turbo.json"
-      - "packages/**"
+    branches: [v1_main]
   workflow_dispatch:
 
 permissions:
