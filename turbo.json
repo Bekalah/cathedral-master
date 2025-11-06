@@ -1,17 +1,17 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    "**/*.json",
+    "**/*.md",
+    "**/.env",
+    "tsconfig.json",
+    "CATHEDRAL_INTEGRATION_MAP.json",
+    "MASTER_INDEX.md",
+    "openspec/**/*.json",
+    "openspec/**/*.md",
+    "openspec/cathedral-v1-standard.md"
+  ],
   "tasks": {
-    "//# Shared Build Configuration": {
-      "dependsOn": ["^//#build"]
-    },
-    "//# Build Tasks": {
-      "cache": true,
-      "outputs": ["dist/**", "build/**", ".turbo/cache/**", "apps/**/out/**", "apps/**/.next/**"]
-    },
-    "//# Development Tasks": {
-      "cache": false,
-      "persistent": true
-    },
     "build": {
       "dependsOn": [
         "^build"
@@ -19,9 +19,7 @@
       "outputs": [
         "dist/**",
         "build/**",
-        ".turbo/cache/**",
-        "apps/**/out/**",
-        "apps/**/.next/**"
+        ".turbo/cache/**"
       ],
       "env": [
         "NODE_ENV"
@@ -102,7 +100,7 @@
     "generate-all-engines": {
       "dependsOn": [
         "fusion-kink-generate",
-        "sacred-geometry-generate",
+        "sacred-geometry-generate", 
         "gem-tower-generate"
       ],
       "outputs": [
@@ -175,66 +173,8 @@
       "outputs": [
         "data/cathedral.db"
       ]
-    },
-    "version-tracking": {
-      "cache": false,
-      "outputs": [
-        "versions/VERSION_MANIFEST.json",
-        "versions/DEPLOYMENT_REPORT.json"
-      ],
-      "inputs": [
-        "lib/online-offline-tracker.js",
-        "godot/project.godot",
-        "rust-engines/Cargo.toml",
-        "deployment-configs/**"
-      ]
-    },
-    "sync-platforms": {
-      "dependsOn": [
-        "version-tracking",
-        "cathedral-engines"
-      ],
-      "cache": false,
-      "outputs": [
-        "deployment-configs/**",
-        "apps/web/wrangler.toml"
-      ]
-    },
-    "//# CI/CD Optimized Tasks": {
-      "cache": true,
-      "env": ["CI", "GITHUB_TOKEN", "GITHUB_REPOSITORY"]
-    },
-    "ci-build": {
-      "dependsOn": [
-        "^build",
-        "generate-all-engines",
-        "trauma-safety"
-      ],
-      "outputs": [
-        "dist/**",
-        "build/**",
-        "data/**/*-generated.json",
-        "data/trauma-safety-report.json"
-      ]
-    },
-    "ci-deploy": {
-      "dependsOn": [
-        "ci-build"
-      ],
-      "cache": false
     }
   },
-  "globalDependencies": [
-    "**/*.json",
-    "**/*.md",
-    "**/.env",
-    "tsconfig.json",
-    "CATHEDRAL_INTEGRATION_MAP.json",
-    "MASTER_INDEX.md",
-    "openspec/**/*.json",
-    "openspec/**/*.md",
-    "openspec/cathedral-v1-standard.md"
-  ],
   "globalEnv": [
     "NODE_ENV",
     "CI",
