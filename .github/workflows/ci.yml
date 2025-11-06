@@ -34,7 +34,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 8.15.0
+          version: 9.15.0
 
       - name: Preflight
         run: |
@@ -49,7 +49,7 @@ jobs:
         run: pnpm -w -r run lint --if-present || echo "No lint script"
 
       - name: Typecheck (if present)
-        run: pnpm -w -r run typecheck --if-present || echo "No typecheck script"
+        run: pnpm -w -r run type-check --if-present || pnpm -w -r run typecheck --if-present || echo "No type-check script"
 
       - name: Test (if present)
         run: pnpm -w -r run test --if-present -- --passWithNoTests || echo "No tests"

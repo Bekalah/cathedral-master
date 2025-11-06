@@ -13,7 +13,7 @@
     "build:analyze": "ANALYZE=true next build",
     "start": "next start",
     "start:prod": "NODE_ENV=production next start",
-    "export": "next build",
+  "export": "next build && next export",
     "serve:export": "npx serve out",
     "type-check": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch",
@@ -102,10 +102,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Bekalah/cathedral.git",
+    "url": "https://github.com/Bekalah/cathedral-master.git",
     "directory": "apps/web"
   },
-  "homepage": "https://bekalah.github.io/cathedral-master",
+  "homepage": "https://bekalah.github.io/cathedral",
   "keywords": [
     "cathedral",
     "nextjs",
