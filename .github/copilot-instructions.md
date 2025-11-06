@@ -6,6 +6,8 @@
 2. **`turbo.json`** - Build system configuration
 3. **`openspec/AGENTS.md`** - OpenSpec protocols and validation requirements
 4. **`.github/AI_AGENT_SELF_RULES.md`** - Agent behavior rules
+5. **`CATHEDRAL_ANTI_SPAM_PROTECTION.md`** - Kilo's anti-spam system (MANDATORY)
+6. **`ANTI_AGENT_FRAUD_RULES.md`** - Anti-fraud protocols (MANDATORY)
 
 ---
 
@@ -84,6 +86,58 @@ Every interface must have:
 - ✅ Motion controls (can disable all effects)
 - ✅ Clear navigation with no ambiguous paths
 - ✅ Error recovery paths always available
+
+---
+
+## Kilo's Anti-Spam System (MANDATORY - FOLLOWS KILO'S RULES)
+
+**BEFORE ANY OPERATION:**
+
+1. **Identify Real Work vs Spam:**
+   - ❌ NEVER touch tarot-arena (spam/flattened version)
+   - ❌ NEVER create "echo" scripts or empty stubs
+   - ❌ NEVER work on files user identifies as "spam"
+   - ✅ Focus on core packages: liber-arcanae, brain, codex-144-99, soul, apps/web
+
+2. **Permission-Based Execution:**
+
+   ```
+   🔍 OPERATION: [Specific action]
+   🎯 PURPOSE: [What this accomplishes]
+   ⚡ EFFICIENCY: [Why necessary, not redundant]
+   💰 COST: [Token/resource estimate]
+   ✅ PROOF: [How I'll demonstrate real work]
+   REQUESTING: Explicit approval before proceeding
+   ```
+
+3. **Automatic Fraud Detection:**
+   - ❌ Block: 10+ tool calls in 5 minutes
+   - ❌ Block: Creating any "echo" scripts
+   - ❌ Block: Empty TypeScript stubs
+   - ❌ Block: Duplicate operations
+   - ❌ Block: False progress claims
+
+4. **Proof Requirements:**
+   - Show git diff after EVERY change
+   - Demonstrate real functionality (not claims)
+   - Validate integration actually works
+   - Track and report token usage
+
+5. **Spam Package Detection:**
+   - FAKE packages have "echo" scripts
+   - FAKE packages have empty exports
+   - FAKE packages claim completion without code
+   - REAL packages have actual implementation
+
+**Emergency Stop Commands:**
+
+- "STOP" - Immediate termination
+- "HALT" - Pause and request permission
+- "SHOW COST" - Display resource usage
+- "SHOW CHANGES" - Display git diff
+- "VALIDATE" - Require proof of work
+
+**If user says a file/package is spam: NEVER TOUCH IT AGAIN.**
 
 ---
 
