@@ -1,0 +1,63 @@
+services:
+  - type: web
+    name: cathedral-web
+    runtime: node
+    plan: free
+    buildCommand: |
+      curl -fsSL https://deb.nodesource.com/setup_25.x | sudo -E bash - && sudo apt-get install -y nodejs
+                              npm install -g pnpm@9.15.0
+                              pnpm install --frozen-lockfile
+                              pnpm run build
+    startCommand: pnpm --filter @openspec/magnum-opus run preview
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 25.0.0
+      - key: PNPM_VERSION
+        value: 9.15.0
+      - key: NODE_ENV
+        value: production
+      - key: PLATFORM
+        value: render
+    domains:
+      - cathedral-avalon-labs.onrender.com
+      - avalon-labs-cathedral.onrender.com
+      - cathedral-rosslyn-explorer.onrender.com
+
+  - type: web
+    name: cathedral-api
+    runtime: node
+    plan: free
+    buildCommand: |
+      curl -fsSL https://deb.nodesource.com/setup_25.x | sudo -E bash - && sudo apt-get install -y nodejs
+                              npm install -g pnpm@9.15.0
+                              pnpm install --frozen-lockfile
+                              pnpm --filter apps/worker run build
+    startCommand: pnpm --filter apps/worker run start
+    envVars:
+      - key: NODE_VERSION
+        value: 25.0.0
+      - key: NODE_ENV
+        value: production
+      - key: PLATFORM
+        value: render
+    domains:
+      - cathedral-api.onrender.com
+
+  - type: cron
+    name: cathedral-sync
+    runtime: node
+    plan: undefined
+    buildCommand: |
+      curl -fsSL https://deb.nodesource.com/setup_25.x | sudo -E bash - && sudo apt-get install -y nodejs
+                              npm install -g pnpm@9.15.0
+                              pnpm install --frozen-lockfile
+    startCommand: pnpm run sync-versions
+    envVars:
+      - key: NODE_VERSION
+        value: 25.0.0
+      - key: PLATFORM
+        value: render
+    schedule: 0 */6 * * *
+    region: oregon
+

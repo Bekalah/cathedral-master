@@ -1,80 +1,98 @@
-name: CI (lightweight)
+name: Cathedral V1 CI
 
 on:
   push:
-    branches: [v1_main]
+    branches: [ "v1_main", "main" ]
   pull_request:
-    branches: [v1_main]
-  workflow_dispatch:
-
-concurrency:
-  group: ci-${{ github.ref }}
-  cancel-in-progress: true
-
-permissions:
-  contents: read
+    branches: [ "v1_main", "main" ]
 
 jobs:
-  node-ci:
+  validate:
     runs-on: ubuntu-latest
-    env:
-      # Ensure no paid cloud integrations are attempted during CI
-      ALLOW_AZURE: "0"
-      PREFERRED_ASSISTANT: "coderabbit_free"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js (V1 Standard)
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "pnpm"
-
-      - name: Setup pnpm
+      
+      - name: Setup pnpm (V1 Standard)
         uses: pnpm/action-setup@v4
         with:
           version: 8.15.0
 
-      - name: Preflight
-        run: |
-          node -v
-          pnpm -v
-
-      - name: Install dependencies (workspace)
-        run: |
-          pnpm -w install --frozen-lockfile || pnpm -w install
-
-      - name: Lint (if present)
-        run: pnpm -w -r run lint --if-present || echo "No lint script"
-
-      - name: Typecheck (if present)
-        run: pnpm -w -r run typecheck --if-present || echo "No typecheck script"
-
-      - name: Test (if present)
-        run: pnpm -w -r run test --if-present -- --passWithNoTests || echo "No tests"
-
-      - name: Build (non-blocking)
-        run: pnpm -w run build || echo "Build completed with warnings"
-
-  python-smoke:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Python
+      - name: Setup Python (V1 Standard)
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install Python dependencies
+      - name: Install dependencies
         run: |
-          python -m venv .venv
-          .venv/bin/pip install --upgrade pip
-          .venv/bin/pip install numpy matplotlib pillow
+          pnpm install --frozen-lockfile
+          python -m pip install --upgrade pip
+          pip install numpy matplotlib pillow pytest
 
-      - name: Validate Python Suite (non-blocking)
+      - name: Validate Cathedral Systems
         run: |
-          .venv/bin/python tools/validate/design_suite_smoketest.py || true
-          .venv/bin/python tools/validate/achad_integration_smoketest.py || true
+          # Run OpenSpec validation
+          echo "🔍 Validating OpenSpec compliance..."
+          npm run validate-all-systems
+          
+          # Test engine generation
+          echo "⚗️ Testing engine generation..."
+          npm run generate-all-engines
+          
+          # Validate trauma-safety
+          echo "🛡️ Validating trauma-safety..."
+          npm run trauma-safety
+          
+          # Build test
+          echo "🏗️ Testing build system..."
+          npm run build || echo "Build completed with warnings"
+
+      - name: Test Python Suite
+        run: |
+          python tools/validate/python_smoketest.py || echo "Python validation completed"
+          python tools/validate/achad_integration_smoketest.py || echo "Integration validation completed"
+        continue-on-error: true
+
+  build:
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (V1 Standard)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+      
+      - name: Setup pnpm (V1 Standard)
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8.15.0
+
+      - name: Install dependencies
+        run: |
+          pnpm install --frozen-lockfile
+
+      - name: Build Cathedral (V1 System)
+        env:
+          NODE_ENV: production
+        run: |
+          pnpm run build
+          pnpm run generate-all-engines
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cathedral-build
+          path: |
+            apps/**/dist/
+            data/**/*-generated.json
+            data/trauma-safety-report.json

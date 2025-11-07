@@ -1,0 +1,71 @@
+{
+  "timestamp": "2025-11-06T20:19:46.374Z",
+  "version": "1.0.0",
+  "platform_versions": {
+    "node": "25.0.0",
+    "pnpm": "9.15.0",
+    "npm": "10.0.0",
+    "turbo": "2.0.0",
+    "godot": "4.5.0",
+    "rust": "1.75.0",
+    "bevy": "0.14.0"
+  },
+  "platforms": {
+    "render": {
+      "status": "configured",
+      "node_version": "25.0.0",
+      "services": 3,
+      "cron_jobs": 1
+    },
+    "vercel": {
+      "status": "configured",
+      "node_version": "25.0.0",
+      "functions": true,
+      "domains": 3
+    },
+    "cloudflare": {
+      "status": "configured",
+      "node_version": "25.0.0",
+      "kv": true,
+      "durable_objects": true
+    },
+    "github": {
+      "status": "configured",
+      "workflows": 1,
+      "ci_cd": true
+    },
+    "godot": {
+      "status": "configured",
+      "version": "4.5.0",
+      "features": "4.5.0"
+    },
+    "rust_bevy": {
+      "status": "configured",
+      "rust_version": "1.75.0",
+      "bevy_version": "0.14.0"
+    }
+  },
+  "deployment_urls": {
+    "render": [
+      "cathedral-avalon-labs.onrender.com",
+      "avalon-labs-cathedral.onrender.com",
+      "cathedral-rosslyn-explorer.onrender.com"
+    ],
+    "vercel": [
+      "cathedral-avalon-labs.vercel.app",
+      "avalon-labs-cathedral.vercel.app",
+      "cathedral-rosslyn-explorer.vercel.app"
+    ],
+    "cloudflare": [
+      "cathedral-avalon-labs.pages.dev",
+      "avalon-labs-cathedral.pages.dev",
+      "cathedral-rosslyn-explorer.pages.dev"
+    ],
+    "github": "bekalah.github.io/cathedral"
+  },
+  "sync_status": {
+    "online_offline_sync": true,
+    "version_consistency": true,
+    "platform_integration": true
+  }
+}

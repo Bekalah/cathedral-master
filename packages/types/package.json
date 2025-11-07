@@ -12,7 +12,7 @@
     }
   },
   "engines": {
-    "node": ">=18.17.0"
+    "node": "25.0.0"
   },
   "scripts": {
     "build": "tsc",

@@ -1,0 +1,34 @@
+{
+  "name": "@cathedral/package-builder",
+  "version": "1.0.0",
+  "description": "Real package building system for Cathedral v1.0",
+  "main": "dist/builder.js",
+  "scripts": {
+    "build:all": "npm run build:packages && npm run build:engines && npm run build:apps",
+    "build:packages": "node dist/build-packages.js",
+    "build:engines": "node dist/build-engines.js",
+    "build:apps": "node dist/build-apps.js",
+    "verify:builds": "node dist/verify-builds.js",
+    "deploy:render": "node dist/deploy-render.js",
+    "deploy:vercel": "node dist/deploy-vercel.js"
+  },
+  "dependencies": {
+    "turbo": "^2.0.0",
+    "esbuild": "^0.21.0",
+    "@types/node": "^20.0.0"
+  },
+  "cathedral": {
+    "version": "1.0",
+    "naming": {
+      "main": "v1_main",
+      "master": "v1_master",
+      "cathedral": "master-cathedral"
+    },
+    "deployment": [
+      "render",
+      "vercel",
+      "godot",
+      "bevy"
+    ]
+  }
+}

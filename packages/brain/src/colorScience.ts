@@ -74,6 +74,8 @@ export class ColorScience {
     return colors;
   }
 
+  // Keeping fallback method for future use
+  // @ts-ignore - unused but intentionally preserved
   private fallbackColorPalette(_count: number): string[] {
     const fallbackColors = [
       "#FF6B6B",

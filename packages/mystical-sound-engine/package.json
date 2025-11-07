@@ -21,6 +21,7 @@
   "author": "Cathedral Research Team",
   "license": "MIT",
   "dependencies": {
+    "next": "^16.0.1",
     "typescript": "^5.3.0"
   },
   "cathedral": {

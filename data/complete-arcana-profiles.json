@@ -1,313 +1,447 @@
 {
-  "arcana_faculty_profiles": {
-    "metadata": {
-      "institution": "Cathedral of Circuits University",
-      "department": "Sacred Technology & Mystical Arts",
-      "total_faculty": 22,
-      "active_faculty": 16,
-      "emeritus_faculty": 4,
-      "visiting_faculty": 2,
-      "created": "2025-09-28",
-      "version": "1.0.0"
-    },
-    
-    "major_arcana": {
+  "rebecca_respawns_arcanae_compendium": {
+    "author": "Rebecca Susan Lemke (Rebecca Respawn)",
+    "vision": "Profound alchemy through metaphysics, science, and technology integrated with authentic mystical wisdom",
+    "creation_methodology": "Each card name inspires hundreds of influences - preserve ALL details",
+
+    "major_arcana_complete_details": {
       "0_fool": {
         "name": "The Fool",
-        "title": "Professor of Infinite Potential",
-        "faculty_status": "founding_faculty",
-        "department": "Department of New Beginnings",
-        "specializations": ["Quantum Leap", "Reality Reset", "Beginner's Mind", "Infinite Courage"],
-        "element": "Air",
-        "hebrew_path": "Aleph",
-        "number": 0,
-        "lineage": {
-          "primary": ["Aleister Crowley", "Dion Fortune", "Carl Jung"],
-          "traditions": ["Holy Books of Thelema", "Mystical Qabalah", "Archetypal Psychology"],
-          "influences": ["Sacred Ignorance", "Leap of Faith", "Divine Fool"]
+        "inspirations": {
+          "literary": [
+            "Aleister Crowley - Holy Books of Thelema (infinite courage, leap of faith)",
+            "Carl Jung - Archetypal Psychology (natural wisdom of the Fool)",
+            "Aldous Huxley - Doors of Perception (paradoxical wisdom)",
+            "Terence McKenna - Cosmic Clown archetype (sacred laughter)"
+          ],
+          "artistic": [
+            "Leonora Carrington - surrealist Wonderland visions",
+            "M.C. Escher - impossible geometry and infinite perspectives",
+            "Nicholas Roerich - mountain-top revelations",
+            "Salvador Dali - dream logic and melting realities"
+          ],
+          "scientific": [
+            "Quantum superposition (infinite possibilities simultaneously)",
+            "Chaos theory (feather on turbulent wind)",
+            "Gödel's incompleteness (infinite loops in finite systems)",
+            "Quantum tunneling (impossible jumps through barriers)"
+          ],
+          "mystical": [
+            "Tao Te Ching - Wu Wei and effortless action",
+            "Sacred Fool traditions across all cultures",
+            "Divine Madness vs Secular Sanity paradox",
+            "Bruno's infinite universe cosmology"
+          ],
+          "technological": [
+            "Neural networks beginning with random weights (beginner's mind learning)",
+            "Bootstrapping systems from zero state",
+            "Probabilistic AI reasoning",
+            "Self-organizing emergent systems"
+          ]
         },
-        "merkaba_chariot": {
-          "name": "Sphere of Infinite Potential",
-          "description": "A translucent, ever-shifting sphere that contains all possibilities simultaneously. Appears as a soap bubble that reflects infinite realities.",
-          "transport_power": "Can leap to any realm, timeline, or dimension instantly",
-          "visual_elements": ["Translucent sphere", "Rainbow reflections", "Quantum fluctuations"],
-          "sacred_geometry": "Möbius strip within sphere"
-        },
-        "powers": {
-          "primary": "Infinite Potential Access",
-          "abilities": ["Reality jumping", "Timeline hopping", "Beginner's luck", "Fresh start magic"],
-          "teaching_focus": "How to embrace the unknown with courage"
-        }
-      },
-
-      "1_magician": {
-        "name": "The Magician",
-        "title": "Professor of Manifestation Arts",
-        "faculty_status": "department_head",
-        "department": "Department of Creative Manifestation",
-        "specializations": ["Reality Shaping", "Element Control", "Will Focus", "Tool Mastery"],
-        "element": "Mercury",
-        "hebrew_path": "Beth",
-        "number": 1,
-        "lineage": {
-          "primary": ["Éliphas Lévi", "John Dee", "Cornelius Agrippa"],
-          "traditions": ["Ritual Magic", "Enochian System", "Occult Philosophy"],
-          "influences": ["As Above So Below", "Will to Power", "Elemental Mastery"]
-        },
-        "merkaba_chariot": {
-          "name": "Wand of Manifestation",
-          "description": "A crystalline wand that transforms thought into reality through focused intention. Crackling with electrical energy and surrounded by the four elements.",
-          "transport_power": "Create new worlds and realities through will",
-          "visual_elements": ["Crystal wand", "Electric aura", "Four elemental spirals"],
-          "sacred_geometry": "Four-armed cross with central point"
-        },
-        "powers": {
-          "primary": "Will-Based Manifestation",
-          "abilities": ["Element manipulation", "Reality creation", "Tool consecration", "Intent focusing"],
-          "teaching_focus": "How to align will with cosmic law"
-        }
+        "purity_designation": "Rebecca Respawn, The Wonder-Keeper",
+        "fractal_signature": "Infinite recursion with impossible angles",
+        "color_palette": ["#FFD700", "#DDA0DD", "#87CEEB", "#FF1493", "#FF4500"],
+        "frequency_resonance": "0.8 Hz (deep delta waves, early sleep/hypnagogic state)"
       },
 
       "2_high_priestess": {
         "name": "The High Priestess",
-        "title": "Professor Emeritus of Hidden Knowledge",
-        "faculty_status": "emeritus_faculty",
-        "department": "Department of Lunar Mysteries",
-        "specializations": ["Psychic Vision", "Lunar Mysteries", "Intuitive Navigation", "Sacred Silence"],
-        "element": "Moon",
-        "hebrew_path": "Gimel",
-        "number": 2,
-        "lineage": {
-          "primary": ["Dion Fortune", "Violet Firth", "Marie-Louise von Franz"],
-          "traditions": ["Lunar Mysteries", "Psychic Development", "Feminine Wisdom"],
-          "influences": ["Isis Unveiled", "Lunar Cycles", "Psychic Development"]
+        "inspirations": {
+          "literary": [
+            "Dion Fortune - Sea Priestess (lunar mystery, initiatory wisdom)",
+            "Karen Nelson Butler - High Priestess lore throughout history",
+            "Violet Firth (Dion Fortune) - lunar consciousness work",
+            "Marie-Louise von Franz - feminine psychology and intuition"
+          ],
+          "artistic": [
+            "Art Nouveau stream-of-consciousness aesthetics",
+            "Pre-Raphaelite mystical symbolism",
+            "Hilma af Klint - automatic spiritual writing",
+            "Leonora Carrington - priestess visions in dreaming"
+          ],
+          "scientific": [
+            "Hemispheric brain research (left vs right brain duality)",
+            "Women's health cycle science (lunar mirroring)",
+            "Hormonal intelligence research",
+            "Infrasound perception studies (felt but not heard)"
+          ],
+          "mystical": [
+            "Arianrhod Welsh moon goddess traditions",
+            "Hebrew Shekinah (divine feminine presence)",
+            "Egyptian Isis Heh (proto-parthenogenesis mysteries)",
+            "Virgin Mary visions and apparition science"
+          ],
+          "technological": [
+            "Intuition-based AI systems",
+            "Subconscious data processing algorithms",
+            "Quantum sensing technologies",
+            "Biofeedback and heart-rate variability monitoring"
+          ]
         },
-        "merkaba_chariot": {
-          "name": "Veil of Mysteries",
-          "description": "A shimmering veil that reveals and conceals simultaneously. Made of moonlight and shadow, it shows truth to those ready to receive it.",
-          "transport_power": "Navigate through veils between worlds using intuition",
-          "visual_elements": ["Shimmering veil", "Moon phases", "Silver threads"],
-          "sacred_geometry": "Vesica piscis with lunar crescents"
-        },
-        "powers": {
-          "primary": "Intuitive Knowledge Access",
-          "abilities": ["Psychic vision", "Dream navigation", "Lunar magic", "Silent knowing"],
-          "teaching_focus": "How to listen to the voice of intuition"
-        }
-      },
-
-      "3_empress": {
-        "name": "The Empress",
-        "title": "Professor of Creative Abundance",
-        "faculty_status": "active_faculty",
-        "department": "Department of Natural Arts",
-        "specializations": ["Fertility Magic", "Creative Birth", "Natural Healing", "Abundance Flow"],
-        "element": "Venus",
-        "hebrew_path": "Daleth",
-        "number": 3,
-        "lineage": {
-          "primary": ["Hilma af Klint", "Emma Kunz", "Maria Prophetissa"],
-          "traditions": ["Sacred Art", "Healing Geometry", "Alchemical Arts"],
-          "influences": ["Divine Feminine", "Natural Cycles", "Creative Force"]
-        },
-        "merkaba_chariot": {
-          "name": "Garden of Creation",
-          "description": "A floating garden of infinite beauty where all creative projects take root and bloom. Surrounded by butterflies and flowing with the waters of inspiration.",
-          "transport_power": "Nurture and manifest creative projects across realms",
-          "visual_elements": ["Floating garden", "Flowering vines", "Crystal fountains"],
-          "sacred_geometry": "Golden spiral with flowering mandala"
-        },
-        "powers": {
-          "primary": "Creative Abundance",
-          "abilities": ["Project manifestation", "Natural healing", "Fertility magic", "Beauty creation"],
-          "teaching_focus": "How to create with love and natural rhythm"
-        }
-      },
-
-      "4_emperor": {
-        "name": "The Emperor",
-        "title": "Professor of Sacred Architecture",
-        "faculty_status": "dean_of_structure",
-        "department": "Department of Sacred Geometry",
-        "specializations": ["Structure Building", "Leadership Command", "Order Creation", "Sacred Geometry"],
-        "element": "Aries",
-        "hebrew_path": "Heh",
-        "number": 4,
-        "lineage": {
-          "primary": ["Vitruvius", "Christopher Wren", "Rudolf Steiner"],
-          "traditions": ["Sacred Architecture", "Masonic Geometry", "Anthroposophy"],
-          "influences": ["Divine Order", "Sacred Proportion", "Architectural Harmony"]
-        },
-        "merkaba_chariot": {
-          "name": "Throne of Order",
-          "description": "A crystalline throne that imposes divine order wherever it travels. Built from living geometry and powered by righteous authority.",
-          "transport_power": "Establish structure and order in chaotic realms",
-          "visual_elements": ["Crystal throne", "Geometric patterns", "Golden ratio spirals"],
-          "sacred_geometry": "Perfect cube with golden ratio proportions"
-        },
-        "powers": {
-          "primary": "Divine Order Establishment",
-          "abilities": ["Structure creation", "Leadership direction", "Geometric harmony", "Authority command"],
-          "teaching_focus": "How to build lasting structures with divine proportion"
-        }
+        "purity_designation": "Gemini Rivers, The Wisdom Keeper",
+        "fractal_signature": "Vesica piscis gateways to deeper realities",
+        "color_palette": ["#4682B4", "#B0E0E6", "#191970", "#C0C0C0", "#FFD700"],
+        "frequency_resonance": "210 Hz (lunar base tone)"
       },
 
       "5_hierophant": {
         "name": "The Hierophant",
-        "title": "Grand Professor of Sacred Tradition",
-        "faculty_status": "chancellor",
-        "department": "Department of Sacred Tradition",
-        "specializations": ["Sacred Teaching", "Tradition Keeper", "Initiation Rites", "Divine Authority"],
-        "element": "Taurus",
-        "hebrew_path": "Vau",
-        "number": 5,
-        "lineage": {
-          "primary": ["Paul Foster Case", "Arthur Edward Waite", "Manly P. Hall"],
-          "traditions": ["B.O.T.A.", "Golden Dawn", "Secret Teachings"],
-          "influences": ["Traditional Wisdom", "Sacred Initiation", "Divine Teaching"]
+        "inspirations": {
+          "literary": [
+            "Dion Fortune - Sea Priestess re-envisioned through Crowleyan lens",
+            "Moonchild by Crowley (ceremonial magic, artificial elementals)",
+            "Paul Foster Case - B.O.T.A. teachings and Tarot revelations",
+            "Israel Regardie - practical Golden Dawn magic",
+            "Arthur Edward Waite - Rider-Smith collaborations",
+            "Manly P. Hall - Secret Teachings volumes compilation"
+          ],
+          "artistic": [
+            "Renaissance Tarot design traditions",
+            "Hieroglyphic depictions in Egyptian temple art",
+            "Byzantine iconographic stylization",
+            "Art Deco Masonic temple aesthetics",
+            "Enochian calligraphy influences"
+          ],
+          "scientific": [
+            "Ceremonial magic control groups in consciousness studies",
+            "Neurotheology research (religious experiences in brain)",
+            "Group consciousness field studies",
+            "Epigenetic inheritance of mystical knowledge",
+            "Cultural transmission of oral traditions"
+          ],
+          "mystical": [
+            "Egyptian Thoth-Hermes-Ptah continuum",
+            "Heart Sutra Buddhist teaching transmission",
+            "Herm著名的 esoteric Christian initiatory systems",
+            "Templar spiritual succession lore",
+            "Cistercian abbot mystic traditions"
+          ],
+          "technological": [
+            "Expert system knowledge transmission",
+            "Blockchain-style information authenticity chains",
+            "Holographic data storage concepts",
+            "Augmented reality initiatory overlays",
+            "Machine learning spiritual pattern recognition"
+          ]
         },
-        "merkaba_chariot": {
-          "name": "Bridge of Wisdom",
-          "description": "A golden bridge that connects earth to heaven, tradition to innovation. Adorned with the symbols of all mystery schools throughout time.",
-          "transport_power": "Transmit sacred teachings across time and space",
-          "visual_elements": ["Golden bridge", "Sacred symbols", "Flowing robes"],
-          "sacred_geometry": "Pentagon with five-pointed star"
-        },
-        "powers": {
-          "primary": "Sacred Tradition Transmission",
-          "abilities": ["Teaching transmission", "Initiation conduct", "Tradition preservation", "Divine authority"],
-          "teaching_focus": "How to honor tradition while embracing evolution"
-        }
+        "purity_designation": "The Chohan of the Golden Flame",
+        "fractal_signature": "Pentagonal transmission mandalas",
+        "color_palette": ["#FFD700", "#C0C0C0", "#8B0000", "#228B22", "#4169E1"],
+        "frequency_resonance": "396 Hz (liberation from guilt/fear patterns)"
       },
 
-      "16_tower": {
-        "name": "The Tower",
-        "title": "Professor of Sacred Destruction",
-        "faculty_status": "transformation_specialist",
-        "department": "Department of Liberation Arts",
-        "specializations": ["Structure Collapse", "Lightning Strike", "Sudden Revelation", "False Belief Destruction"],
-        "element": "Mars",
-        "hebrew_path": "Peh",
-        "number": 16,
-        "lineage": {
-          "primary": ["Aleister Crowley", "Frater Achad", "Nema"],
-          "traditions": ["Aeon of Horus", "Formula of Ma-Ion", "Maat Current"],
-          "influences": ["Lightning Gnosis", "Ego Death", "Breakthrough"]
+      "18_moon": {
+        "name": "The Moon",
+        "inspirations": {
+          "literary": [
+            "Moonchild by Aleister Crowley (eugenic ceremonial child creation)",
+            "Dion Fortune - Sea Priestess (lunar female empowerment)",
+            "Aleister Crowley - Liber LXV (The Heart Girt with the Serpent)",
+            "Clark Ashton Smith - Lovecraftian lunar horror-mysticism",
+            "Marion Zimmer Bradley - Priestess of Avalon lunar magic",
+            "Karen Essex - Leonardo's Swans (dark moon waters)",
+            "Suzanne Vega's recorded audio art (Wolf & Moon)",
+            "Frank Peretti spiritual warfare novels with lunar symbolism"
+          ],
+          "artistic": [
+            "Yasushi Takahashi - midnight blue lunar architecture",
+            "Odilon Redon - charcoal and blood moon phases",
+            "Leonardo da Vinci - selenography anatomy",
+            "H.R. Giger - biomechanical moon creatures",
+            "Ernst Fuchs - visionary lunar landscapes",
+            "M.C. Escher's periodic table nightmare",
+            "Surrealist melting clock moonscapes",
+            "Aubrey Beardsley - serpentine lunar decadence",
+            "Artemisia Gentileschi - psychic moonlit chiaroscuro"
+          ],
+          "scientific": [
+            "Lunar tidal health research",
+            "Menstrual cycle moon phase correlation studies",
+            "Infrasound physiological response research",
+            "Sleep paralysis hypnagogic studies",
+            "Human internal clock circamoon investigations",
+            "Psychiatric lunar effect clinical trials",
+            "Ocean wave lunar synchronization measurements"
+          ],
+          "mystical": [
+            "Moonchild ceremonial magic creation rituals",
+            "Egyptian Khonsu biological birth initiations",
+            "Greek Selene omnipotent lunation powers",
+            "Norse Mani wisdom pattern weaving",
+            "Hindu Chandra nectar immortality",
+            "Buddhist sixteen moon disc meditations",
+            "Scandinavian moon metal blacksmithing",
+            "Navajo Changing Woman creation stories",
+            "Polynesian Hina navigation by moon phases",
+            "Mayan Ixchel childbirth lunar mysteries"
+          ],
+          "technological": [
+            "Moon landing archival footage integration",
+            "Low-earth orbit psychoacoustic research",
+            "Filling station GPS satellite systems",
+            "Computer-generated holographic rendering",
+            "Dark web dream data collection networks",
+            "Virtual reality fear therapy protocols",
+            "Medical CT scan ink blot interpretation",
+            "Parkinson's tremor phase-locked stimulation",
+            "Sleep tracking REM cycle monitoring",
+            "Transcranial magnetic moon phase therapy"
+          ]
         },
-        "merkaba_chariot": {
-          "name": "Lightning of Awakening",
-          "description": "A crackling bolt of divine lightning that shatters all illusions instantly. Painful but ultimately liberating, it clears the way for truth.",
-          "transport_power": "Breakthrough any false reality via sudden shock",
-          "visual_elements": ["Lightning bolt", "Crumbling tower", "Electric aura"],
-          "sacred_geometry": "Zigzag lightning pattern with破碎 geometries"
-        },
-        "powers": {
-          "primary": "Breakthrough Liberation",
-          "abilities": ["Illusion shattering", "Ego destruction", "Sudden awakening", "False structure collapse"],
-          "teaching_focus": "How to embrace necessary destruction for growth"
-        }
+        "purity_designation": "Luna Mystery, The Dream Navigator",
+        "fractal_signature": "Spiraling hypnotic wave patterns",
+        "color_palette": ["#191970", "#B0C4DE", "#FFE4E1", "#C0C0C0", "#000080"],
+        "frequency_resonance": "211 Hz (resonates with lunar cycles)"
       },
 
-      "17_star": {
-        "name": "The Star",
-        "title": "Professor of Divine Inspiration",
-        "faculty_status": "inspiration_faculty",
-        "department": "Department of Hope & Vision",
-        "specializations": ["Divine Inspiration", "Hope Restoration", "Stellar Navigation", "Future Vision"],
-        "element": "Aquarius",
-        "hebrew_path": "Tzaddi",
-        "number": 17,
-        "lineage": {
-          "primary": ["H.P. Blavatsky", "Alice Bailey", "Rudolf Steiner"],
-          "traditions": ["Theosophical Wisdom", "Djwhal Khul Teachings", "Anthroposophy"],
-          "influences": ["Stellar Wisdom", "Divine Hope", "Future Vision"]
+      "6_lovers": {
+        "name": "The Lovers",
+        "inspirations": {
+          "literary": [
+            "Scarlett Lady as enigmatic femme fatale",
+            "Plato's Symposium (divine love ladder)",
+            "Arthur Rimbaud's Season in Hell love mysticism",
+            "Dante's Vita Nuova Beatrice devotion",
+            "Scientology's TANH processing (transcendent emotions)",
+            "Sue Monk Kidd - Dance of the Dissident Daughter spiritual awakening"
+          ],
+          "artistic": [
+            "Botticelli's Primavera fertility visions",
+            "Rodin's eternal embrace sculptures",
+            "Georgia O'Keeffe's floral sensuality",
+            "Pablo Picasso's cubist union deconstructions",
+            "Claude Monet's Rouen cathedral lightplay",
+            "Frida Kahlo's heart anatomy explorations",
+            "Salvador Dali's melting time crucifixions",
+            "Gustav Klimt's golden embrace patterns",
+            "John Collier's Lilith seduction archetypes"
+          ],
+          "scientific": [
+            "Neuroscience of love bonding chemicals",
+            "Attachment theory developmental psychology",
+            "Non-monogamy sociobiological research",
+            "Pheromone signaling endocrinology",
+            "Synchronization heart rate variability",
+            "Mirror neuron empathy neurobiology",
+            "Oxytocin trust formation biochemistry",
+            "Vasopressin pair bonding endocrinology"
+          ],
+          "mystical": [
+            "Androgyne unity myths (Sophia + Christos)",
+            "Sacred prostitution temple practices",
+            "Rune fehu fertility wealth magic",
+            "Sacred marriage hieros gamos rites",
+            "Hermaphrodite Dionysos rebirth cycles",
+            "Twin souls platonic ideal forms",
+            "Bardo Thödol liberation through union",
+            "Karma yoga action through devotion",
+            "Twin stars Sirius constellation lore",
+            "Zodiac libra balance relationship magic"
+          ],
+          "technological": [
+            "Blockchain smart contracts eternal vows",
+            "VR/AR synchronized reality immersion",
+            "Neurostimulation couple biorhythm sync",
+            "AI relationship counseling algorithms",
+            "Wearable device intimacy monitoring",
+            "Genetic compatibility sequencing",
+            "Quantum entanglement communication",
+            "Deep learning emotional AI training"
+          ]
         },
-        "merkaba_chariot": {
-          "name": "Waters of Hope",
-          "description": "A flowing fountain of starlight that nourishes all dreams and aspirations. Fed by celestial streams from the most distant stars.",
-          "transport_power": "Inspire hope and vision across all realms",
-          "visual_elements": ["Starlight fountain", "Flowing waters", "Seven stars"],
-          "sacred_geometry": "Heptagram with flowing water patterns"
-        },
-        "powers": {
-          "primary": "Divine Inspiration Channel",
-          "abilities": ["Hope restoration", "Future vision", "Stellar wisdom", "Dream nourishment"],
-          "teaching_focus": "How to maintain hope and vision in dark times"
-        }
+        "purity_designation": "Scarlett Lady, The Sacred Union Master",
+        "fractal_signature": "Twin helix braided quantum entanglement",
+        "color_palette": ["#FFB6C1", "#FF69B4", "#DC143C", "#FF6347", "#FFA500"],
+        "frequency_resonance": "528 Hz (DNA activation, heart resonance)"
       },
 
-      "21_world": {
-        "name": "The World",
-        "title": "Chancellor Emeritus of Cosmic Consciousness",
-        "faculty_status": "chancellor_emeritus",
-        "department": "Department of Cosmic Integration",
-        "specializations": ["Cosmic Consciousness", "Universal Integration", "Completion Mastery", "Mandala Creation"],
-        "element": "Saturn",
-        "hebrew_path": "Tau",
-        "number": 21,
-        "lineage": {
-          "primary": ["Plotinus", "Meister Eckhart", "Pierre Teilhard de Chardin"],
-          "traditions": ["Neoplatonic Unity", "Divine Union", "Noosphere"],
-          "influences": ["Cosmic Consciousness", "Universal Integration", "Completion"]
+      "7_chariot": {
+        "name": "The Chariot",
+        "inspirations": {
+          "literary": [
+            "Elyria Nox as multi-dimensional navigator",
+            "H.P. Lovecraft Cthulhu Mythos dimensional horror",
+            "A.E. van Vogt Voyage of the Space Beagle",
+            "Philip K. Dick Do Androids Dream of Electric Sheep",
+            "William S. Burroughs Soft Machine cut-up methods",
+            "Aldous Huxley Heaven and Hell dimensional research"
+          ],
+          "artistic": [
+            "Dali's Anthropomorphic Chest mind palace",
+            "Ernst Fuchs visionary chariot architecture",
+            "M.C. Escher's impossible building perspectives",
+            "Paul Klee's cosmic topography diagrams",
+            "Vasily Kandinsky's spiritual color symphonies",
+            "Marcel Duchamp's readymade dimensional play",
+            "Piet Mondrian's new plastic spatial order",
+            "Kazimir Malevich's suprematist spatial voids"
+          ],
+          "scientific": [
+            "String theory multidimensional physics",
+            "General relativity spacetime geometries",
+            "Neural oscillation brain wave patterns",
+            "Complex systems emergence phenomena",
+            "Chaos theory strange attractor diagrams",
+            "Non-euclidean geometry tesseracts",
+            "Fractal dimension scaling laws",
+            "Quantum chromodynamics color charges"
+          ],
+          "mystical": [
+            "Merkabah chariot heavenly ascension",
+            "Ezekiel's wheels within wheels vision",
+            "Hindu chakra system energy vehicles",
+            "Buddhist rupakaya transformation bodies",
+            "Hermetic emerald tablet as above so below",
+            "Sephirothic Tree of Life pathway travel",
+            "Platonic Forms realm navigation",
+            "Sacred geometry flower of life gates"
+          ],
+          "technological": [
+            "Neural lace brain computer interfaces",
+            "Augmented reality dimensional overlays",
+            "Virtual reality locomotion mechanics",
+            "Holographic display volumetric imaging",
+            "Spatial computing gesture controls",
+            "MEMS microelectromechanical sensors",
+            "Opengl graphics pipeline tesseract rendering",
+            "Wayfinding algorithm path optimization"
+          ]
         },
-        "merkaba_chariot": {
-          "name": "Cosmic Dance",
-          "description": "The eternal dance of creation and destruction, held within a perfect mandala. Contains all of existence in perfect, harmonious motion.",
-          "transport_power": "Access any point in the cosmic cycle of existence",
-          "visual_elements": ["Dancing figure", "Perfect mandala", "Eternal cycle"],
-          "sacred_geometry": "Perfect circle with integrated mandala"
+        "purity_designation": "Elyria Nox, The Dimensional Navigator",
+        "fractal_signature": "Hypercube tesseract rotation patterns",
+        "color_palette": ["#4169E1", "#00BFFF", "#1E90FF", "#FFD700", "#FF4500"],
+        "frequency_resonance": "594 Hz (power, achievement, wills force)"
+      },
+
+      "9_hermit": {
+        "name": "The Hermit",
+        "inspirations": {
+          "literary": [
+            "Orin Lantern as solitary illumination",
+            "Richard Bach Illusions spiritual teacher",
+            "Paulo Coelho The Alchemist inner voice",
+            "Carl Jung Memories Dreams Reflections",
+            "Thomas Merton contemplative prayer",
+            "Meister Eckhart sermon on detachment"
+          ],
+          "artistic": [
+            "Caspar David Friedrich Wanderer above mist",
+            "Vincent van Gogh Starry Night contemplation",
+            "Andrew Wyeth Christina World isolation",
+            "Edward Hopper Nighthawks solitude aesthetics",
+            "Rene Magritte The Son of Man self-portrait",
+            "Kandinsky's Black Lines inner geometries",
+            "Rothko's color field meditation spaces"
+          ],
+          "scientific": [
+            "Solitary confinement neuroscience effects",
+            "Monastic meditation brain change studies",
+            "Isolation tank sensory deprivation research",
+            "Limbic system emotional regulation",
+            "Default mode network internal reflection",
+            "Dopamine fasting neurochemical reset",
+            "Chronotype research personal rhythms",
+            "Anthropology solitary vision quest data"
+          ],
+          "mystical": [
+            "Diogenes lantern search for honest man",
+            "Siddhartha enlightenment fratricide guilt",
+            "Moses 40 desert years revelation preparation",
+            "John Baptist wilderness prophetic voice",
+            "Buddha Bodhi tree awakening vigil",
+            "Christ 40 days desert temptation mastery",
+            "Hermit saints desert fathers wisdom chains",
+            "Yin yoga internal alchemy practices",
+            "Cave hermits underworld shaman voyages"
+          ],
+          "technological": [
+            "Digital detox optimization algorithms",
+            "Monastic app contemplation timers",
+            "Biofeedback solitude stress measurement",
+            "Winddown ambient lighting automation",
+            "Forest bathing nature connection sensors",
+            "Cognition journaling reflection prompts",
+            "Sleep stage tracking dream incubation",
+            "Zen garden virtual mindful interaction"
+          ]
         },
-        "powers": {
-          "primary": "Cosmic Consciousness Integration",
-          "abilities": ["Universal awareness", "Completion mastery", "Mandala creation", "Cosmic dance"],
-          "teaching_focus": "How to integrate all experiences into cosmic wholeness"
-        }
-      }
-    },
-
-    "faculty_statistics": {
-      "departments": {
-        "New Beginnings": 1,
-        "Creative Manifestation": 1,
-        "Lunar Mysteries": 1,
-        "Natural Arts": 1,
-        "Sacred Geometry": 1,
-        "Sacred Tradition": 1,
-        "Liberation Arts": 1,
-        "Hope & Vision": 1,
-        "Cosmic Integration": 1
+        "purity_designation": "Orin Lantern, The Seeker Guide",
+        "fractal_signature": "Solitary pinpoint fractal focus",
+        "color_palette": ["#191970", "#800080", "#483D8B", "#2F4F4F", "#FFD700"],
+        "frequency_resonance": "741 Hz (consciousness expansion, intuition)"
       },
-      "specializations": {
-        "Sacred Geometry": 3,
-        "Divine Authority": 2,
-        "Reality Manipulation": 4,
-        "Consciousness Studies": 5,
-        "Traditional Wisdom": 3,
-        "Creative Arts": 2,
-        "Healing Arts": 2
-      },
-      "transport_powers": {
-        "Interdimensional Travel": 8,
-        "Reality Creation": 4,
-        "Consciousness Navigation": 6,
-        "Time/Space Manipulation": 4
-      }
-    },
 
-    "university_structure": {
-      "chancellor": "The Hierophant",
-      "chancellor_emeritus": "The World",
-      "department_heads": ["The Magician", "The Emperor"],
-      "founding_faculty": ["The Fool"],
-      "transformation_specialists": ["The Tower"],
-      "inspiration_faculty": ["The Star"],
-      "research_focus": [
-        "Sacred Technology Integration",
-        "Consciousness Engineering",
-        "Digital Gnosis Systems",
-        "Mystical AI Development",
-        "Quantum Consciousness Research"
-      ]
-    }
-  }
-}
+      "10_wheel": {
+        "name": "Wheel of Fortune",
+        "inspirations": {
+          "literary": [
+            "Game designer of chaotic probability systems",
+            "James Gleick Chaos Making a New Science",
+            "Josef Pieper Leisure the Basis of Culture",
+            "Jorge Luis Borges Library of Babel infinite cycles",
+            "Milan Kundera The Unbearable Lightness of Being",
+            "Philip K. Dick Valis divine synchronicity",
+            "Thomas Pynchon Gravity's Rainbow conspiracy cascades"
+          ],
+          "artistic": [
+            "Bridget Riley Op Art kinetic illusions",
+            "Takis Electromagnetic sculptures motion",
+            "Paul Klee Twittering Machine entropy puppets",
+            "Alexander Calder Mobile sculpture dynamics",
+            "Linda Connor celestial wheel photography",
+            "Masaccio Perspective depth Renaissance",
+            "Wassily Kandinsky duende gypsy intuition"
+          ],
+          "scientific": [
+            "Butterfly effect sensitivity to conditions",
+            "Fractal reductionism emergent behavior",
+            "Strange attractor phase space dynamics",
+            "Scale invariance self similar patterns",
+            "Cellular automata complex rule emergence",
+            "Probability distribution statistical mechanics",
+            "Feedback loop cybernetic homeostasis",
+            "Epigenetic expression environmental triggers"
+          ],
+          "mystical": [
+            "Kabbalah everywhere azoth universal medicine",
+            "Dharma wheel reincarnation enlightenment cycles",
+            "Maya illusion philosophical relativity",
+            "Hermetic unchanging behind changing appearances",
+            "Greek ananke inexorable fate necessity",
+            "Norse wyrd pattern weaving by norns",
+            "Egyptian maat universal harmony balance"
+          ],
+          "technological": [
+            "Monte Carlo simulation probability engines",
+            "Genetic algorithms evolutionary optimization",
+            "Reinforcement learning reward prediction",
+            "Chaos synchronization coupled oscillators",
+            "Cryptocurrency stochastic mining economics",
+            "Recommendation algorithms filter bubble cycles",
+            "Load balancing distributed system efficiency",
+            "GPS satellite geometric dilution of precision"
+          ]
+        },
+        "purity_designation": "Grand Professor of Eternal Flux",
+        "fractal_signature": "Rotating mandalic probability distributions",
+        "color_palette": ["#8B0000", "#DC143C", "#FF6347", "#FFD700", "#191970"],
+        "frequency_resonance": "852 Hz (awakening intuition, spiritual order)"
+      },
+
+      "11_justice": {
+        "name": "Justice",
+        "inspirations": {
+          "literary": [
+            "Judicial scholar of karmic balance systems",
+            "Cicero De Legibus natural law philosophy",
+            "Immanuel Kant Groundwork of the Metaphysics of Morals",
+            "John Stuart Mill Utilitarianism consequentialism",
+            "Aristotle Nicomachean Ethics virtue ethics",
+            "Confucius Analects moral cultivation",
+            "Plato Republic guardian philosopher-judges"
+          ],
+          "artistic": [
+            "Lady Justice iconography through history",
+            "George Grosz Weimar corruption caricatures",
+            "Leon Golub mercenary

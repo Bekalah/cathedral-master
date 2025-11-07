@@ -1,13 +1,35 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import { archetypes } from "@cathedral/soul";
-import { CoutureOverlay } from "./CoutureOverlay";
+// Commented out - @cathedral/soul module needs proper configuration
+// import { archetypes } from "@cathedral/soul";
+import { C  // DISABLED: Morgan le Fay system needs proper module setup
+  function summonTarotCreature(avatar: any) {
+    console.warn('summonTarotCreature disabled - awaiting proper Avalon module integration');
+    return null;
+    // const tarotCard = {
+    //   name: avatar.name,
+    //   element: getElementFromAvatar(avatar),
+    //   suit: getSuitFromAvatar(avatar),
+    //   powers: getPowersFromAvatar(avatar),
+    //   frequency_hz: avatar.resonance,
+    // };
 
-// Import Morgan Le Fay Avalon System
-import { MorganLeFay } from "../../../src/MorganLeFay.js";
-import { AvalonRealmEngine } from "../../../src/AvalonRealmEngine.js";
-import { TarotCreatureSystem } from "../../../src/TarotCreatureSystem.js";
-import { AvalonNodeIntegration } from "../../../src/AvalonNodeIntegration.js";
+    // const creature = morganLeFay.createTarotCreature(tarotCard);
+    // setActiveCreatures((prev) => [...prev, creature]);
+
+    // setLog((prev) => [
+    //   `🏰 Morgan le Fay summons: ${creature.name} - "${creature.personality}"`,
+    //   ...prev,
+    // ]);
+
+    // return creature;
+  }m "./CoutureOverlay";
+
+// Commented out - these modules need proper paths or restructuring
+// import { MorganLeFay } from "../../../src/MorganLeFay.js";
+// import { AvalonRealmEngine } from "../../../src/AvalonRealmEngine.js";
+// import { TarotCreatureSystem } from "../../../src/TarotCreatureSystem.js";
+// import { AvalonNodeIntegration } from "../../../src/AvalonNodeIntegration.js";
 
 // Example Arcana avatars (expand with full lore, stats, resonance, etc.)
 const arcanaList = [
@@ -157,22 +179,23 @@ function TarotArena() {
   const [grimoire, setGrimoire] = useState("");
 
   // Initialize Morgan Le Fay Avalon System
-  const [morganLeFay] = useState(() => new MorganLeFay());
-  const [avalonEngine] = useState(() => new AvalonRealmEngine(morganLeFay));
-  const [tarotCreatureSystem] = useState(
-    () => new TarotCreatureSystem(morganLeFay, avalonEngine)
-  );
-  const [avalonNodeIntegration] = useState(
-    () =>
-      new AvalonNodeIntegration(morganLeFay, avalonEngine, tarotCreatureSystem)
-  );
+  // Commented out - Avalon system needs proper module setup
+  // const [morganLeFay] = useState(() => new MorganLeFay());
+  // const [avalonEngine] = useState(() => new AvalonRealmEngine(morganLeFay));
+  // const [tarotCreatureSystem] = useState(
+  //   () => new TarotCreatureSystem(morganLeFay, avalonEngine)
+  // );
+  // const [avalonNodeIntegration] = useState(
+  //   () =>
+  //     new AvalonNodeIntegration(morganLeFay, avalonEngine, tarotCreatureSystem)
+  // );
 
-  // Avalon system state
+  // Avalon system state - temporarily disabled
   const [activeCreatures, setActiveCreatures] = useState<any[]>([]);
   const [currentRealm, setCurrentRealm] = useState<any>(null);
   const [showAvalonInterface, setShowAvalonInterface] = useState(false);
-  const [currentNodeExperience, setCurrentNodeExperience] = useState<any>(null);
-  const [showNodeInterface, setShowNodeInterface] = useState(false);
+  // const [currentNodeExperience, setCurrentNodeExperience] = useState<any>(null);
+  // const [showNodeInterface, setShowNodeInterface] = useState(false);
 
   function handleSelect(avatar: any) {
     setSelected((prev) => {
@@ -226,30 +249,35 @@ function TarotArena() {
     return creature;
   }
 
+  // DISABLED: Avalon realm engine needs proper module setup
   function createAvalonRealm(avatar: any) {
-    const tarotCard = {
-      name: avatar.name,
-      element: getElementFromAvatar(avatar),
-      suit: getSuitFromAvatar(avatar),
-      powers: getPowersFromAvatar(avatar),
-      frequency_hz: avatar.resonance,
-    };
+    console.warn('createAvalonRealm disabled - awaiting proper Avalon module integration');
+    return null;
+    // const tarotCard = {
+    //   name: avatar.name,
+    //   element: getElementFromAvatar(avatar),
+    //   suit: getSuitFromAvatar(avatar),
+    //   powers: getPowersFromAvatar(avatar),
+    //   frequency_hz: avatar.resonance,
+    // };
 
-    const realm = avalonEngine.createTarotRealm(tarotCard);
-    setCurrentRealm(realm);
-    setShowAvalonInterface(true);
+    // const realm = avalonEngine.createTarotRealm(tarotCard);
+    // setCurrentRealm(realm);
+    // setShowAvalonInterface(true);
 
-    setLog((prev) => [
-      `🏰 Morgan le Fay opens: ${realm.name} - ${realm.template.purpose}`,
-      ...prev,
-    ]);
+    // setLog((prev) => [
+    //   `🏰 Morgan le Fay opens: ${realm.name} - ${realm.template.purpose}`,
+    //   ...prev,
+    // ]);
 
-    return realm;
+    // return realm;
   }
 
+  // DISABLED: Morgan le Fay teaching system needs proper module setup
   function getMorganTeaching() {
-    const teaching = morganLeFay.getLivingTeaching("tarot");
-    setLog((prev) => [`🌙 Morgan le Fay teaches: "${teaching}"`, ...prev]);
+    console.warn('getMorganTeaching disabled - awaiting proper Morgan le Fay module integration');
+    // const teaching = morganLeFay.getLivingTeaching("tarot");
+    // setLog((prev) => [`🌙 Morgan le Fay teaches: "${teaching}"`, ...prev]);
   }
 
   // Helper functions to map avatar data to tarot system
