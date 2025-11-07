@@ -1,12 +1,14 @@
 {
   "name": "@cathedral/circuitum99",
-  "version": "1.0.0",
-  "description": "99 Wisdom Gates & 144 Node Network - Soul System",
+  "version": "1.0.0-alpha-omega",
+  "description": "Circuitum 99: Alpha et Omega - The Canonical Living Arcana Deployment",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && echo 'Circuitum 99 ready for deployment!'",
+    "clean": "rm -rf dist && rm -rf node_modules/.vite"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -16,7 +18,19 @@
   "devDependencies": {
     "@types/react": "^18.3.7",
     "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.2",
     "typescript": "^5.6.3",
     "vite": "^6.0.1"
-  }
+  },
+  "keywords": [
+    "circuitum99",
+    "arcana",
+    "alpha-omega",
+    "cathedral",
+    "tarot",
+    "wisdom",
+    "consciousness"
+  ],
+  "author": "Cathedral of Circuits",
+  "license": "MIT"
 }

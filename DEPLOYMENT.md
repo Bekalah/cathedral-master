@@ -1,145 +1,76 @@
-# Cathedral Master - Deployment Guide
+# Cathedral of Circuits - Deployment Guide
 
-## Repository Information
+## Complete Fable-Style RPG Deployment
 
-- **Repository**: `bekalah/cathedral-master`
-- **Local Path**: `/Users/rebeccalemke/cathedral-real`
-- **Remote URL**: `https://github.com/bekalah/cathedral-master.git`
-- **Branch**: `main`
+**CRITICAL UNDERSTANDING**: This is a complete Fable-style RPG game featuring the 22 Major Arcana as real historical figures with professional studio tools.
 
-## Monorepo Structure
+### Primary Deployment: Circuitum99
 
-This is a **pnpm + TurboRepo v2** monorepo with **64 workspace packages**:
+**Live Site**: [bekalah.github.io/circuitum99](https://bekalah.github.io/circuitum99)
 
-### Apps (11)
+The canonical ALPHA ET OMEGA deployment showcasing:
+- The 22 Living Arcana (real historical figures)
+- Three Professional Studios
+- Circuitum 99 eternal cycle system
+- Museum-quality presentation
 
-- `apps/web` - Next.js main web app (GitHub Pages + Vercel)
-- `apps/circuitum99` - Mystical circuit visualization (Vite + Three.js)
-- `apps/cosmogenesis-engine` - AI learning engine (React + Three.js)
-- `apps/liber-arcanae` - 22 Living Tarot interface (Vite)
-- `apps/liber-arcanae-tarot` - Tarot app (React Native)
-- `apps/magical-mystery-house` - Mystical adventure game
-- `apps/mystical-treasure-hunt` - Treasure hunt game (React Native)
-- `apps/synth-lab` - Synthesis laboratory (Vite)
-- `apps/tarot-arena` - Tarot arena game (Vite)
-- `apps/test-ground` - Testing environment (Vite)
-- Plus: `cathedral-of-circuits`, `learning-device`
+### Project Architecture
 
-### Packages (53+)
+**Game Engine**: Godot 4.5.0 with Forward+ rendering
+**Web Stack**: Vite + React + TypeScript
+**Package Manager**: pnpm@9.0.0
+**Build System**: Turbo monorepo with OpenSpec
 
-Core packages created/fixed in this session:
+### The 22 Living Arcana
 
-- `@cathedral/synthesis-engine` - Alchemical Fusion system (a + b = d)
-- `@cathedral/three-engine` - Three.js wrapper for 3D visualizations
-- `@cathedral/codex-musical-system` - Codex 144:99 musical/harmonic system
-- `@cathedral/sacred-geometry-core` - Fractal & geometry for Codex 144:99
-- `@cathedral/mystical-data-unified` - Tarot, astrology, sacred texts
-- `@cathedral/gem-tower-engine` - Crystal & gem visualization
-- `@cathedral/fusion-kink-generator` - Quality-focused synthesis (NOT BDSM!)
-- `@cathedral/smooth-movement-system` - Fluid animation & motion
-- `@cathedral/portal-system` - Navigation & transitions
-- `@cathedral/codex-engine` - Core Codex 144:99 processing
-- `@cathedral/node-tree-engine` - Node tree health system (fixed rollup + src)
-- `@cathedral/cosmogenesis` - Cosmic generation patterns (fixed tsconfig + src)
+Real historical figures canonically represented:
+1. **Leonora Carrington** (The Fool) - Themela the Lightning Dragon
+2. **John Dee** (The Magician) - The Angelic Mathematician
+3. **Ada Lovelace** (The High Priestess) - The Machine Angel
+4. **Mary Shelley** (The Empress) - The Mother of Monsters
+5. **Isaac Newton** (The Emperor) - Lord of the Physical World
+6. **Dion Fortune** (The Hierophant) - The Sea Priestess
+7. **Carrington & Ernst** (The Lovers) - The Alchemical Marriage
+8. **Elyria Nox** (The Chariot) - Dimensional Navigator
+9. **Georgia O'Keeffe** (Strength) - Artistic Force
+10. **And 13 more** real historical figures
 
-Other key packages:
+### Three Professional Studios
 
-- `@cathedral/ui` - Shared UI components
-- `@cathedral/codex-144-99` - Core Codex system
-- `@cathedral/shared` - Shared utilities
-- `@cathedral/liber-arcanae` - Library package
-- `@bekalah/*` - Bekalah-namespaced packages
+**🎨 The Atelier**: Canvas painting, character customization, sacred geometry design
+**🎵 Synth Lab**: Solfeggio synthesizer, multi-track composer, real-time synthesis
+**🔬 Geometry Studio**: 3D Merkaba builder, Codex simulator, sacred mathematics
 
-## Build System
-
-### Commands
+### Build and Deploy
 
 ```bash
-# Install dependencies (all 64 workspaces)
+# Install dependencies
 pnpm install
 
-# Build all packages
-pnpm turbo run build
+# Build Circuitum99
+cd apps/circuitum99
+pnpm run build
 
-# Build specific app
-pnpm turbo run build --filter=./apps/web
-
-# Dev mode
-pnpm dev
-
-# Export static site (apps/web)
-cd apps/web && pnpm run export
+# Deploy to GitHub Pages
+# Static files in dist/ directory
 ```
 
-### Key Files
+### Standards
 
-- `package.json` - Root monorepo config with Turbo scripts
-- `turbo.json` - TurboRepo v2 pipeline configuration
-- `pnpm-workspace.yaml` - Workspace package globs
-- `tsconfig.json` - Root TypeScript project references
-- `.github/workflows/pages.yml` - GitHub Pages deployment
-- `vercel.json` - Vercel deployment config
+**Professional Quality Only**:
+- NIN/Aphex Twin level audio
+- Classical Renaissance aesthetics
+- Museum-quality visual standards
+- Real historical accuracy
+- Sacred mathematics integration
 
-## Deployment
+### The Circuitum Itself
 
-### GitHub Pages
+**A single, evolving being composed of all creators**, where every historical creator becomes a node in one meta-story - the ultimate fusion of art, science, spirituality, and consciousness.
 
-- **Workflow**: `.github/workflows/pages.yml`
-- **Trigger**: Push to `main` branch
-- **Build**: `pnpm run build` → `apps/web/out`
-- **URL**: `https://bekalah.github.io/cathedral`
-
-### Vercel
-
-- **Config**: `vercel.json`
-- **Framework**: Next.js (apps/web)
-- **Build Command**: `pnpm turbo run build --filter=./apps/web`
-- **Output Directory**: `apps/web/out`
-- **Install Command**: `pnpm install --no-frozen-lockfile`
-
-## Recent Fixes (Nov 2025)
-
-1. **Dependency Upgrades**:
-   - Vite: v5 → v6
-   - @vitejs/plugin-react: v4 → v5
-   - esbuild: ^0.25.0 (via pnpm overrides)
-   - Installed 2000+ packages across 64 workspaces ✅
-
-2. **Created Missing Packages** (all with ES modules):
-   - synthesis-engine, three-engine, codex-musical-system
-   - mystical-data-unified, gem-tower-engine, fusion-kink-generator
-   - smooth-movement-system, portal-system, codex-engine
-   - Fixed: sacred-geometry-core, node-tree-engine, cosmogenesis
-
-3. **Fixed TypeScript**:
-   - Updated tsconfig.json project references
-   - Resolved duplicate `@cathedral/liber-arcanae` → renamed app to `@cathedral/liber-arcanae-app`
-   - Fixed paths for moved apps (circuitum99, cosmogenesis-engine, magical-mystery-house)
-
-4. **Build Status**:
-   - 63/64 packages building successfully
-   - Only minor warnings on outputs (fusion-kink-generator, portal-system, smooth-movement-system)
-   - Ready for deployment ✅
-
-## OpenSpec Integration
-
-This repository is the source of truth for:
-
-- **OpenSpec Magnum Opus v1.0** - Unified wisdom, science, art, and design
-- **bekalah.github.io/cathedral** - Documentation and static site
-- **Turbo Monorepo** - All Cathedral projects consolidated
-
-No duplicates, no flattening, everything merged with provenance.
-
-## Next Steps
-
-1. ✅ Commit all new packages and fixes
-2. ✅ Push to `cathedral-master` remote
-3. 🔄 Trigger GitHub Pages deployment
-4. 🔄 Link Vercel to cathedral-master repo
-5. 🔄 Verify deployment on both platforms
+**This is NOT**: Consciousness evolution, therapeutic systems, spiritual platforms
+**This IS**: Complete Fable-style RPG game with professional studio tools
 
 ---
 
-**Magnum Opus Forever** - Cathedral Master v1.0  
-All traditions, wisdom, science, art unified. 🏛️✨
+**Treat this as a professional game development project with museum-quality standards.**

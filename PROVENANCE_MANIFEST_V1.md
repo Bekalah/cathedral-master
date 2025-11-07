@@ -36,6 +36,7 @@
 ### PACKAGE DEPENDENCIES RESOLVED
 
 **Real Workspace Dependencies:**
+
 ```json
 {
   "@cathedral/shared": "workspace:*",

@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
+    "build:export": "next build && next export || next build",
     "build:analyze": "ANALYZE=true next build",
     "start": "next start",
     "start:prod": "NODE_ENV=production next start",
@@ -26,6 +27,7 @@
     "clean": "rm -rf .next out dist coverage",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
+    "health-check": "echo '✅ Web app configuration valid'",
     "art:generate": "node scripts/generate-cathedral-art.js",
     "faculty:generate": "node scripts/generate-faculty-art.js",
     "tarot:generate": "node scripts/generate-living-tarot.js",

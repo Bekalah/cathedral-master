@@ -1,191 +1,135 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": [
-    "**/*.json",
-    "**/*.md",
-    "**/.env",
-    "tsconfig.json",
-    "CATHEDRAL_INTEGRATION_MAP.json",
-    "MASTER_INDEX.md",
-    "openspec/**/*.json",
-    "openspec/**/*.md",
-    "openspec/cathedral-v1-standard.md"
-  ],
+  "ui": "tui",
   "tasks": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
+      "dependsOn": ["^build"],
       "outputs": [
         "dist/**",
         "build/**",
-        ".turbo/cache/**"
+        ".next/**",
+        "*.tsbuildinfo"
       ],
       "env": [
-        "NODE_ENV"
+        "NODE_ENV",
+        "DATABASE_URL",
+        "CIRCUITUM99_URL"
       ]
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "outputs": []
+    },
+    "lint": {
+      "outputs": []
     },
     "dev": {
       "cache": false,
       "persistent": true
     },
+    "start": {
+      "cache": false,
+      "dependsOn": ["build"]
+    },
     "type-check": {
-      "dependsOn": [
-        "^build"
-      ],
+      "dependsOn": ["^type-check"],
       "outputs": []
     },
-    "lint": {
-      "outputs": [],
-      "env": [
-        "NODE_ENV"
-      ]
-    },
-    "test": {
-      "dependsOn": [
-        "build"
-      ],
-      "outputs": [
-        "coverage/**",
-        ".nyc_output/**"
-      ],
-      "env": [
-        "NODE_ENV",
-        "CI"
-      ]
-    },
     "clean": {
-      "outputs": [],
       "cache": false
     },
-    "trauma-safety": {
-      "cache": false,
-      "outputs": [
-        "data/trauma-safety-report.json"
-      ],
-      "inputs": [
-        "tools/trauma-safety-validator.js",
-        "apps/**/*.{js,jsx,ts,tsx}",
-        "**/*.html"
-      ]
-    },
-    "fusion-kink-generate": {
-      "cache": false,
-      "outputs": [
-        "data/fusion-kink-generated.json"
-      ],
-      "inputs": [
-        "tools/fusion-kink-generator.js",
-        "data/complete-arcana-profiles.json"
-      ]
-    },
-    "sacred-geometry-generate": {
-      "cache": false,
-      "outputs": [
-        "data/sacred-geometry-generated.json"
-      ],
-      "inputs": [
-        "tools/sacred-geometry-engine.js"
-      ]
-    },
-    "gem-tower-generate": {
-      "cache": false,
-      "outputs": [
-        "data/gem-tower-generated.json"
-      ],
-      "inputs": [
-        "tools/gem-tower-engine.js"
-      ]
-    },
-    "generate-all-engines": {
-      "dependsOn": [
-        "fusion-kink-generate",
-        "sacred-geometry-generate", 
-        "gem-tower-generate"
-      ],
-      "outputs": [
-        "data/**/*-generated.json"
-      ],
+    "clean-install": {
       "cache": false
     },
-    "validate-all-systems": {
-      "dependsOn": [
-        "trauma-safety"
-      ],
-      "outputs": [
-        "data/validation-reports/**"
-      ],
+    "install": {
       "cache": false
     },
-    "build-system-packages": {
-      "dependsOn": [
-        "^build",
-        "generate-all-engines"
-      ],
-      "outputs": [
-        "build-system/output/**"
-      ],
-      "inputs": [
-        "build-system/**/*.js",
-        "build-system/**/*.json"
-      ]
+    "validate": {
+      "dependsOn": ["^validate"],
+      "outputs": []
     },
-    "cathedral-engines": {
-      "dependsOn": [
-        "generate-all-engines",
-        "trauma-safety"
-      ],
-      "outputs": [
-        "data/**/*-generated.json",
-        "data/trauma-safety-report.json"
-      ],
-      "cache": false
+    "deploy": {
+      "dependsOn": ["build", "test", "validate"],
+      "outputs": []
     },
-    "db-init": {
+    "arcana-sync": {
       "cache": false,
-      "outputs": [
-        "data/cathedral.db"
-      ],
-      "inputs": [
-        "lib/database/cathedral-db-pure.js"
-      ]
+      "dependsOn": ["build"]
     },
-    "db-stats": {
-      "dependsOn": [
-        "db-init"
-      ],
-      "outputs": [
-        "data/cathedral-db-stats.json"
-      ],
-      "cache": false
-    },
-    "db-export": {
-      "dependsOn": [
-        "db-init"
-      ],
-      "outputs": [
-        "data/cathedral-db-export.json"
-      ],
-      "cache": false
-    },
-    "db-migrate": {
+    "unified-engine": {
       "cache": false,
+      "dependsOn": ["build"]
+    },
+    "mystical-synthesis": {
+      "cache": false,
+      "dependsOn": ["build"],
       "outputs": [
-        "data/cathedral.db"
+        "dist/mystical/**",
+        "dist/frequencies/**",
+        "dist/synthesis/**"
       ]
     }
   },
+  "globalDependencies": [
+    "**/.env*local",
+    "**/.env*.local"
+  ],
   "globalEnv": [
     "NODE_ENV",
-    "CI",
-    "GITHUB_TOKEN",
-    "GITHUB_REPOSITORY",
-    "GITHUB_HEAD_REF",
-    "GITHUB_BASE_REF",
-    "AZURE_AI_STUDIO_ENDPOINT",
-    "AZURE_AI_STUDIO_KEY",
-    "VERCEL_TOKEN",
-    "RENDER_TOKEN",
-    "CLOUDFLARE_API_TOKEN"
-  ]
+    "PNPM_VERSION",
+    "NODE_VERSION",
+    "TURBO_CACHE_DIR"
+  ],
+  "pipeline": {
+    "build": {
+      "dependsOn": [
+        "^build",
+        "$NODE_VERSION",
+        "$PNPM_VERSION"
+      ],
+      "outputs": [
+        "dist/**",
+        "build/**",
+        ".next/**",
+        "*.tsbuildinfo"
+      ]
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "outputs": []
+    },
+    "lint": {
+      "outputs": []
+    },
+    "type-check": {
+      "dependsOn": ["^type-check"],
+      "outputs": []
+    },
+    "validate": {
+      "dependsOn": ["^validate"],
+      "outputs": []
+    },
+    "deploy": {
+      "dependsOn": [
+        "build",
+        "test",
+        "validate",
+        "type-check"
+      ],
+      "outputs": []
+    }
+  },
+  "globalPassThroughEnv": [
+    "DATABASE_URL",
+    "CIRCUITUM99_URL",
+    "MCP_DATASET_PATH",
+    "ARCANA_CONFIG_PATH"
+  ],
+  "remoteCache": {
+    "enabled": true
+  },
+  "experimentalSettings": {
+    "namespace": "cathedral-monorepo",
+    "teamId": "cathedral-team"
+  }
 }

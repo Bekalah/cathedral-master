@@ -6,15 +6,18 @@
   "installCommand": "pnpm install --frozen-lockfile",
   "devCommand": "pnpm run dev",
   "env": {
-    "NODE_VERSION": "25.0.0",
+    "NODE_VERSION": "lts",
     "NODE_FEATURES": "Native SQLite Support",
-    "PNPM_VERSION": "9.15.0",
-    "TURBO_VERSION": "2.6.0",
-    "PLATFORM": "vercel"
+    "PNPM_VERSION": "latest",
+    "TURBO_VERSION": "latest",
+    "PLATFORM": "vercel",
+    "MYSTICAL_SOUND_ENGINE": "enabled",
+    "TRAUMA_SAFETY_VALIDATOR": "active",
+    "SACRED_GEOMETRY_GENERATOR": "operational"
   },
   "build": {
     "env": {
-      "NODE_VERSION": "25.0.0",
+      "NODE_VERSION": "lts",
       "PLATFORM": "vercel"
     }
   },

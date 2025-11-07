@@ -1,6 +1,6 @@
-# Azure Static Web Apps Configuration
+# Configuration for Avalon Labs (non-Azure)
+
 name: avalon-labs
-location: East US 2
 
 # Build configuration
 build:
@@ -26,18 +26,16 @@ responseOverrides:
 
 # Environment variables
 env:
-  NODE_VERSION: "18"
-  PNPM_VERSION: "8"
+  NODE_VERSION: "25" # Updated to the latest version
+  PNPM_VERSION: "9.15.0" # Matches package.json
 
 # App settings
 appSettings:
-  runtime: node:18
   allowEmptyValue: false
 
 # Optional: API configuration
 api:
   location: "api"
-  runtime: node:18
 
 # Optional: Database connections
 data:
