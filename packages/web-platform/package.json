@@ -1,0 +1,56 @@
+{
+  "name": "cathedral-web-platform",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Cathedral Creative Ecosystem - Web Platform with Mobile Studio, Book Scanner, Design Suite, and Music Lab",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "serve": "vite preview --port 4173"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.169.0",
+    "@types/three": "^0.169.0",
+    "@react-three/fiber": "^8.16.8",
+    "@react-three/drei": "^9.114.0",
+    "tone": "^15.0.4",
+    "framer-motion": "^11.11.17",
+    "zustand": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "typescript": "^5.6.3",
+    "vite": "^5.0.0"
+  },
+  "keywords": [
+    "cathedral",
+    "react",
+    "threejs",
+    "sacred-geometry",
+    "tarot",
+    "audio-synthesis",
+    "mobile-optimized",
+    "web-platform",
+    "creative-ecosystem"
+  ],
+  "author": "Rebecca Respawn <bekalah@users.noreply.github.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

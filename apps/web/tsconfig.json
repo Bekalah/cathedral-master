@@ -1,14 +1,18 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2020"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -18,8 +22,21 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@/*": ["./*"],
-      "@cathedral/*": ["../../packages/*"]
+      "@/*": [
+        "./*"
+      ],
+      "@cathedral/*": [
+        "../../packages/*"
+      ],
+      "@mystical-sound-engine/*": [
+        "../../packages/mystical-sound-engine/*"
+      ],
+      "@sacred-geometry-core/*": [
+        "../../packages/sacred-geometry-core/*"
+      ],
+      "@trauma-safety-validator/*": [
+        "../../tools/validate/*"
+      ]
     },
     "plugins": [
       {
@@ -27,6 +44,13 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "pages/**/*", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "src"]
+  "include": [
+    "next-env.d.ts",
+    "pages/**/*",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "src"
+  ]
 }

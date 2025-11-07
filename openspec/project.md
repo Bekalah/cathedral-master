@@ -1,7 +1,7 @@
 # Project Context
 
 ## Purpose
-The Cathedral of Circuits is a living, modular mystical technology system designed as a sanctuary for consciousness expansion, creative expression, and trauma-informed healing. It integrates 22 living tradition engines, fusion kink mechanics, and sacred geometry in a trauma-safe, neurodivergent-friendly environment.
+The Cathedral of Circuits is a professional-grade creative-technology ecosystem designed for advanced software development, game creation, and technical innovation. It integrates modern web technologies, game development engines, and professional audio systems in a scalable, maintainable environment.
 
 ## Tech Stack
 - TypeScript for type safety and modern development
@@ -43,7 +43,7 @@ The Cathedral of Circuits is a living, modular mystical technology system design
 - Semantic versioning for components
 
 ## Domain Context
-The project is a living, self-writing mystical system where the book itself evolves and inscribes Codex 144:99 into its own narrative. Drawing from Aleister Crowley's "Moonchild" and Max Ernst's surrealism, it studies genius and creativity through the boundaries of real experiences in story and game. Features 78-card tarot systems, 144-node lattices, and fusion kink mechanics for immersive, consciousness-expanding exploration. All elements are trauma-informed, with emphasis on sanctuary over spectacle, while honoring the meta-narrative of the living grimoire.
+The project is a comprehensive software development ecosystem integrating modern web technologies, game development engines, and professional audio systems. It features real-time game mechanics, advanced audio processing, cross-platform web applications, and professional development tools. The system emphasizes clean architecture, performance optimization, and scalable deployment strategies across multiple platforms and devices.ctacle, while honoring the meta-narrative of the living grimoire.
 
 ## Important Constraints
 - Trauma safety: ESC always exits, gentle defaults, no sudden motions

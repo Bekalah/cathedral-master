@@ -1,4 +1,4 @@
-g# 🚀 V1 Cathedral Deployment Setup
+# 🚀 V1 Cathedral Deployment Setup
 
 ## Repository Configuration
 - **Primary Repository**: https://github.com/Bekalah/cathedral-master
