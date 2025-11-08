@@ -11,6 +11,18 @@
     },
     {
       "path": "../Library/Mobile Documents/com~apple~CloudDocs/CATHEDRAL-SORT THROUGH"
+    },
+    {
+      "path": "../cathedral-real.worktrees"
+    },
+    {
+      "path": "../cosmogenesis-engine"
+    },
+    {
+      "path": "../restore_temp"
+    },
+    {
+      "path": "../CathedralOfCircuits"
     }
   ],
   "settings": {
@@ -33,7 +45,7 @@
     "[jsonc]": {
       "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
     },
-    "godotTools.editorPath.godot3": "/Users/rebeccalemke/cathedral-real/godot-project/project.godot"
+    "godotTools.editorPath.godot3": "/Users/rebeccalemke/cathedral-real/packages/cathedral-integration-bridge/src/cathedral-integration-console.html"
   },
   "extensions": {
     "recommendations": [

@@ -45,6 +45,16 @@ export class LiberArcanae {
   }
 }
 
+// Helper functions that the component expects
+export function getCardName(number: number): string {
+  const profile = liberArcanae.getArcanaByNumber(number);
+  return profile?.name || `Card ${number}`;
+}
+
+export function getMajorArcana(): ArcanaProfile[] {
+  return liberArcanae.getAllArcana();
+}
+
 export const liberArcanae = new LiberArcanae();
 
 console.log("🃏 Liber Arcanae package loaded - V1.0.0");

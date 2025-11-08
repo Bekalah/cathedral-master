@@ -4,21 +4,26 @@ services:
     runtime: node
     plan: free
     buildCommand: |
-      curl -fsSL https://deb.nodesource.com/setup_25.x | sudo -E bash - && sudo apt-get install -y nodejs
-                              npm install -g pnpm@9.15.0
+      curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && sudo apt-get install -y nodejs
+                              npm install -g pnpm@latest
                               pnpm install --frozen-lockfile
                               pnpm run build
+                              pnpm run generate-all-engines
     startCommand: pnpm --filter @openspec/magnum-opus run preview
     healthCheckPath: /
     envVars:
       - key: NODE_VERSION
-        value: 25.0.0
+        value: "latest"
       - key: PNPM_VERSION
-        value: 9.15.0
+        value: "latest"
       - key: NODE_ENV
         value: production
       - key: PLATFORM
         value: render
+      - key: MYSTICAL_SOUND_ENGINE
+        value: "enabled"
+      - key: TRAUMA_SAFETY_VALIDATOR
+        value: "active"
     domains:
       - cathedral-avalon-labs.onrender.com
       - avalon-labs-cathedral.onrender.com
@@ -47,7 +52,7 @@ services:
   - type: cron
     name: cathedral-sync
     runtime: node
-    plan: undefined
+    plan: free
     buildCommand: |
       curl -fsSL https://deb.nodesource.com/setup_25.x | sudo -E bash - && sudo apt-get install -y nodejs
                               npm install -g pnpm@9.15.0

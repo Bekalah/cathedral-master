@@ -1,0 +1,73 @@
+app = "cathedral-app"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  NODE_ENV = "production"
+  NODE_VERSION = "25.0.0"
+  PNPM_VERSION = "9.15.0"
+  TRINITY_COMPONENT_MODE = "server"
+
+[[services]]
+  internal_port = 3000
+  protocol = "tcp"
+  script_checks = []
+
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
+
+  [[services.http_checks]]
+    interval = "10s"
+    grace_period = "5s"
+    method = "get"
+    path = "/api/health"
+    protocol = "http"
+    restart_limit = 0
+    timeout = "2s"
+    tls_skip_verify = false
+
+[deploy]
+  release_command = "pnpm run migrate"
+  strategy = "rolling"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 512
+
+[[mounts]]
+  destination = "/data"
+  source = "cathedral_data"
+  type = "volume"
+
+[[services.tcp_checks]]
+  check_interval = "15s"
+  grace_period = "1s"
+  protocol = "tcp"
+  restart_limit = 0
+  timeout = "2s"
+
+[experimental]
+  auto_rollback = true
+
+[processes]
+  web = "pnpm start"
+  worker = "pnpm run worker"
+  scheduler = "pnpm run scheduler"
