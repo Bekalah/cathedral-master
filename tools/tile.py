@@ -5,10 +5,44 @@ Converts public-domain paragraphs into playable board game tiles
 Each tile has unique connections and powers based on text content
 """
 
-from sigilise import sigilise
-from colour import textToHSL
 import json
 from pathlib import Path
+
+def sigilise(text: str) -> str:
+    """Simple sigil generation for tile IDs"""
+    import hashlib
+    import re
+    import unicodedata
+
+    # Strip diacritics → latin base
+    base = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode()
+
+    # Keep only first 72 letters (Shem boundary)
+    frag = re.sub(r'[^A-Z]', '', base.upper())[:72]
+
+    # SHA-256 → 64 hex → 32 pairs → 16 circles
+    h = hashlib.sha256(frag.encode()).hexdigest()
+    pairs = [h[i:i+2] for i in range(0, 64, 2)]
+
+    # Return SVG <circle> tree
+    svg = ['<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">']
+    cx, cy, r = 100, 100, 60
+
+    for i, p in enumerate(pairs):
+        angle = i * 3.14159 / 8
+        r2 = int(p, 16) / 255 * 40 + 10
+        svg.append('.1f'
+                  '.1f'
+                  'f4d03f"/>')
+
+    svg.append('</svg>')
+    return '\n'.join(svg)
+
+def textToHSL(text: str) -> dict:
+    """Convert text to HSL color"""
+    sum_val = sum(ord(c) for c in text)
+    len_val = len(text)
+    return {"h": len_val % 360, "s": 70, "l": min(sum_val // len_val // 2.55, 100)}
 
 def para_to_tile(paragraph: str) -> dict:
     """

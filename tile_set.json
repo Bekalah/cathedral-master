@@ -1,0 +1,61 @@
+{
+  "name": "Public Domain Tile Set",
+  "tiles": [
+    {
+      "id": "f4d03f\"/",
+      "svg": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\">\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n</svg>",
+      "colour": {
+        "h": 136,
+        "s": 70,
+        "l": 36.0
+      },
+      "power": "",
+      "connections": {
+        "north": true,
+        "east": true,
+        "south": true,
+        "west": false
+      },
+      "source_paragraph": "The moon hung low in the sky, casting silver light across the ancient stones. Whispers of forgotten ..."
+    },
+    {
+      "id": "f4d03f\"/",
+      "svg": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\">\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n</svg>",
+      "colour": {
+        "h": 128,
+        "s": 70,
+        "l": 36.0
+      },
+      "power": "",
+      "connections": {
+        "north": true,
+        "east": false,
+        "south": true,
+        "west": true
+      },
+      "source_paragraph": "Deep within the forest, a hidden grove contained secrets older than memory. The trees themselves see..."
+    },
+    {
+      "id": "f4d03f\"/",
+      "svg": "<svg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\">\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n.1f.1ff4d03f\"/>\n</svg>",
+      "colour": {
+        "h": 113,
+        "s": 70,
+        "l": 36.0
+      },
+      "power": "",
+      "connections": {
+        "north": false,
+        "east": false,
+        "south": false,
+        "west": false
+      },
+      "source_paragraph": "Stars wheeled overhead in their eternal dance, marking the passage of time that humans could scarcel..."
+    }
+  ],
+  "rules": {
+    "connection_rules": "Tiles connect via matching boolean values",
+    "power_activation": "Last sentence triggers when tile is placed",
+    "color_meaning": "HSL represents paragraph's emotional tone"
+  }
+}
