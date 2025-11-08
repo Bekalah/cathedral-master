@@ -1,0 +1,21 @@
+#!/bin/bash
+# cathedral-forge: Local Roo replacement
+# Usage: forge "Write GDScript for Merkaba rotation"
+
+MODEL="$HOME/.local/share/cathedral/模型/phi-3-mini-codestral.gguf"
+PROMPT="$1"
+
+# Color-coded output for safety
+echo -e "\033[33m⚡ FORGE: $PROMPT\033[0m"
+
+# Run local model (30 tokens/sec on Pi 5)
+llama-cli \
+  -m "$MODEL" \
+  --prompt "<|system|>You are a Godot 4.5 expert who writes minimal, correct GDScript. No comments, no fluff.<|end|><|user|>$PROMPT<|end|><|assistant|>" \
+  --temp 0.3 \
+  --seed 777 \
+  --n_predict 512 \
+  --color
+
+# Always append AI warning to output
+echo -e "\n\033[31m⚠️ AI-GENERATED - VERIFY BEFORE USE\033[0m"
