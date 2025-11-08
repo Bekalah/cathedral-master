@@ -1,0 +1,11 @@
+[package]
+name = "cathedral"
+version = "5.0.0"
+edition = "2021"
+
+[profile.release]
+opt-level = 'z'      # Optimize for size
+lto = true           # Link-time optimization
+codegen-units = 1    # Single codegen unit
+strip = true         # Strip symbols
+panic = "abort"      # Smaller binary
