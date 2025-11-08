@@ -16,5 +16,122 @@
   ],
   "python.testing.unittestArgs": ["-v", "-s", "./tests", "-p", "*test.py"],
   "python.testing.pytestEnabled": false,
-  "python.testing.unittestEnabled": true
+  "python.testing.unittestEnabled": true,
+
+  // === GITLENS CONFIGURATION FOR FETCH/PUSH/UNSTASH ===
+  // Enable advanced GitLens features
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotAheadWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false
+  },
+
+  // Configure fetch behavior
+  "gitlens.gitCommands.closeOnFocusOut": true,
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "pull:command",
+    "push:command"
+  ],
+
+  // Auto-fetch settings
+  "git.autofetch": true,
+  "git.autofetchPeriod": 300,
+
+  // Push settings - always push to current branch
+  "git.confirmSync": false,
+  "git.postCommitCommand": "push",
+
+  // Stash/unstash configuration
+  "gitlens.gitCommands.aliases": {
+    "co": "checkout",
+    "ci": "commit",
+    "br": "branch",
+    "sta": "stash",
+    "unsta": "stash pop",
+    "st": "status"
+  },
+
+  // GitLens views configuration
+  "gitlens.views.repositories.branches.layout": "list",
+  "gitlens.views.repositories.files.layout": "auto",
+  "gitlens.views.repositories.files.compact": true,
+
+  // Enable GitLens blame annotations
+  "gitlens.blame.avatars": true,
+  "gitlens.blame.compact": true,
+  "gitlens.blame.dateFormat": "short",
+  "gitlens.blame.heatmap.enabled": true,
+  "gitlens.blame.heatmap.location": "right",
+
+  // Configure GitLens menus and commands
+  "gitlens.menus": {
+    "editorGroup": {
+      "blame": true,
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "editor": {
+      "blame": true,
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "explorer": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "scmGroup": {
+      "compare": true,
+      "openClose": true,
+      "stash": true,
+      "stashInline": true
+    },
+    "scmItem": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true,
+      "stash": true
+    }
+  },
+
+  // GitLens keybindings and shortcuts
+  "gitlens.keymap": "chorded",
+
+  // Configure GitLens status bar
+  "gitlens.statusBar.alignment": "right",
+  "gitlens.statusBar.command": "gitlens.showQuickRepoStatus",
+  "gitlens.statusBar.dateFormat": "short",
+  "gitlens.statusBar.enabled": true,
+  "gitlens.statusBar.format": "${author}, ${agoOrDate}${' via ${avatar}'}${' ⇧${pushedFormat}'}${ahead}${behind}${stashes}",
+
+  // Enable GitLens terminal links
+  "gitlens.terminalLinks.enabled": true,
+
+  // Configure GitLens hovers
+  "gitlens.hovers.avatars": true,
+  "gitlens.hovers.currentLine.enabled": true,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.hovers.detailsMarkdownFormat": "${avatar} &nbsp;__${author}__, ${agoOrDate} &nbsp; _(${date})_ \n\n${message}\n\n${commands}",
+
+  // Configure GitLens comparisons
+  "gitlens.views.compare.objects": "auto",
+
+  // Configure GitLens search
+  "gitlens.views.search.objects": "auto",
+
+  // Enable GitLens telemetry (optional)
+  "gitlens.telemetry.enabled": false,
+
+  // Configure GitLens output level
+  "gitlens.outputLevel": "info"
 }
