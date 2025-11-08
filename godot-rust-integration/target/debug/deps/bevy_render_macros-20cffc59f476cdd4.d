@@ -1,0 +1,8 @@
+/Users/rebeccalemke/cathedral-real/godot-rust-integration/target/debug/deps/bevy_render_macros-20cffc59f476cdd4.d: /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_render_macros-0.14.2/src/lib.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_render_macros-0.14.2/src/as_bind_group.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_render_macros-0.14.2/src/extract_component.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_render_macros-0.14.2/src/extract_resource.rs
+
+/Users/rebeccalemke/cathedral-real/godot-rust-integration/target/debug/deps/libbevy_render_macros-20cffc59f476cdd4.dylib: /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_render_macros-0.14.2/src/lib.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_render_macros-0.14.2/src/as_bind_group.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_render_macros-0.14.2/src/extract_component.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_render_macros-0.14.2/src/extract_resource.rs
+
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_render_macros-0.14.2/src/lib.rs:
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_render_macros-0.14.2/src/as_bind_group.rs:
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_render_macros-0.14.2/src/extract_component.rs:
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_render_macros-0.14.2/src/extract_resource.rs:

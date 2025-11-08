@@ -1,0 +1,9 @@
+/Users/rebeccalemke/cathedral-real/godot-rust-integration/target/debug/deps/bevy_derive-e901cfe541d6dc7c.d: /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_derive-0.14.2/src/lib.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_derive-0.14.2/src/app_plugin.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_derive-0.14.2/src/bevy_main.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_derive-0.14.2/src/derefs.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_derive-0.14.2/src/enum_variant_meta.rs
+
+/Users/rebeccalemke/cathedral-real/godot-rust-integration/target/debug/deps/libbevy_derive-e901cfe541d6dc7c.dylib: /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_derive-0.14.2/src/lib.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_derive-0.14.2/src/app_plugin.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_derive-0.14.2/src/bevy_main.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_derive-0.14.2/src/derefs.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_derive-0.14.2/src/enum_variant_meta.rs
+
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_derive-0.14.2/src/lib.rs:
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_derive-0.14.2/src/app_plugin.rs:
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_derive-0.14.2/src/bevy_main.rs:
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_derive-0.14.2/src/derefs.rs:
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/bevy_derive-0.14.2/src/enum_variant_meta.rs:

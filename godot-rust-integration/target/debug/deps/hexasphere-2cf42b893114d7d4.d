@@ -1,0 +1,10 @@
+/Users/rebeccalemke/cathedral-real/godot-rust-integration/target/debug/deps/hexasphere-2cf42b893114d7d4.d: /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/lib.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/interpolation.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/shapes.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/slice.rs
+
+/Users/rebeccalemke/cathedral-real/godot-rust-integration/target/debug/deps/libhexasphere-2cf42b893114d7d4.rlib: /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/lib.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/interpolation.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/shapes.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/slice.rs
+
+/Users/rebeccalemke/cathedral-real/godot-rust-integration/target/debug/deps/libhexasphere-2cf42b893114d7d4.rmeta: /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/lib.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/interpolation.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/shapes.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/slice.rs
+
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/lib.rs:
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/interpolation.rs:
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/shapes.rs:
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/hexasphere-12.0.0/src/slice.rs:

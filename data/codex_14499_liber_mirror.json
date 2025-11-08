@@ -1,0 +1,163 @@
+{
+  "codex_14499_liber_mirror": {
+    "manifestation_nodes": [
+      {
+        "id": 1,
+        "name": "Sphere of Pure Possibility",
+        "frequency_hz": 256,
+        "liber_arcanum_mapping": {
+          "major_arcana": "The Fool (0)",
+          "sephirah": "Kether",
+          "qliphothic_inverse": "Thaumiel",
+          "aethers": ["Luminous", "Crystalline"]
+        },
+        "geometric_form": {
+          "type": "sphere",
+          "divine_proportion": 1.0,
+          "material": "translucent_obsidian"
+        },
+        "worker_capabilities": {
+          "game_mode": ["Quest: 'Initiation'", "Ability: Reality Bend"],
+          "tool_mode": ["Generate: Blank canvas templates", "Create: Project scaffolding"]
+        }
+      },
+      {
+        "id": 7,
+        "name": "Temple of Manifestation",
+        "frequency_hz": 396,
+        "liber_arcanum_mapping": {
+          "major_arcana": "The Magician (1)",
+          "sephirah": "Chokmah",
+          "qliphothic_inverse": "Ghagiel",
+          "aethers": ["Electric", "Magnetic"]
+        },
+        "geometric_form": {
+          "type": "cube_with_four_arms",
+          "divine_proportion": 1.272,
+          "material": "charged_crystal"
+        },
+        "worker_capabilities": {
+          "game_mode": ["Quest: 'Will Mastery'", "Ability: Element Control"],
+          "tool_mode": ["Generate: 3D sacred geometry (GLB)", "Write: Python procedural scripts"]
+        }
+      },
+      {
+        "id": 12,
+        "name": "Vesica Piscis Gateway",
+        "frequency_hz": 528,
+        "liber_arcanum_mapping": {
+          "major_arcana": "The High Priestess (2)",
+          "sephirah": "Binah",
+          "qliphothic_inverse": "Sathariel",
+          "aethers": ["Lunar", "Intuitive"]
+        },
+        "geometric_form": {
+          "type": "vesica_piscis",
+          "divine_proportion": 1.414,
+          "material": "moonstone_matrix"
+        },
+        "worker_capabilities": {
+          "game_mode": ["Quest: 'Hidden Knowledge'", "Ability: Psychic Vision"],
+          "tool_mode": ["Compose: Ambient soundtracks (WAV)", "Generate: Fractal textures"]
+        }
+      },
+      {
+        "id": 33,
+        "name": "Merkaba of Creation",
+        "frequency_hz": 741,
+        "liber_arcanum_mapping": {
+          "major_arcana": "The Empress (3)",
+          "sephirah": "Chesed",
+          "qliphothic_inverse": "Golachab",
+          "aethers": ["Venusian", "Fertile"]
+        },
+        "geometric_form": {
+          "type": "stellated_octahedron",
+          "divine_proportion": 1.618,
+          "material": "living_emerald"
+        },
+        "worker_capabilities": {
+          "game_mode": ["Quest: 'Creative Abundance'", "Ability: Project Birth"],
+          "tool_mode": ["Build: Greco-Egyptian temples", "Generate: UI/UX flows"]
+        }
+      },
+      {
+        "id": 99,
+        "name": "Circuitum Omega",
+        "frequency_hz": 963,
+        "liber_arcanum_mapping": {
+          "major_arcana": "The World (XXI)",
+          "sephirah": "Malkuth",
+          "qliphothic_inverse": "Nahemoth",
+          "aethers": ["Physical", "Manifest"]
+        },
+        "geometric_form": {
+          "type": "cube_with_inscribed_sphere",
+          "divine_proportion": 1.454545,
+          "material": "alchemical_gold"
+        },
+        "worker_capabilities": {
+          "game_mode": ["Quest: 'Magnum Opus'", "Ability: World Creation"],
+          "tool_mode": ["Export: Finalized 3D models", "Compile: Production builds"]
+        }
+      },
+      {
+        "id": 144,
+        "name": "Temple of Completion",
+        "frequency_hz": 963,
+        "liber_arcanum_mapping": {
+          "major_arcana": "The World (XXI)",
+          "sephirah": "Malkuth",
+          "qliphothic_inverse": "Nahemoth",
+          "aethers": ["Physical", "Manifest"]
+        },
+        "geometric_form": {
+          "type": "cube_with_inscribed_sphere",
+          "divine_proportion": 1.454545,
+          "material": "alchemical_gold"
+        },
+        "worker_capabilities": {
+          "game_mode": ["Quest: 'Magnum Opus'", "Ability: World Creation"],
+          "tool_mode": ["Export: Finalized 3D models", "Compile: Production builds"]
+        }
+      }
+    ],
+    "dissolution_gates": [
+      {
+        "id": 1,
+        "name": "Gate of Confusion",
+        "frequency_hz": 147,
+        "liber_arcanum_mapping": {
+          "major_arcana": "The Fool (Reversed)",
+          "qliphothic_sphere": "Thaumiel",
+          "challenge": "Overcome uncertainty to manifest"
+        },
+        "tool_mode_obstacle": "Clear existing project artifacts before new creation"
+      }
+    ],
+    "fusion_kink_ratio": 1.454545,
+    "worker_task_templates": [
+      {
+        "task_type": "generate_3d_art",
+        "required_nodes": [7, 12, 33],
+        "assigned_worker": "The Magician",
+        "output_format": "glb",
+        "external_project_integration": "Blender addon auto-install"
+      },
+      {
+        "task_type": "compose_music",
+        "required_nodes": [9, 18, 27],
+        "assigned_worker": "The High Priestess",
+        "output_format": "wav",
+        "external_project_integration": "Ableton Live project file"
+      },
+      {
+        "task_type": "build_temple",
+        "required_nodes": [7, 33, 99],
+        "assigned_worker": "The Empress",
+        "output_format": "glb",
+        "external_project_integration": "Unity asset package"
+      }
+    ]
+  }
+}

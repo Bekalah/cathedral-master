@@ -3,11 +3,12 @@
   "version": "1.0.0-alpha-omega",
   "description": "Circuitum 99: Alpha et Omega - The Canonical Living Arcana Deployment",
   "type": "module",
+  "homepage": "https://bekalah.github.io/circuitum99",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && echo 'Circuitum 99 ready for deployment!'",
+    "deploy": "npm run build && gh-pages -d dist",
     "clean": "rm -rf dist && rm -rf node_modules/.vite"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "@types/react": "^18.3.7",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.2",
+    "gh-pages": "^6.1.1",
     "typescript": "^5.6.3",
     "vite": "^6.0.1"
   },

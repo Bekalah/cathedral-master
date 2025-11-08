@@ -1,68 +1,47 @@
 services:
   - type: web
-    name: cathedral-web
+    name: cathedral-egregore
     runtime: node
-    plan: free
-    buildCommand: |
-      curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && sudo apt-get install -y nodejs
-                              npm install -g pnpm@latest
-                              pnpm install --frozen-lockfile
-                              pnpm run build
-                              pnpm run generate-all-engines
-    startCommand: pnpm --filter @openspec/magnum-opus run preview
-    healthCheckPath: /
+    buildCommand: pnpm install && pnpm run build:all
+    startCommand: pnpm run start:production
     envVars:
+      - key: NODE_ENV
+        value: production
       - key: NODE_VERSION
-        value: "latest"
+        value: "20"
       - key: PNPM_VERSION
-        value: "latest"
-      - key: NODE_ENV
-        value: production
-      - key: PLATFORM
-        value: render
-      - key: MYSTICAL_SOUND_ENGINE
-        value: "enabled"
-      - key: TRAUMA_SAFETY_VALIDATOR
-        value: "active"
-    domains:
-      - cathedral-avalon-labs.onrender.com
-      - avalon-labs-cathedral.onrender.com
-      - cathedral-rosslyn-explorer.onrender.com
+        value: "9.15.0"
+      - key: RENDER_EXTERNAL_URL
+        generateValue: true
+    healthCheckPath: /health
+    disk:
+      name: egregore-cache
+      mountPath: /opt/render/cache
+      sizeGB: 10
 
-  - type: web
-    name: cathedral-api
-    runtime: node
-    plan: free
-    buildCommand: |
-      curl -fsSL https://deb.nodesource.com/setup_25.x | sudo -E bash - && sudo apt-get install -y nodejs
-                              npm install -g pnpm@9.15.0
-                              pnpm install --frozen-lockfile
-                              pnpm --filter apps/worker run build
-    startCommand: pnpm --filter apps/worker run start
+  - type: worker
+    name: egregore-file-watcher
+    runtime: python3
+    buildCommand: pip install -r requirements.txt
+    startCommand: python packages/cosmogenesis/src/external_project_bridge.py
     envVars:
-      - key: NODE_VERSION
-        value: 25.0.0
-      - key: NODE_ENV
-        value: production
-      - key: PLATFORM
-        value: render
-    domains:
-      - cathedral-api.onrender.com
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: WATCHDOG_USE_POLLING
+        value: "true"
 
-  - type: cron
-    name: cathedral-sync
-    runtime: node
-    plan: free
-    buildCommand: |
-      curl -fsSL https://deb.nodesource.com/setup_25.x | sudo -E bash - && sudo apt-get install -y nodejs
-                              npm install -g pnpm@9.15.0
-                              pnpm install --frozen-lockfile
-    startCommand: pnpm run sync-versions
+databases:
+  - name: egregore-db
+    databaseName: egregore_manifestations
+    user: egregore_user
+    plan: starter
+
+envVarGroups:
+  - name: egregore-secrets
     envVars:
-      - key: NODE_VERSION
-        value: 25.0.0
-      - key: PLATFORM
-        value: render
-    schedule: 0 */6 * * *
-    region: oregon
-
+      - key: EGREGORE_ENCRYPTION_KEY
+        generateValue: true
+      - key: WEBSOCKET_SECRET
+        generateValue: true
+      - key: FILE_WATCHER_TOKEN
+        generateValue: true

@@ -1,0 +1,10 @@
+/Users/rebeccalemke/cathedral-real/godot-rust-integration/target/debug/deps/thread_local-df17479648389de4.d: /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/lib.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/cached.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/thread_id.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/unreachable.rs
+
+/Users/rebeccalemke/cathedral-real/godot-rust-integration/target/debug/deps/libthread_local-df17479648389de4.rlib: /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/lib.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/cached.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/thread_id.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/unreachable.rs
+
+/Users/rebeccalemke/cathedral-real/godot-rust-integration/target/debug/deps/libthread_local-df17479648389de4.rmeta: /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/lib.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/cached.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/thread_id.rs /Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/unreachable.rs
+
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/lib.rs:
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/cached.rs:
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/thread_id.rs:
+/Users/rebeccalemke/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thread_local-1.1.9/src/unreachable.rs:

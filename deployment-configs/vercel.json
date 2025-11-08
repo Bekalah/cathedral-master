@@ -1,69 +1,44 @@
 {
-  "framework": "nextjs",
   "version": 2,
-  "buildCommand": "pnpm run build",
-  "outputDirectory": "apps/web/out",
-  "installCommand": "pnpm install --frozen-lockfile",
-  "devCommand": "pnpm run dev",
-  "env": {
-    "NODE_VERSION": "lts",
-    "NODE_FEATURES": "Native SQLite Support",
-    "PNPM_VERSION": "latest",
-    "TURBO_VERSION": "latest",
-    "PLATFORM": "vercel",
-    "MYSTICAL_SOUND_ENGINE": "enabled",
-    "TRAUMA_SAFETY_VALIDATOR": "active",
-    "SACRED_GEOMETRY_GENERATOR": "operational"
-  },
-  "build": {
-    "env": {
-      "NODE_VERSION": "lts",
-      "PLATFORM": "vercel"
+  "builds": [
+    {
+      "src": "apps/web/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "buildCommand": "pnpm run build:web",
+        "outputDirectory": "apps/web/out"
+      }
+    },
+    {
+      "src": "apps/circuitum99/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "buildCommand": "pnpm run build:circuitum99",
+        "outputDirectory": "apps/circuitum99/dist"
+      }
     }
-  },
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/circuitum99/(.*)",
+      "dest": "/apps/circuitum99/dist/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/apps/web/out/$1"
+    }
+  ],
   "functions": {
-    "app/api/**/*.js": {
-      "runtime": "nodejs25.x"
-    },
-    "api/**/*.js": {
-      "runtime": "nodejs25.x"
+    "api/egregore/*.js": {
+      "runtime": "nodejs18.x"
     }
   },
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "s-maxage=86400, stale-while-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/data/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/cathedral/(.*)",
-      "destination": "/api/cathedral/$1"
-    }
-  ],
-  "domains": [
-    "cathedral-avalon-labs.vercel.app",
-    "avalon-labs-cathedral.vercel.app",
-    "cathedral-rosslyn-explorer.vercel.app"
-  ],
-  "regions": [
-    "iad1",
-    "sfo1",
-    "cdg1",
-    "syd1"
-  ]
+  "regions": ["iad1"],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
