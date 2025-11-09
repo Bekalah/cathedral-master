@@ -18,10 +18,11 @@
 //! - Stable schema so other engines (web, Rust, Godot) can consume the same registry
 //! - Safe to run repeatedly (idempotent) and integrate into your build system
 
-use serde::{Deserialize, Serialize};
+use serde::{de::DeserializeOwned, Deserialize, Serialize};
 use std::fs;
-use std::io;
+use std::io::{self, Read};
 use std::path::{Path, PathBuf};
+use std::sync::Arc;
 
 /// Root configuration for where to read/write library data.
 #[derive(Debug, Clone)]
@@ -96,6 +97,329 @@ pub struct LibraryRegistry {
     pub generated_by: String,
     pub root: String,
     pub libraries: Vec<LibraryEntry>,
+}
+
+/// Dynamic, queryable view over the library registry.
+///
+/// This is the core of the "living" Stone Grimoire engine:
+/// - SOUL: exposes esoteric correspondences and metadata as structured data
+/// - BODY: queryable at runtime by games/simulations
+/// - SPIRIT: provides color/frequency/geometry hints for audiovisual systems
+#[derive(Debug, Clone)]
+pub struct StoneLibrary {
+    inner: Arc<LibraryRegistry>,
+}
+
+impl StoneLibrary {
+    /// Create a `StoneLibrary` from an existing `LibraryRegistry`.
+    ///
+    /// This is zero-copy for callers (uses Arc internally) and keeps the
+    /// original `generate_registry` flow fully compatible.
+    pub fn from_registry(registry: LibraryRegistry) -> Self {
+        StoneLibrary {
+            inner: Arc::new(registry),
+        }
+    }
+
+    /// Load a `LibraryRegistry` from any `Read` + `Deserialize` source and wrap it.
+    ///
+    /// This avoids hard-coded paths:
+    /// callers decide how/where bytes are loaded (disk, network, packed resources).
+    pub fn from_reader<R>(reader: R) -> Result<Self, io::Error>
+    where
+        R: Read,
+    {
+        let registry: LibraryRegistry = deserialize_json(reader)?;
+        Ok(Self::from_registry(registry))
+    }
+
+    /// Load from JSON bytes.
+    pub fn from_slice(bytes: &[u8]) -> Result<Self, io::Error> {
+        let registry: LibraryRegistry = serde_json::from_slice(bytes).map_err(map_serde)?;
+        Ok(Self::from_registry(registry))
+    }
+
+    /// Load from a JSON file path. This is a convenience only.
+    pub fn from_json_file(path: &Path) -> Result<Self, io::Error> {
+        let file = fs::File::open(path)?;
+        Self::from_reader(file)
+    }
+
+    /// Direct access to all entries.
+    pub fn entries(&self) -> &[LibraryEntry] {
+        &self.inner.libraries
+    }
+
+    /// Find a single library by id.
+    pub fn by_id(&self, id: &str) -> Option<&LibraryEntry> {
+        self.inner.libraries.iter().find(|e| e.id == id)
+    }
+
+    /// Run a composable filter over the registry.
+    ///
+    /// Example:
+    /// [`StoneLibrary::query()`](packages/stone-grimoire-library-engine/src/lib.rs:1)
+    /// with:
+    /// [`StoneFilter::new()`](packages/stone-grimoire-library-engine/src/lib.rs:1)
+    ///     .with_domain("kabbalah")
+    ///     .with_color("#ffffff")
+    ///     .with_numeric_resonance_range(10.0, 22.0);
+    pub fn query<'a>(&'a self, filter: &StoneFilter) -> Vec<&'a LibraryEntry> {
+        self.inner
+            .libraries
+            .iter()
+            .filter(|entry| filter.matches(entry))
+            .collect()
+    }
+
+    /// BODY axis helper:
+    /// Given a mechanical hint (e.g. "room:library", "mechanic:insight"),
+    /// return candidate libraries suitable for this context.
+    ///
+    /// Games/Godot can:
+    /// - Attach this to a room generator
+    /// - Use result IDs to spawn localized interactions/scenes
+    pub fn suggest_for_mechanic<'a>(
+        &'a self,
+        mechanic_tag: &str,
+        filter: &StoneFilter,
+    ) -> Vec<&'a LibraryEntry> {
+        let mut extended = filter.clone();
+        extended.mechanic_tags.push(mechanic_tag.to_string());
+        self.query(&extended)
+    }
+
+    /// SPIRIT axis helper:
+    /// For a given library id, expose audiovisual hints that render engines can use.
+    pub fn palette_for(&self, id: &str) -> Option<SpiritVisualProfile> {
+        let entry = self.by_id(id)?;
+        Some(SpiritVisualProfile {
+            chapel_id: entry.chapel.chapel_id.clone(),
+            base_color: entry.chapel.color_profile.clone(),
+            sound_profile: entry.chapel.sound_profile.clone(),
+        })
+    }
+}
+
+/// JSON deserialization helper using a generic type.
+/// Kept small and explicit to align with repo style.
+fn deserialize_json<T, R>(mut reader: R) -> Result<T, io::Error>
+where
+    T: DeserializeOwned,
+    R: Read,
+{
+    let mut buf = String::new();
+    reader.read_to_string(&mut buf)?;
+    serde_json::from_str(&buf).map_err(map_serde)
+}
+
+/// Convert serde_json errors into io::Error for a simple public surface.
+fn map_serde(err: serde_json::Error) -> io::Error {
+    io::Error::new(io::ErrorKind::InvalidData, err.to_string())
+}
+
+/// Composable filter for registry entries.
+///
+/// Filters are AND-composed: all specified constraints must match.
+/// Unset fields do not constrain the query.
+///
+/// SOUL:
+/// - filter by esoteric domain, primary_theme, author, etc.
+///
+/// BODY:
+/// - filter by mechanic tags resolved from metadata or external schemas.
+///
+/// SPIRIT:
+/// - filter by color profiles, chapel_id, or numeric resonance ranges.
+#[derive(Debug, Clone, Default)]
+pub struct StoneFilter {
+    pub ids: Vec<String>,
+    pub domains: Vec<String>,
+    pub chapel_ids: Vec<String>,
+    pub primary_themes: Vec<String>,
+    pub authors: Vec<String>,
+    pub colors: Vec<String>,
+    pub sound_profiles: Vec<String>,
+    pub mechanic_tags: Vec<String>,
+    pub min_numeric_resonance: Option<f64>,
+    pub max_numeric_resonance: Option<f64>,
+}
+
+impl StoneFilter {
+    /// Start with an empty filter.
+    pub fn new() -> Self {
+        Self::default()
+    }
+
+    pub fn with_id(mut self, id: impl Into<String>) -> Self {
+        self.ids.push(id.into());
+        self
+    }
+
+    pub fn with_domain(mut self, domain: impl Into<String>) -> Self {
+        self.domains.push(domain.into());
+        self
+    }
+
+    pub fn with_chapel_id(mut self, chapel_id: impl Into<String>) -> Self {
+        self.chapel_ids.push(chapel_id.into());
+        self
+    }
+
+    pub fn with_primary_theme(mut self, theme: impl Into<String>) -> Self {
+        self.primary_themes.push(theme.into());
+        self
+    }
+
+    pub fn with_author(mut self, author: impl Into<String>) -> Self {
+        self.authors.push(author.into());
+        self
+    }
+
+    pub fn with_color(mut self, color: impl Into<String>) -> Self {
+        self.colors.push(color.into());
+        self
+    }
+
+    pub fn with_sound_profile(mut self, sound: impl Into<String>) -> Self {
+        self.sound_profiles.push(sound.into());
+        self
+    }
+
+    pub fn with_mechanic_tag(mut self, tag: impl Into<String>) -> Self {
+        self.mechanic_tags.push(tag.into());
+        self
+    }
+
+    /// Constrain by numeric resonance range (inclusive).
+    ///
+    /// The actual resonance value is read from metadata if present:
+    /// - Look for `metadata.primary_theme == "arcana:NN"` style
+    /// - or an externally attached value (see `numeric_resonance_of`).
+    pub fn with_numeric_resonance_range(mut self, min: f64, max: f64) -> Self {
+        self.min_numeric_resonance = Some(min);
+        self.max_numeric_resonance = Some(max);
+        self
+    }
+
+    /// Internal: test if a registry entry matches this filter.
+    fn matches(&self, entry: &LibraryEntry) -> bool {
+        if !self.ids.is_empty() && !self.ids.iter().any(|id| id == &entry.id) {
+            return false;
+        }
+
+        if !self.domains.is_empty()
+            && !self
+                .domains
+                .iter()
+                .any(|d| d.eq_ignore_ascii_case(&entry.chapel.domain))
+        {
+            return false;
+        }
+
+        if !self.chapel_ids.is_empty()
+            && !self
+                .chapel_ids
+                .iter()
+                .any(|c| c == &entry.chapel.chapel_id)
+        {
+            return false;
+        }
+
+        if !self.primary_themes.is_empty() {
+            let theme = entry.metadata.primary_theme.as_deref().unwrap_or_default();
+            if !self
+                .primary_themes
+                .iter()
+                .any(|t| t.eq_ignore_ascii_case(theme))
+            {
+                return false;
+            }
+        }
+
+        if !self.authors.is_empty() {
+            let author = entry.metadata.author.as_deref().unwrap_or_default();
+            if !self.authors.iter().any(|a| a.eq_ignore_ascii_case(author)) {
+                return false;
+            }
+        }
+
+        if !self.colors.is_empty() {
+            let color = entry.chapel.color_profile.as_deref().unwrap_or_default();
+            if !self.colors.iter().any(|c| c.eq_ignore_ascii_case(color)) {
+                return false;
+            }
+        }
+
+        if !self.sound_profiles.is_empty() {
+            let sound = entry.chapel.sound_profile.as_deref().unwrap_or_default();
+            if !self
+                .sound_profiles
+                .iter()
+                .any(|s| s.eq_ignore_ascii_case(sound))
+            {
+                return false;
+            }
+        }
+
+        // Mechanic tags are left open-ended for callers.
+        // The engine checks against a conventional metadata field if present.
+        if !self.mechanic_tags.is_empty() {
+            let meta_string = format!(
+                "{},{},{:?}",
+                entry.metadata.primary_theme.as_deref().unwrap_or_default(),
+                entry.chapel.domain,
+                entry.metadata.structure
+            )
+            .to_lowercase();
+
+            if !self
+                .mechanic_tags
+                .iter()
+                .any(|tag| meta_string.contains(&tag.to_lowercase()))
+            {
+                return false;
+            }
+        }
+
+        // Numeric resonance is derived from metadata via a deterministic helper.
+        if self.min_numeric_resonance.is_some() || self.max_numeric_resonance.is_some() {
+            let resonance = numeric_resonance_of(entry);
+            if let Some(min) = self.min_numeric_resonance {
+                if resonance < min {
+                    return false;
+                }
+            }
+            if let Some(max) = self.max_numeric_resonance {
+                if resonance > max {
+                    return false;
+                }
+            }
+        }
+
+        true
+    }
+}
+
+/// Deterministic numeric resonance heuristic.
+///
+/// This keeps behavior stable and explainable while leaving room
+/// for richer numeric schemas in dedicated datasets.
+///
+/// Current formula:
+/// - Hash-like fold over id + primary_theme into [0, 255]
+/// - Mapped into [0.0, 255.0]
+fn numeric_resonance_of(entry: &LibraryEntry) -> f64 {
+    let key = format!(
+        "{}:{}",
+        entry.id,
+        entry.metadata.primary_theme.as_deref().unwrap_or_default()
+    );
+    let mut acc: u32 = 0;
+    for b in key.bytes() {
+        acc = acc.wrapping_mul(31).wrapping_add(b as u32);
+    }
+    (acc % 256) as f64
 }
 
 /// High-level entrypoint:
@@ -298,6 +622,76 @@ fn escape_godot(input: &str) -> String {
         .replace('"', "\\\"")
         .replace('\n', " ")
 }
+
+/// SOUL/BODY/SPIRIT integration: audiovisual profile for a library.
+#[derive(Debug, Clone)]
+pub struct SpiritVisualProfile {
+    pub chapel_id: String,
+    pub base_color: Option<String>,
+    pub sound_profile: Option<String>,
+}
+
+/// BODY axis trait:
+/// Consumers (game engines, Godot wrappers) can implement this to
+/// map `LibraryEntry` into concrete runtime effects.
+///
+/// This crate provides the abstraction only; implementations live in
+/// engine-specific crates without creating hard dependencies here.
+pub trait BodyMechanicBridge {
+    /// Given a library entry and optional mechanic tag/context,
+    /// resolve a stable effect identifier understood by the caller.
+    fn resolve_effect_id(
+        &self,
+        entry: &LibraryEntry,
+        mechanic_tag: Option<&str>,
+    ) -> Option<String>;
+}
+
+/// SPIRIT axis trait:
+/// Consumers can use this to derive visual/sound configurations
+/// from `LibraryEntry` data.
+///
+/// Implementations remain free-form but deterministic.
+pub trait SpiritBridge {
+    /// Given a library entry, derive concrete audiovisual parameters.
+    fn visual_profile(&self, entry: &LibraryEntry) -> SpiritVisualProfile;
+}
+
+/// Example rustdoc usage patterns:
+///
+/// - Game system (BODY):
+///   ```ignore
+///   use stone_grimoire_library_engine::{StoneLibrary, StoneFilter};
+///
+///   // load at startup (from generated registry.json)
+///   let lib = StoneLibrary::from_json_file(std::path::Path::new("data-libraries/registry.json"))?;
+///
+///   // choose a kabbalah-aligned library for an insight mechanic
+///   let filter = StoneFilter::new()
+///       .with_domain("kabbalah")
+///       .with_mechanic_tag("mechanic:insight");
+///   let candidates = lib.suggest_for_mechanic("mechanic:insight", &filter);
+///   if let Some(entry) = candidates.first() {
+///       // bridge to your engine-specific effect id
+///       // effect_engine.apply_effect_for_library(entry.id.clone());
+///   }
+///   ```
+///
+/// - Synth/visual system (SPIRIT):
+///   ```ignore
+///   use stone_grimoire_library_engine::{StoneLibrary};
+///
+///   let lib = StoneLibrary::from_json_file(std::path::Path::new("data-libraries/registry.json"))?;
+///   if let Some(profile) = lib.palette_for("liber_777") {
+///       // configure color grading & tuning
+///       // shaders.set_chapel(profile.chapel_id);
+///       // shaders.set_tint(profile.base_color.unwrap_or("#ffffff".into()));
+///       // audio_bus.set_scene(profile.sound_profile.unwrap_or("ambient_library".into()));
+///   }
+///   ```
+///
+/// These examples are intentionally minimal and deterministic, leaving
+/// high-level orchestration to the calling engines.
 
 // Optional: a small CLI-style helper (can be wired via a bin crate):
 //
