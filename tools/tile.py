@@ -25,8 +25,8 @@ def para_to_tile(paragraph: str) -> dict:
     # Generate unique ID from sigil
     tile_id = sigilise(paragraph)[-16:-8]  # 8-hex unique ID
 
-    # Generate SVG sigil
-    svg_sigil = sigilise(paragraph)
+    # Generate PNG sigil (base64 encoded)
+    png_sigil = sigilise(paragraph)
 
     # Generate color from text
     hsl_color = textToHSL(paragraph)
@@ -46,7 +46,7 @@ def para_to_tile(paragraph: str) -> dict:
 
     return {
         "id": tile_id,
-        "svg": svg_sigil,
+        "png": png_sigil,
         "colour": hsl_color,
         "power": power_text,
         "connections": connections,

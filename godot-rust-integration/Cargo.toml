@@ -3,7 +3,7 @@ name = "cathedral-game-engine"
 version = "1.0.0"
 edition = "2021"
 authors = ["Rebecca Respawn <bekalah>"]
-description = "Cathedral v1.0 Game Engine - Godot 4.5 + Rust + Bevy integration"
+description = "Cathedral v1.0 Game Engine - Godot 4.6 + Rust + Bevy integration"
 
 [lib]
 name = "cathedral_game_engine"

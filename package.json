@@ -2,6 +2,7 @@
   "name": "cathedral-monorepo",
   "version": "2.0.0",
   "private": true,
+  "packageManager": "pnpm@10.20.0",
   "description": "Cathedral Professional Design Suite - Complete Adobe/Figma Replacement with Codex 144:99 Integration",
   "workspaces": [
     "apps/*",

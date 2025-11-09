@@ -1,0 +1,12 @@
+{
+  "name": "Kether",
+  "element": "spirit",
+  "geometry": "point",
+  "music_profile": "silence",
+  "color": "#FFFFFF",
+  "angel": "Metatron",
+  "demon": null,
+  "deity": "Ain Soph Aur",
+  "healing_profile": "unity_consciousness",
+  "art_style": "pristine_light"
+}

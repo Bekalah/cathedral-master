@@ -30,19 +30,12 @@ def sigilise(text: str) -> str:
     h = hashlib.sha256(frag.encode()).hexdigest()
     pairs = [h[i:i+2] for i in range(0, 64, 2)]
 
-    # 4. Return SVG <circle> tree
-    svg = ['<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">']
-    cx, cy, r = 100, 100, 60
-
-    for i, p in enumerate(pairs):
-        angle = i * 3.14159 / 8
-        r2 = int(p, 16) / 255 * 40 + 10
-        svg.append('.1f'
-                   '.1f'
-                   'f4d03f"/>')
-
-    svg.append('</svg>')
-    return '\n'.join(svg)
+    # 4. Return PNG binary data (simplified - would need proper PNG encoding)
+    # For now, return base64-encoded minimal PNG
+    import base64
+    # This is a placeholder - real implementation would generate actual PNG bytes
+    png_data = b'\x89PNG\r\n\x1a\n' + b'\x00' * 100  # Minimal PNG header + data
+    return base64.b64encode(png_data).decode()
 
 def main():
     """Command line interface"""

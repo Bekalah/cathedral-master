@@ -80,45 +80,6 @@
     "NODE_VERSION",
     "TURBO_CACHE_DIR"
   ],
-  "pipeline": {
-    "build": {
-      "dependsOn": [
-        "^build",
-        "$NODE_VERSION",
-        "$PNPM_VERSION"
-      ],
-      "outputs": [
-        "dist/**",
-        "build/**",
-        ".next/**",
-        "*.tsbuildinfo"
-      ]
-    },
-    "test": {
-      "dependsOn": ["build"],
-      "outputs": []
-    },
-    "lint": {
-      "outputs": []
-    },
-    "type-check": {
-      "dependsOn": ["^type-check"],
-      "outputs": []
-    },
-    "validate": {
-      "dependsOn": ["^validate"],
-      "outputs": []
-    },
-    "deploy": {
-      "dependsOn": [
-        "build",
-        "test",
-        "validate",
-        "type-check"
-      ],
-      "outputs": []
-    }
-  },
   "globalPassThroughEnv": [
     "DATABASE_URL",
     "CIRCUITUM99_URL",
@@ -127,9 +88,5 @@
   ],
   "remoteCache": {
     "enabled": true
-  },
-  "experimentalSettings": {
-    "namespace": "cathedral-monorepo",
-    "teamId": "cathedral-team"
   }
 }
