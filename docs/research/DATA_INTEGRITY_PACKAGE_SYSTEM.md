@@ -18,7 +18,7 @@ CRITICAL_FILES=(
     "CHIRON_HEALING_CODEX.md"
     "MASTER_NUMBER_EVOLUTION_CODEX.md"
     "LIVING_ARCANAE_NUMEROLOGY_0_144.md"
-    "PROTECTION_AND_PRIVACY_SYSTEM.md"
+    "security/PROTECTION_AND_PRIVACY_SYSTEM.md"
     "connection-map.html"
     "index.html"
     "package.json"
@@ -75,7 +75,7 @@ fi
   "exports": {
     "./foundation": "./index.html",
     "./connections": "./connection-map.html",
-    "./protection": "./PROTECTION_AND_PRIVACY_SYSTEM.md"
+    "./protection": "./security/PROTECTION_AND_PRIVACY_SYSTEM.md"
   }
 }
 ```
