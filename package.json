@@ -6,7 +6,9 @@
   "description": "Cathedral Professional Design Suite - Complete Adobe/Figma Replacement with Codex 144:99 Integration",
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "tools/*",
+    "docs/*"
   ],
   "scripts": {
     "dev:design-suite": "cd apps/cathedral-professional-design-suite && npm run dev",
@@ -48,7 +50,7 @@
   },
   "engines": {
     "node": ">=25.0.0",
-    "npm": ">=10.0.0"
+    "pnpm": ">=10.20.0"
   },
   "repository": {
     "type": "git",

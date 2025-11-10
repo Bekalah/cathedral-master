@@ -87,6 +87,6 @@
     "ARCANA_CONFIG_PATH"
   ],
   "remoteCache": {
-    "enabled": true
+    "enabled": false
   }
 }
