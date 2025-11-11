@@ -1,0 +1,61 @@
+{
+  "build": {
+    "builder": "nixpacks"
+  },
+  "deploy": {
+    "startCommand": "pnpm start",
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10,
+    "healthcheckPath": "/api/health",
+    "healthcheckTimeout": 100,
+    "restartTimeout": 60
+  },
+  "environments": {
+    "production": {
+      "variables": {
+        "NODE_ENV": "production",
+        "NODE_VERSION": "25.0.0",
+        "PNPM_VERSION": "9.15.0",
+        "TRINITY_COMPONENT_MODE": "server",
+        "DATABASE_URL": "${{Postgres.DATABASE_URL}}"
+      }
+    },
+    "staging": {
+      "variables": {
+        "NODE_ENV": "staging",
+        "NODE_VERSION": "25.0.0",
+        "PNPM_VERSION": "9.15.0",
+        "TRINITY_COMPONENT_MODE": "development"
+      }
+    }
+  },
+  "services": [
+    {
+      "name": "cathedral-web",
+      "source": ".",
+      "rootDirectory": "apps/web",
+      "buildCommand": "pnpm install && pnpm run build",
+      "startCommand": "pnpm start",
+      "environment": "node",
+      "port": 3000,
+      "healthcheckPath": "/api/health"
+    },
+    {
+      "name": "cathedral-api",
+      "source": ".",
+      "rootDirectory": "packages/api",
+      "buildCommand": "pnpm install && pnpm run build",
+      "startCommand": "pnpm start",
+      "environment": "node",
+      "port": 8080,
+      "healthcheckPath": "/health"
+    }
+  ],
+  "databases": [
+    {
+      "name": "cathedral-db",
+      "engine": "postgresql",
+      "version": "15"
+    }
+  ]
+}

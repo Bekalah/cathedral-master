@@ -1,0 +1,13 @@
+{
+  "date": 20251111,
+  "branch": integration/lfs-repair-20251111,
+  "head": 4eb53f76ccaec8fd6b2f5b742d0a06bf595d073a,
+  "targets": ["circuitum99", "circuitum99-minimal", "tarot-system"],
+  "keep_exceptions": ["tarot-system/valid_profiles.json"],
+  "canonical_files": [
+
+  ],
+  "spam_files": [
+
+  ]
+}

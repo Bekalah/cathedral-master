@@ -1,0 +1,87 @@
+{
+  "codex_144_99_expanded": {
+    "version": "1.0.0",
+    "author": "Rebecca Respawn",
+    "description": "Expanded Codex 144:99 - 144 manifestation nodes and 99 dissolution gates with complete Major Arcana integration",
+    "creation_date": "2025-11-06",
+    "sacred_mathematics": {
+      "manifestation_nodes": 144,
+      "dissolution_gates": 99,
+      "ratio": 1.454545,
+      "fibonacci_sequence": true,
+      "golden_ratio": 1.618033988749895
+    },
+    "major_arcana_integration": {
+      "source": "complete-rebecca-arcanae-influences.json",
+      "total_arcana": 22,
+      "description": "Complete integration of Rebecca's 22 Major Arcana with 144:99 system"
+    },
+    "mystical_systems": {
+      "trinity_architecture": {
+        "brain": "Cosmogenesis Learning Engine",
+        "soul": "Circuitum99 Arcanae CYOA",
+        "body": "Stone Grimoire",
+        "integration": "Tesseract Bridge"
+      },
+      "tree_of_life": {
+        "standard": "Kether above, Malkuth below",
+        "achad_inversion": "Malkuth above, Kether below (Aeon of Maat)",
+        "sephiroth": 10,
+        "paths": 22,
+        "hidden_sephira": "Daath (Abyss crossing)"
+      }
+    },
+    "engines": {
+      "trauma_safety": {
+        "status": "operational",
+        "validator": "tools/trauma-safety-validator.js",
+        "report": "data/trauma-safety-report.json"
+      },
+      "fusion_kink": {
+        "status": "operational",
+        "generator": "tools/fusion-kink-generator.js",
+        "combinations": 231,
+        "output": "data/fusion-kink-generated.json"
+      },
+      "sacred_geometry": {
+        "status": "operational",
+        "engine": "tools/sacred-geometry-engine.js",
+        "golden_ratio": 1.618033988749895,
+        "output": "data/sacred-geometry-generated.json"
+      },
+      "gem_tower": {
+        "status": "operational",
+        "engine": "tools/gem-tower-engine.js",
+        "tower_levels": 22,
+        "output": "data/gem-tower-generated.json"
+      }
+    },
+    "mcp_data": {
+      "source": "mcp-permanent-dataset.json",
+      "description": "Permanent dataset for MCP integration"
+    },
+    "pigments_database": {
+      "source": "pigments-database.json",
+      "description": "Material science and rare pigment database"
+    },
+    "research_sources": {
+      "source": "research-sources.json",
+      "description": "Academic and mystical research compilation"
+    },
+    "trinity_architecture": {
+      "source": "trinity-architecture.json",
+      "description": "Brain/Soul/Body system definitions"
+    }
+  },
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}

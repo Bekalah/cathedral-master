@@ -1,0 +1,71 @@
+{
+  "timestamp": "2025-11-06T19:54:21.398Z",
+  "status": "ISSUES_FOUND",
+  "issues": [
+    "Node.js version is outdated",
+    "Bevy version may be outdated"
+  ],
+  "recommendations": [
+    "Update to Node.js 25+ for best performance",
+    "Update to Bevy 0.14.0 for latest features"
+  ],
+  "versions": {
+    "timestamp": "2025-11-06T19:54:17.936Z",
+    "node": {
+      "required": ">=25.0.0",
+      "current": "v22.20.0",
+      "isUpToDate": false
+    },
+    "npm": {
+      "current": "10.9.3",
+      "isUpToDate": true
+    },
+    "pnpm": {
+      "current": "9.15.0",
+      "required": "9.15.0",
+      "isUpToDate": true
+    },
+    "turbo": {
+      "required": "^2.0.0",
+      "current": "^2.0.0"
+    },
+    "godot": {
+      "project": "2.0.0",
+      "features": "4.5",
+      "target": "4.5.0",
+      "isCorrect": true
+    },
+    "rust": {
+      "current": "rustc 1.91.0 (f8297e351 2025-10-28) (Homebrew)",
+      "target": "1.70.0+",
+      "isUpToDate": true
+    },
+    "bevy": {
+      "error": "ENOENT: no such file or directory, open './rust-engines/Cargo.toml'"
+    },
+    "platforms": {
+      "render": {
+        "exists": true,
+        "content": "services:\n  - type: web\n    name: cathedral-web\n    runtime: node\n    plan: free\n    buildCommand: |\n      curl -fsSL https://deb.nodesource.com/setup_25.x | sudo -E bash - && sudo apt-get install -y nodejs\n      npm install -g pnpm@9.15.0\n      pnpm install --frozen-lockfile\n      pnpm run build\n    startCommand: |\n      pnpm --filter @openspec/magnum-opus run preview\n    healthCheckPath: /\n    envVars:\n      - key: NODE_VERSION\n        value: \"25\"\n      - key: NPM_VERSION\n        value: \"10\"\n      - key: PNPM_VERSION\n        value: \"9.15.0\"\n      - key: NODE_ENV\n        value: production\n      - key: TURBO_VERSION\n        value: \"2.0.0\"\n      - key: PLATFORM\n        value: render\n    domains:\n      - cathedral-avalon-labs.onrender.com\n      - avalon-labs-cathedral.netlify.app\n      - cathedral-rosslyn-explorer.netlify.app\n\n  - type: web\n    name: cathedral-api\n    runtime: node\n    plan: free\n    buildCommand: |\n      curl -fsSL https://deb.nodesource.com/setup_25.x | sudo -E bash - && sudo apt-get install -y nodejs\n      npm install -g pnpm@9.15.0\n      pnpm install --frozen-lockfile\n      pnpm --filter apps/worker run build\n    startCommand: |\n      pnpm --filter apps/worker run start\n    envVars:\n      - key: NODE_VERSION\n        value: \"25\"\n      - key: NODE_ENV\n        value: production\n      - key: PLATFORM\n        value: render\n    domains:\n      - cathedral-api.onrender.com\n\n  - type: cron\n    name: cathedral-updater\n    schedule: \"0 */6 * * *\"\n    runtime: node\n    buildCommand: |\n      curl -fsSL https://deb.nodesource.com/setup_25.x | sudo -E bash - && sudo apt-get install -y nodejs\n      npm install -g pnpm@9.15.0\n      pnpm install --frozen-lockfile\n    startCommand: |\n      pnpm run cathedral-full-stack\n      pnpm run db-export\n    envVars:\n      - key: NODE_VERSION\n        value: \"25\"\n      - key: PLATFORM\n        value: render\n    region: oregon",
+        "isEmpty": false
+      },
+      "vercel": {
+        "exists": true,
+        "content": "{\n  \"framework\": \"nextjs\",\n  \"version\": 2,\n  \"buildCommand\": \"pnpm run build\",\n  \"outputDirectory\": \"apps/web/out\",\n  \"installCommand\": \"pnpm install --frozen-lockfile\",\n  \"devCommand\": \"pnpm run dev\",\n  \"env\": {\n    \"NODE_VERSION\": \"25\",\n    \"NPM_VERSION\": \"10\",\n    \"PNPM_VERSION\": \"9.15.0\",\n    \"TURBO_VERSION\": \"2.0.0\",\n    \"PLATFORM\": \"vercel\"\n  },\n  \"build\": {\n    \"env\": {\n      \"NODE_VERSION\": \"25\",\n      \"PLATFORM\": \"vercel\"\n    }\n  },\n  \"functions\": {\n    \"app/api/**/*.js\": {\n      \"runtime\": \"nodejs25.x\"\n    },\n    \"api/**/*.js\": {\n      \"runtime\": \"nodejs25.x\"\n    }\n  },\n  \"headers\": [\n    {\n      \"source\": \"/api/(.*)\",\n      \"headers\": [\n        {\n          \"key\": \"Cache-Control\",\n          \"value\": \"s-maxage=86400, stale-while-revalidate\"\n        }\n      ]\n    },\n    {\n      \"source\": \"/data/(.*)\",\n      \"headers\": [\n        {\n          \"key\": \"Cache-Control\",\n          \"value\": \"public, max-age=31536000, immutable\"\n        }\n      ]\n    }\n  ],\n  \"rewrites\": [\n    {\n      \"source\": \"/api/cathedral/(.*)\",\n      \"destination\": \"/api/cathedral/$1\"\n    }\n  ],\n  \"domains\": [\n    \"cathedral-avalon-labs.vercel.app\",\n    \"avalon-labs-cathedral.vercel.app\",\n    \"cathedral-rosslyn-explorer.vercel.app\"\n  ],\n  \"regions\": [\"iad1\", \"sfo1\"],\n  \"installCommand\": \"curl -fsSL https://get.pnpm.io/install.sh | sh - && export PATH=\\\"$HOME/.local/share/pnpm:$PATH\\\" && pnpm install --frozen-lockfile\"\n}",
+        "isEmpty": false
+      },
+      "cloudflare": {
+        "exists": true,
+        "content": "name = \"avalon-labs\"\ncompatibility_date = \"2024-12-01\"\nnode_compat = true\n\n[build]\ncommand = \"pnpm turbo run build --filter=apps/web\"\ncwd = \"../..\"\nwatch_dir = \".\"\n\n[build.upload]\nformat = \"modules\"\n\n[[build.upload.rules]]\ntype = \"ESModule\"\nglobs = [\"**/*.js\"]\n\n[[build.upload.rules]]\ntype = \"CommonJS\"\nglobs = [\"**/*.cjs\"]\n\n[vars]\nNODE_VERSION = \"25\"\nPLATFORM = \"cloudflare\"\nPNPM_VERSION = \"9.15.0\"\nTURBO_VERSION = \"2.0.0\"\n\n# Environment variables for production\n[env.production.vars]\nNODE_ENV = \"production\"\nNODE_VERSION = \"25\"\nPLATFORM = \"cloudflare\"\n\n# Cloudflare Pages Functions\n[functions]\ndirectory = \"functions/\"\n\n# KV storage for Cathedral data\n[[kv_namespaces]]\nbinding = \"CATHEDRAL_NODES\"\nid = \"cathedral_nodes_kv\"\npreview_id = \"cathedral_nodes_kv_preview\"\n\n# Durable Objects for real-time features\n[[durable_objects.bindings]]\nname = \"CATHEDRAL_ROOMS\"\nclass_name = \"CathedralRoom\"\n\n# Additional bindings for Cathedral features\n[[durable_objects.bindings]]\nname = \"GAMESTATE\"\nclass_name = \"GameState\"\n\n# Environment-specific configurations\n[env.staging.vars]\nNODE_ENV = \"staging\"\nPLATFORM = \"cloudflare-staging\"\n\n[env.development.vars]\nNODE_ENV = \"development\"\nPLATFORM = \"cloudflare-dev\"\n",
+        "nodeVersion": "25",
+        "needsUpdate": false
+      }
+    }
+  },
+  "nextSteps": [
+    "Update Node.js to v25 or later",
+    "Run version check again after updates",
+    "Execute cathedral-full-stack to generate content",
+    "Deploy to all platforms"
+  ]
+}

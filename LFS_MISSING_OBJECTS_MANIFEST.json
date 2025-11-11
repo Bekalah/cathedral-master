@@ -1,0 +1,41 @@
+{
+  "generated_at_iso": "2025-11-11T00:00:00Z",
+  "description": "Git LFS objects referenced by current branch but absent locally / not uploaded. No history rewrite performed. Provide originals or approve tombstone replacement.",
+  "policy": {
+    "next_action_required": "Recover originals (preferred) OR approve tombstone placeholders with spec note.",
+    "spec_gating": "Do not alter vertical slice contracts until assets resolved or formally deprecated via OpenSpec change.",
+    "merge_blocker": true
+  },
+  "objects": [
+    {
+      "path": "site/assets/img/black-madonna.png",
+      "sha256": "22be0fa5b54fe8093a3f20a45ed9ab2cae57edfe899fdc6b19669bafc364ca73",
+      "status": "missing"
+    },
+    {
+      "path": "real_skills/01_CERTIFICATIONS/REIKI/REIKI/White_Tara/White Tara Reiki Attunement AUDIO SherrySpeaks.mp3",
+      "sha256": "2e7634abd28b6ffdc1e15ccc3de35927e1fd72026e1fa8c2593eeb56d907dc9f",
+      "status": "missing"
+    },
+    {
+      "path": "real_skills/01_CERTIFICATIONS/TRAUMA_SOMATIC/1.png",
+      "sha256": "03d35550329b899c7d5c0b1644e7afb40e28f9f4f145caf4f893cf78fbef13a3",
+      "status": "missing"
+    },
+    {
+      "path": "real_skills/01_CERTIFICATIONS/TRAUMA_SOMATIC/Trauma informed cert.png",
+      "sha256": "65c22691af558a31edf4b0e0090ca839f5c94aa989f2d11a236de5dc3c339bee",
+      "status": "missing"
+    },
+    {
+      "path": "real_skills/01_CERTIFICATIONS/REIKI/REIKI/Raku_Ki_Reiki/RAKU Rei Master symbol.png",
+      "sha256": "2042285abd3a4166f37ce9111d6a6485be758c0416adc1b04d1f534c1d006192",
+      "status": "missing"
+    },
+    {
+      "path": "real_skills/01_CERTIFICATIONS/REIKI/REIKI/Raku_Ki_Reiki/RAKU KEI MAGNET PRAYER.png",
+      "sha256": "fdc1d8529b574778e228ace4efa5bf34bc311c05f3893f43774ae5097420f81d",
+      "status": "missing"
+    }
+  ]
+}

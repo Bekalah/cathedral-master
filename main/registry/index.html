@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cathedral Realm -- Stone Grimoire & Living Book</title>
+
+<link rel="stylesheet" href="/c99/css/perm-style.css" />
+<script src="/bridge/c99-bridge.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    C99Bridge.ndSafe();
+    const tokens = await C99Bridge.loadTokens('/c99/tokens/perm-style.json');
+    C99Bridge.applyCSSVars(tokens);
+    // Optional: fetch asset manifest to populate interactive book galleries/portals
+    const manifest = await C99Bridge.loadManifest('/bridge/c99-bridge.json');
+    // Now manifest.assets[] contains processed/webp/thumb paths for room portals, sigils, etc.
+  });
+</script>
+
+
+
+<h1>Cathedral Realm -- <span style="color:var(--gold)">Stone Grimoire</span> ✕ <span style="color:var(--rose)">Living Book</span></h1>
+<p class="note">Do what thou wilt shall be the whole of the Law. This master scroll binds the <em>two towers</em> and the <em>heaven stair</em> into one working: a 33‑chapter spine book for angel-dæmon reconciliation, IFS‑aware healing, and museum‑grade mystic art. Code/text here is public‑safe; keep oath‑bound materials private.</p>
+
+<div class="banner">
+  <div class="tower">
+    <h2>⬛ Tower I -- The Stone Grimoire <span class="badge">archive • standards</span></h2>
+    <p>Permanent canon: standards, charters, provenance, exhibition text. Treat every commit as carving in stone.</p>
+    <div class="hr"></div>
+    <div class="grid two">
+      <div>
+        <h3>Consecration Checklist</h3>
+        <label><input type="checkbox" id="ck-intent"> Intention clear/specific</label><br/>
+        <label><input type="checkbox" id="ck-tech"> Technique documented</label><br/>
+        <label><input type="checkbox" id="ck-lineage"> Lineage & licensing stated</label><br/>
+        <label><input type="checkbox" id="ck-ethics"> Ethics/consent/privacy reviewed</label><br/>
+        <small>Love is the law, love under will.</small>
+      </div>
+      <div>
+        <h3>Export / Import</h3>
+        <button class="btn" onclick="exportAll()">Export JSON</button>
+        <input type="file" id="importFile" accept="application/json" onchange="importAll(event)"/>
+        <small>Local backups of notes & progress (browser → JSON).</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="tower">
+    <h2>🜍 Tower II -- The Living Book <span class="badge">gnosis • practice</span></h2>
+    <p>Fluid practice: visions, drafts, rituals, IFS check‑ins. Breath feeds stone; stone gives form to breath.</p>
+    <div class="hr"></div>
+    <div class="grid two">
+      <div>
+        <h3>IFS Check‑in (private)</h3>
+        <div class="kv"><label>Self energy:</label> <select id="ifs-self">
+          <option>calm</option><option>curious</option><option>compassionate</option>
+          <option>connected</option><option>clear</option><option>creative</option>
+          <option>confident</option><option>courageous</option>
+        </select></div>
+        <div class="kv"><label>Parts present:</label> <input id="ifs-parts" placeholder="Manager, Firefighter, Exile…"></div>
+        <div class="kv"><label>Consent phrase:</label> <input id="ifs-consent" placeholder="All parts are welcome; no part is forced."></div>
+        <button class="btn" onclick="saveIFS()">Save Check‑in</button>
+        <small>Not therapy; get professional care for CPTSD. Pause if overwhelmed.</small>
+      </div>
+      <div>
+        <h3>Angels ✕ Dæmons (public‑safe)</h3>
+        <div class="kv"><label>Sphere/Theme:</label><input id="ad-sphere" placeholder="e.g., Mars / Conflict → Courage"></div>
+        <div class="kv"><label>Intelligence ↔ Spirit:</label><input id="ad-pair" placeholder="Fill from your lawful table (Agrippa II.xxii etc.)"></div>
+        <div class="kv"><label>Reconciliation aim:</label><input id="ad-aim" placeholder="From polarization to integrated virtue"></div>
+        <button class="btn" onclick="saveAD()">Save Pair</button>
+        <small>Record pairs here; keep sealed names/sigils private.</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="temple">
+    <h2>⛬ Temple Realm <span class="badge">mystic artists • traditions</span></h2>
+    <p>At the top of the stair: curated chapels for Hilma af Klint, Remedios Varo, Leonora Carrington, alchemists, Kabbalists, Thelemites (see also: one‑reed.org; oto‑usa.org).</p>
+    <div class="hr"></div>
+    <div class="grid two">
+      <div>
+        <h3>Featured Chapel</h3>
+        <select id="chapelPick" onchange="renderChapel()">
+          <option value="hilma">Hilma af Klint -- Spiral Temple</option>
+          <option value="varo">Remedios Varo -- Laboratory of Dreams</option>
+          <option value="carrington">Leonora Carrington -- Bestiary of Gnosis</option>
+          <option value="hermetic">Hermetic Qabalah -- Tree & Paths</option>
+          <option value="thelema">Thelema -- Love under Will</option>
+        </select>
+        <div id="chapel" style="margin-top:8px;"></div>
+      </div>
+      <div>
+        <h3>Curator's Note</h3>
+        <textarea id="curatorNote" placeholder="Why this chapel matters to your Work…"></textarea>
+        <button class="btn" onclick="saveCurator()">Save Note</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 style="margin-top:14px;">↟ Heaven Stair -- The 33‑Chapter Spine</h2>
+<p><small>Ten Sephiroth ↑, twenty‑two Paths →, and Da'ath (Knowledge) as the hidden 33rd. Cycle with the <strong>Spiral Code</strong>: Nigredo → Albedo → Citrinitas → Rubedo.</small></p>
+
+<div class="grid three" id="spine"></div>
+
+<hr/>
+<div class="grid two">
+  <div class="stair">
+    <h3>Spiral Code</h3>
+    <p>Each chapter is visited in <em>four passes</em>:</p>
+    <ol>
+      <li><b>Nigredo</b>: Gather fragments, name the wound/need, set clear intention.</li>
+      <li><b>Albedo</b>: Clean technique, sources, ethics; reduce to essence.</li>
+      <li><b>Citrinitas</b>: Innovate; fuse old+new (psycho‑magick, techno‑occult).</li>
+      <li><b>Rubedo</b>: Produce a finished artifact (text/art/code/rite), with provenance.</li>
+    </ol>
+    <button class="btn lapis" onclick="advanceStage()">Advance Stage</button>
+    <span id="stageBadge" class="badge">stage: nigredo</span>
+  </div>
+  <div class="stair">
+    <h3>Chapter Navigator</h3>
+    <div class="kv"><label>Current Chapter:</label>
+      <select id="chapterPick" onchange="openChapter()"></select>
+    </div>
+    <button class="btn" onclick="prevChapter()">◀ Prev</button>
+    <button class="btn" onclick="nextChapter()">Next ▶</button>
+    <small id="progressText"></small>
+  </div>
+</div>
+
+<hr/>
+<div class="grid two">
+  <div class="stair">
+    <h3>Safety & Ethics</h3>
+    <ul>
+      <li><span class="ok">Consent & containment:</span> public‑safe; oath‑bound stays private.</li>
+      <li><span class="ok">IFS‑aware:</span> parts are welcomed, never forced; slow down when flooded.</li>
+      <li><span class="warn">Legal:</span> use public‑domain or fair commentary; cite; avoid IP misuse.</li>
+      <li><span class="warn">Health:</span> not therapy; seek professional care for CPTSD; pause if dysregulated.</li>
+    </ul>
+  </div>
+  <div class="stair">
+    <h3>Licensing</h3>
+    <p>Code: MIT (or your choice). Text/art: © You unless stated; public‑domain sources cited. This page is a skeleton you can adapt.</p>
+  </div>
+</div>
+
+<footer>
+  <p>Love is the law, love under will. -- <em>Stone Grimoire × Living Book</em></p>
+</footer>
+</div>
+
+<script>
+// ---------- DATA: 33-chapter spine (10 Sephiroth + 22 Paths + Da'ath) ----------
+const SEPH = [
+  {id:1,  kind:'sephira',   name:'Malkuth',   theme:'Manifestation, body, ground'},
+  {id:2,  kind:'sephira',   name:'Yesod',     theme:'Imagination, pattern, dream'},
+  {id:3,  kind:'sephira',   name:'Hod',       theme:'Intellect, analysis, code'},
+  {id:4,  kind:'sephira',   name:'Netzach',   theme:'Art, desire, style'},
+  {id:5,  kind:'sephira',   name:'Tiphareth', theme:'Solar heart, coherence'},
+  {id:6,  kind:'sephira',   name:'Geburah',   theme:'Boundary, courage, severity'},
+  {id:7,  kind:'sephira',   name:'Chesed',    theme:'Mercy, expansion, patronage'},
+  {id:8,  kind:'sephira',   name:'Binah',     theme:'Understanding, form, vessel'},
+  {id:9,  kind:'sephira',   name:'Chokmah',   theme:'Wisdom, current, spark'},
+  {id:10, kind:'sephira',   name:'Kether',    theme:'Crown, unity, will'}
+];
+const PATHS = [
+  {ltr:'Aleph',  theme:'Breath, innocence'},    {ltr:'Beth',  theme:'House, magus'},
+  {ltr:'Gimel',  theme:'Camel, priestess'},     {ltr:'Daleth',theme:'Door, Venus'},
+  {ltr:'Heh',    theme:'Window, revelation'},   {ltr:'Vav',   theme:'Nail, bridge'},
+  {ltr:'Zayin',  theme:'Sword, twins'},         {ltr:'Cheth', theme:'Fence, chariot'},
+  {ltr:'Teth',   theme:'Serpent, strength'},    {ltr:'Yod',   theme:'Hand, hermit'},
+  {ltr:'Kaph',   theme:'Palm, fortune'},        {ltr:'Lamed', theme:'Goad, justice'},
+  {ltr:'Mem',    theme:'Water, hanged'},        {ltr:'Nun',   theme:'Fish, death'},
+  {ltr:'Samekh', theme:'Prop, temperance'},     {ltr:'Ayin',  theme:'Eye, devil'},
+  {ltr:'Peh',    theme:'Mouth, tower'},         {ltr:'Tzaddi',theme:'Fishhook, star'},
+  {ltr:'Qoph',   theme:'Back of head, moon'},   {ltr:'Resh',  theme:'Head, sun'},
+  {ltr:'Shin',   theme:'Tooth, judgement'},     {ltr:'Tav',   theme:'Mark, world'}
+].map((p,i)=>({id:11+i, kind:'path', name:p.ltr, theme:p.theme}));
+
+const DAATH = {id:33, kind:'daath', name:"Da'ath", theme:'Knowledge, crossing, abyss'};
+
+const SPINE = [...SEPH, ...PATHS, DAATH];
+
+// ---------- STAGES ----------
+const STAGES = ['nigredo','albedo','citrinitas','rubedo'];
+function getStage(){ return localStorage.getItem('stage') || 'nigredo'; }
+function setStage(s){ localStorage.setItem('stage', s); document.getElementById('stageBadge').textContent = 'stage: ' + s; }
+function advanceStage(){ const i = STAGES.indexOf(getStage()); setStage(STAGES[(i+1)%STAGES.length]); renderSpine(); }
+setStage(getStage());
+
+// ---------- RENDER SPINE ----------
+function stageClassFor(id){
+  const s = getStage();
+  if(s==='nigredo') return 'stage-nigredo';
+  if(s==='albedo') return 'stage-albedo';
+  if(s==='citrinitas') return 'stage-citrinitas';
+  return 'stage-rubedo';
+}
+function renderSpine(){
+  const el = document.getElementById('spine'); el.innerHTML='';
+  SPINE.forEach(item=>{
+    const div = document.createElement('div');
+    div.className = 'step '+stageClassFor(item.id);
+    div.innerHTML = `
+      <div class="num">${item.id}</div>
+      <div style="flex:1">
+        <b>${item.name}</b> <span class="tag">${item.kind}</span>
+        <div><small>${item.theme}</small></div>
+        <div class="grid two" style="margin-top:6px">
+          <div>
+            <label><small>Intention</small></label>
+            <input id="i-${item.id}" placeholder="What is willed here?" />
+            <label><small>Technique</small></label>
+            <input id="t-${item.id}" placeholder="Ritual/algorithm/medium" />
+          </div>
+          <div>
+            <label><small>Lineage</small></label>
+            <input id="l-${item.id}" placeholder="Sources (e.g., Agrippa, Soyga, one-reed)" />
+            <label><small>Evidence/Artifact</small></label>
+            <input id="e-${item.id}" placeholder="Link, file, note" />
+          </div>
+        </div>
+        <div style="margin-top:6px">
+          <label><small>Reflection (IFS-aware)</small></label>
+          <textarea id="r-${item.id}" placeholder="What shifted? Which parts? Anything to slow down?"></textarea>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px">
+          <button class="btn" onclick="saveChap(${item.id})">Save</button>
+          <button class="btn" onclick="openDetail(${item.id})">Open</button>
+          <small id="ok-${item.id}" class="ok"></small>
+        </div>
+      </div>`;
+    el.appendChild(div);
+    // restore if exists
+    ['i','t','l','e','r'].forEach(k=>{
+      const v = localStorage.getItem(`${k}-${item.id}`); if(v) document.getElementById(`${k}-${item.id}`).value = v;
+    });
+  });
+  // chapter picker
+  const pick = document.getElementById('chapterPick'); if(pick){
+    pick.innerHTML = SPINE.map(n=>`<option value="${n.id}">${n.id} -- ${n.name}</option>`).join('');
+    pick.value = localStorage.getItem('chapter') || 1;
+  }
+  updateProgress();
+}
+renderSpine();
+
+// ---------- SAVE / OPEN ----------
+function saveChap(id){
+  ['i','t','l','e','r'].forEach(k=>{
+    const el = document.getElementById(`${k}-${id}`);
+    localStorage.setItem(`${k}-${id}`, el.value||'');
+  });
+  document.getElementById(`ok-${id}`).textContent = 'saved ✓';
+  setTimeout(()=>{ document.getElementById(`ok-${id}`).textContent=''; }, 1200);
+}
+function openDetail(id){
+  localStorage.setItem('chapter', id);
+  document.getElementById('chapterPick').value = id;
+  window.scrollTo({top: document.getElementById(`i-${id}`).getBoundingClientRect().top + window.scrollY - 80, behavior:'smooth'});
+}
+function nextChapter(){ const curr = +document.getElementById('chapterPick').value; if(curr<33){ openDetail(curr+1);} }
+function prevChapter(){ const curr = +document.getElementById('chapterPick').value; if(curr>1){ openDetail(curr-1);} }
+function openChapter(){ openDetail(+document.getElementById('chapterPick').value); }
+
+// ---------- IFS + ANGEL/DAEMON ----------
+function saveIFS(){
+  localStorage.setItem('ifs-self', document.getElementById('ifs-self').value);
+  localStorage.setItem('ifs-parts', document.getElementById('ifs-parts').value);
+  localStorage.setItem('ifs-consent', document.getElementById('ifs-consent').value);
+  alert('IFS check-in saved locally.');
+}
+function restoreIFS(){
+  ['ifs-self','ifs-parts','ifs-consent'].forEach(id=>{
+    const v = localStorage.getItem(id); if(v) document.getElementById(id).value = v;
+  });
+}
+restoreIFS();
+
+function saveAD(){
+  localStorage.setItem('ad-sphere', document.getElementById('ad-sphere').value);
+  localStorage.setItem('ad-pair', document.getElementById('ad-pair').value);
+  localStorage.setItem('ad-aim', document.getElementById('ad-aim').value);
+  alert('Angel-dæmon entry saved locally.');
+}
+
+// ---------- CHAPELS ----------
+const CHAPELS = {
+  hilma: `<p><b>Hilma af Klint -- Spiral Temple</b><br><small>Build the spiral: concentric cycles of 3×11. Curate a series with palette (lapis/rose/gold), and a wall‑text on spiritual lineage (Theosophy, Anthroposophy) and your Thelemic synthesis.</small></p>`,
+  varo: `<p><b>Remedios Varo -- Laboratory of Dreams</b><br><small>Workshop vibe: instruments, alchemical glassware, cats. Document your <i>technique</i> like a lab book.</small></p>`,
+  carrington: `<p><b>Leonora Carrington -- Bestiary of Gnosis</b><br><small>Myth‑animals as parts (IFS). Paint or write a reconciliation tale.</small></p>`,
+  hermetic: `<p><b>Hermetic Qabalah -- Tree & Paths</b><br><small>Use the 10 Sephiroth + 22 Paths + Da'ath map as your curriculum. Cite public‑domain sources; see also one‑reed.org.</small></p>`,
+  thelema: `<p><b>Thelema -- Love under Will</b><br><small>Magick = intention + technique. Keep oath‑bound material private; rely on public sources like oto‑usa.org for organizational info.</small></p>`
+};
+function renderChapel(){
+  const k = document.getElementById('chapelPick').value;
+  document.getElementById('chapel').innerHTML = CHAPELS[k] || '';
+  const note = localStorage.getItem('curator-'+k) || '';
+  document.getElementById('curatorNote').value = note;
+}
+renderChapel();
+function saveCurator(){
+  const k = document.getElementById('chapelPick').value;
+  localStorage.setItem('curator-'+k, document.getElementById('curatorNote').value || '');
+  alert('Curator note saved.');
+}
+
+// ---------- CONSECRATION CHECKS (optional UX) ----------
+['ck-intent','ck-tech','ck-lineage','ck-ethics'].forEach(id=>{
+  const el = document.getElementById(id);
+  const key = 'cons-'+id;
+  el.checked = localStorage.getItem(key)==='1';
+  el.addEventListener('change', ()=> localStorage.setItem(key, el.checked?'1':'0'));
+});
+
+// ---------- PROGRESS ----------
+function updateProgress(){
+  let filled=0;
+  SPINE.forEach(n=>{
+    const i = localStorage.getItem(`i-${n.id}`)||'';
+    const e = localStorage.getItem(`e-${n.id}`)||'';
+    if(i.trim() && e.trim()) filled++;
+  });
+  document.getElementById('progressText').textContent = `Artifacts with intention+evidence: ${filled}/33`;
+}
+
+// ---------- EXPORT / IMPORT ----------
+function exportAll(){
+  const data = { stage:getStage(), fields:{}, ifs:{}, ad:{}, curators:{} };
+  ['i','t','l','e','r'].forEach(k=>{
+    SPINE.forEach(n=>{
+      const key = `${k}-${n.id}`; const v = localStorage.getItem(key); if(v) data.fields[key]=v;
+    });
+  });
+  ['ifs-self','ifs-parts','ifs-consent'].forEach(k=> data.ifs[k]=localStorage.getItem(k)||'');
+  ['ad-sphere','ad-pair','ad-aim'].forEach(k=> data.ad[k]=localStorage.getItem(k)||'');
+  Object.keys(CHAPELS).forEach(k=> data.curators[k]=localStorage.getItem('curator-'+k)||'');
+  const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href=url; a.download='cathedral_realm_backup.json'; a.click();
+  URL.revokeObjectURL(url);
+}
+function importAll(ev){
+  const f = ev.target.files[0]; if(!f) return;
+  const reader = new FileReader();
+  reader.onload = ()=> {
+    try {
+      const data = JSON.parse(reader.result);
+      if(data.stage) setStage(data.stage);
+      Object.entries(data.fields||{}).forEach(([k,v])=> localStorage.setItem(k,v));
+      Object.entries(data.ifs||{}).forEach(([k,v])=> localStorage.setItem(k,v));
+      Object.entries(data.ad||{}).forEach(([k,v])=> localStorage.setItem(k,v));
+      Object.entries(data.curators||{}).forEach(([k,v])=> localStorage.setItem('curator-'+k,v));
+      renderSpine(); renderChapel(); alert('Import complete.');
+    } catch(e){ alert('Import failed: '+e.message); }
+  };
+  reader.readAsText(f);
+}
+</script>
+</body>
+</html>
