@@ -1,0 +1,11 @@
+{
+  "id": "00-prologue-violet-library",
+  "title": "Prologue: Violet Library",
+  "text": "In the quiet library, a fox-satyr whisper beckons toward the trees.",
+  "choices": [
+    {
+      "label": "Follow the whisper into the trees",
+      "effects": [{"unlock_scene": "02-forest-trial-zidaryen"}]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "why": "Quest seeds align with the four renderer layers so visitors can study the cosmology without breaking existing canon.",
+  "quests": [
+    {
+      "id": "vesica-field-tuning",
+      "title": "Vesica Field Tuning",
+      "layer": "vesica",
+      "numerology": [3, 33, 99],
+      "summary": "Meditative walk through the vesica lattice to balance twin currents before deeper study.",
+      "objectives": [
+        "Locate the shared center of the vesica grid and anchor breath for three steady counts.",
+        "Follow three rings outward, counting thirty three intersections without haste.",
+        "Record ninety nine quiet impressions in the lore log to map resonance."
+      ]
+    },
+    {
+      "id": "tree-bridge-cartography",
+      "title": "Tree Bridge Cartography",
+      "layer": "tree-of-life",
+      "numerology": [7, 22],
+      "summary": "Chart the ten nodes and twenty two paths to confirm alignment with the cathedral routes.",
+      "objectives": [
+        "Mark seven safe resting nodes where visitors can pause without sensory strain.",
+        "Trace twenty two connective paths with charcoal, noting any broken lines for repair.",
+        "Document why each bridge remains ND-safe in the shared maintenance register."
+      ]
+    },
+    {
+      "id": "fibonacci-breath-mapping",
+      "title": "Fibonacci Breath Mapping",
+      "layer": "fibonacci",
+      "numerology": [9, 11, 144],
+      "summary": "Synchronize spiral pacing with breath so the growth arc stays grounded and calm.",
+      "objectives": [
+        "Step nine segments along the spiral, inhaling on each turn to prevent overwhelm.",
+        "Hold a gentle count of eleven at the curve apex while observing color contrast.",
+        "Complete one hundred forty four silent steps back to center, logging sensations for future caretakers."
+      ]
+    },
+    {
+      "id": "helix-lattice-grounding",
+      "title": "Helix Lattice Grounding",
+      "layer": "double-helix",
+      "numerology": [7, 11, 22],
+      "summary": "Stabilize the paired strands so the lattice remains static and ND-safe for visitors.",
+      "objectives": [
+        "Check seven crosslinks for stress fractures and note repairs in the body ledger.",
+        "Chant eleven grounding tones while tracing each strand with the palm of the hand.",
+        "Seal twenty two rung joints with quiet resin, explaining the method for the next steward."
+      ]
+    }
+  ]
+}

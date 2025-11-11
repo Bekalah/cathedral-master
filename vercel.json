@@ -1,0 +1,47 @@
+{
+  "name": "cathedral-real-vercel",
+  "version": 2,
+  "builds": [
+    {
+      "src": "apps/web/package.json",
+      "use": "@vercel/next"
+    },
+    {
+      "src": "apps/cathedral-professional-design-suite/package.json",
+      "use": "@vercel/static-build"
+    },
+    {
+      "src": "apps/circuitum99/package.json",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/web/(.*)",
+      "dest": "apps/web/$1"
+    },
+    {
+      "src": "/circuitum99/(.*)",
+      "dest": "apps/circuitum99/$1"
+    },
+    {
+      "src": "/design-suite/(.*)",
+      "dest": "apps/cathedral-professional-design-suite/$1"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "apps/web/api/$1"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_CATHEDRAL_REAL": "true",
+    "NEXT_PUBLIC_CIRCUITUM99": "true",
+    "NODE_ENV": "production"
+  },
+  "regions": ["iad1"],
+  "functions": {
+    "apps/web/api/**/*.js": {
+      "maxDuration": 30
+    }
+  }
+}

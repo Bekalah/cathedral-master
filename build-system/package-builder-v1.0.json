@@ -1,0 +1,30 @@
+{
+  "name": "@cathedral/package-builder-v1.0",
+  "version": "1.0.0",
+  "description": "Real package building system for Cathedral v1.0 - turbo openspec",
+  "main": "dist/package-builder.js",
+  "type": "module",
+  "scripts": {
+    "build:all": "node dist/package-builder.js build all",
+    "build:packages": "node dist/package-builder.js build packages", 
+    "build:engines": "node dist/package-builder.js build engines",
+    "build:apps": "node dist/package-builder.js build apps",
+    "build:godot": "node dist/package-builder.js build godot",
+    "verify:builds": "node dist/package-builder.js verify",
+    "deploy:render": "node dist/package-builder.js deploy render",
+    "deploy:vercel": "node dist/package-builder.js deploy vercel"
+  },
+  "dependencies": {
+    "turbo": "^2.6.0",
+    "esbuild": "^0.21.0",
+    "@types/node": "^20.17.0"
+  },
+  "cathedral": {
+    "version": "1.0.0",
+    "naming": {
+      "branches": ["v1_main", "v1_master", "master-cathedral"],
+      "packages": ["@cathedral/core-v1.0", "@cathedral/engines-v1.0", "@cathedral/apps-v1.0"]
+    },
+    "turbo_openspec": "v1.0"
+  }
+}

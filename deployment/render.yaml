@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: cathedral-web
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: pnpm install && pnpm run build
+    startCommand: pnpm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "25.0.0"
+      - key: PNPM_VERSION
+        value: "9.15.0"
+      - key: NEXTAUTH_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cathedral-db
+          property: connectionString
+
+databases:
+  - name: cathedral-db
+    databaseName: cathedral
+    user: cathedral
+    plan: free

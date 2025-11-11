@@ -1,0 +1,92 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [
+        "dist/**",
+        "build/**",
+        ".next/**",
+        "*.tsbuildinfo"
+      ],
+      "env": [
+        "NODE_ENV",
+        "DATABASE_URL",
+        "CIRCUITUM99_URL"
+      ]
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "outputs": []
+    },
+    "lint": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "start": {
+      "cache": false,
+      "dependsOn": ["build"]
+    },
+    "type-check": {
+      "dependsOn": ["^type-check"],
+      "outputs": []
+    },
+    "clean": {
+      "cache": false
+    },
+    "clean-install": {
+      "cache": false
+    },
+    "install": {
+      "cache": false
+    },
+    "validate": {
+      "dependsOn": ["^validate"],
+      "outputs": []
+    },
+    "deploy": {
+      "dependsOn": ["build", "test", "validate"],
+      "outputs": []
+    },
+    "arcana-sync": {
+      "cache": false,
+      "dependsOn": ["build"]
+    },
+    "unified-engine": {
+      "cache": false,
+      "dependsOn": ["build"]
+    },
+    "mystical-synthesis": {
+      "cache": false,
+      "dependsOn": ["build"],
+      "outputs": [
+        "dist/mystical/**",
+        "dist/frequencies/**",
+        "dist/synthesis/**"
+      ]
+    }
+  },
+  "globalDependencies": [
+    "**/.env*local",
+    "**/.env*.local"
+  ],
+  "globalEnv": [
+    "NODE_ENV",
+    "PNPM_VERSION",
+    "NODE_VERSION",
+    "TURBO_CACHE_DIR"
+  ],
+  "globalPassThroughEnv": [
+    "DATABASE_URL",
+    "CIRCUITUM99_URL",
+    "MCP_DATASET_PATH",
+    "ARCANA_CONFIG_PATH"
+  ],
+  "remoteCache": {
+    "enabled": false
+  }
+}

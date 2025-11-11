@@ -1,0 +1,29 @@
+# Cathedral History Rewrite Plan (DRAFT - DO NOT EXECUTE WITHOUT APPROVAL)
+# Classification: creator_suite_extended
+# This plan removes phantom/missing LFS assets that never formed part of canonical vertical slice contracts.
+# STEPS (dry run recommended first):
+# 1. Create a fresh clone (bare or mirror):
+#      git clone --mirror <repo-url> cathedral-rewrite.git
+#      cd cathedral-rewrite.git
+# 2. Save backup refs:
+#      git branch --all > ../backup_branch_list.txt
+# 3. Run git filter-repo (requires installation) to remove paths:
+#      git filter-repo --path site/assets/img/black-madonna.png \
+#                      --path "real_skills/01_CERTIFICATIONS/REIKI/REIKI/White_Tara/White Tara Reiki Attunement AUDIO SherrySpeaks.mp3" \
+#                      --path real_skills/01_CERTIFICATIONS/TRAUMA_SOMATIC/1.png \
+#                      --path "real_skills/01_CERTIFICATIONS/TRAUMA_SOMATIC/Trauma informed cert.png" \
+#                      --path "real_skills/01_CERTIFICATIONS/REIKI/REIKI/Raku_Ki_Reiki/RAKU Rei Master symbol.png" \
+#                      --path "real_skills/01_CERTIFICATIONS/REIKI/REIKI/Raku_Ki_Reiki/RAKU KEI MAGNET PRAYER.png" \
+#                      --force
+# 4. Push rewritten history to a NEW temporary remote (never force to production directly):
+#      git remote add test_rewrite <new-empty-repo-url>
+#      git push --mirror test_rewrite
+# 5. Run vertical slice validators against the rewritten repository clone:
+#      pnpm --filter main test:vertical-slice-all
+# 6. OpenSpec change proposal documenting removal rationale referencing LFS_MISSING_OBJECTS_MANIFEST.json.
+# 7. Upon approval, coordinate a scheduled window to force-update production remote (if approved) or adopt rewritten repo as new canonical base.
+# 8. Notify all collaborators to re-clone; old clones will have dangling references.
+# SAFETY:
+# - Never run filter-repo inside active working directory without full backups.
+# - Validate that no canonical vertical slice files were altered.
+# - Preserve commit messages unrelated to phantom assets.

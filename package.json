@@ -1,0 +1,78 @@
+{
+  "name": "cathedral-monorepo",
+  "version": "2.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.20.0",
+  "description": "Cathedral Professional Design Suite - Complete Adobe/Figma Replacement with Codex 144:99 Integration",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "tools/*",
+    "docs/*"
+  ],
+  "scripts": {
+    "dev:design-suite": "cd apps/cathedral-professional-design-suite && npm run dev",
+    "build:design-suite": "cd apps/cathedral-professional-design-suite && npm run build",
+    "build:web": "cd apps/web && npm run build",
+    "build:all": "npm run build:design-suite && npm run build:web",
+    "test": "npm run test:database && npm run test:integration",
+    "test:database": "node scripts/init-database.js",
+    "test:codex": "node -e \"console.log('Codex 144:99:', require('./packages/codex-144-99').spiralEngine?.describe() || 'Loading...')\"",
+    "test:integration": "npx vitest run tests/design-suite.test.js --reporter=verbose",
+    "test:vertical-slice-ids": "node ./tests/integration/vertical_slice_ids.runner.mjs",
+    "deploy:design-suite": "cd apps/cathedral-professional-design-suite && npm run build && npm run deploy",
+    "deploy:all": "npm run build:all && npm run test && npm run deploy:design-suite",
+    "start:dev": "./scripts/deploy-local.sh dev",
+    "setup": "./scripts/deploy-local.sh install",
+    "database": "node scripts/init-database.js",
+    "lint": "eslint . --ext .js,.ts,.jsx,.tsx",
+    "format": "prettier --write .",
+    "clean": "rm -rf node_modules && rm -rf apps/*/node_modules && rm -rf packages/*/node_modules",
+    "clean:build": "rm -rf apps/*/dist && rm -rf packages/*/dist",
+    "deploy:init": "node lib/cathedral-deployment-cli.js init",
+    "deploy:complete": "node lib/cathedral-deployment-cli.js deploy",
+    "deploy:validate": "node lib/cathedral-deployment-cli.js validate",
+    "deploy:status": "node lib/cathedral-deployment-cli.js status",
+    "deploy:monitor": "node lib/cathedral-deployment-cli.js monitor",
+    "arcana:status": "node lib/cathedral-deployment-cli.js arcana status",
+    "arcana:sync": "node lib/cathedral-deployment-cli.js arcana sync",
+    "unified:demonstrate": "node lib/cathedral-deployment-cli.js unified demonstrate",
+    "unified:create": "node lib/cathedral-deployment-cli.js unified create",
+    "errors:list": "node lib/cathedral-deployment-cli.js errors list",
+    "config:show": "node lib/cathedral-deployment-cli.js config show",
+    "config:update": "node lib/cathedral-deployment-cli.js config update"
+  },
+  "devDependencies": {
+    "vitest": "^1.0.0",
+    "@vitest/ui": "^1.0.0",
+    "eslint": "^8.50.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=25.0.0",
+    "pnpm": ">=10.20.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bekalah/cathedral"
+  },
+  "keywords": [
+    "design",
+    "professional",
+    "adobe",
+    "figma",
+    "open-source",
+    "codex-144-99",
+    "sacred-geometry",
+    "nodejs",
+    "sqlite",
+    "theosophical"
+  ],
+  "author": "Rebecca Respawn (International Reiki Master)",
+  "license": "CC0-1.0",
+  "homepage": "https://bekalah.github.io/cathedral",
+  "bugs": {
+    "url": "https://github.com/bekalah/cathedral/issues"
+  }
+}
