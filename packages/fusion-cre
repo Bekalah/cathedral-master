@@ -1,0 +1,654 @@
+/**
+ * 🎨 Cathedral Fusion Creative Suite - Core TypeScript Interfaces  
+ * Professional Adobe/Figma replacement with Fusion Kink integration
+ * DaVinci-Quality Tools: Merkaba Builder, Custom Art Engine, Daimon Settings
+ */
+
+export type Persona = 'arcana_character' | 'divine_light' | 'infernal_shadow' | 'harmony_balance' | 'frequency_reactive';
+
+// ============================================================================
+// CORE ENUMS AND TYPES
+// ============================================================================
+
+export enum ArcanaType {
+  THEMELA_FOOL = 0,      // The Fool - Liberation (396 Hz)
+  MAGICIAN = 1,          // Transformation & Miracles (528 Hz)
+  HIGH_PRIESTESS = 2,    // Spiritual Order (852 Hz)
+  EMPRESS = 3,           // Connection & Relationships (639 Hz)
+  EMPEROR = 4,           // Undo Situations & Change (417 Hz)
+  HIEROPHANT = 5,        // Awakening Intuition (741 Hz)
+  LOVERS = 6,            // Connection (639 Hz)
+  CHARIOT = 7,           // Transformation (528 Hz)
+  STRENGTH = 8,          // Liberation (396 Hz)
+  HERMIT = 9,            // Spiritual (852 Hz)
+  WHEEL_OF_FORTUNE = 10, // Divine Consciousness (963 Hz)
+  JUSTICE = 11,          // Intuition (741 Hz)
+  HANGED_ONE = 12,       // Change (417 Hz)
+  DEATH = 13,            // Liberation through transformation (396 Hz)
+  TEMPERANCE = 14,       // Balance and harmony (639 Hz)
+  DEVIL = 15,            // Shadow liberation (396 Hz)
+  TOWER = 16,            // Sudden change (417 Hz)
+  STAR = 17,             // Hope and spiritual connection (852 Hz)
+  MOON = 18,             // Intuition and subconscious (741 Hz)
+  SUN = 19,              // Vitality and transformation (528 Hz)
+  JUDGEMENT = 20,        // Higher calling (963 Hz)
+  WORLD = 21             // Completion and unity (963 Hz)
+}
+
+export enum FusionKinkMode {
+  DIVINE_LIGHT = 'divine_light',
+  INFERNAL_SHADOW = 'infernal_shadow',
+  HARMONY_BALANCE = 'harmony_balance',
+  SACRED_GEOMETRY = 'sacred_geometry',
+  HEALING_FREQUENCY = 'healing_frequency'
+}
+
+export enum CreativeToolQuality {
+  STUDENT = 'student',
+  ARTIST = 'artist',
+  PROFESSIONAL = 'professional',
+  ATELIER_MASTER = 'atelier_master',
+  DAVINCI_GRADE = 'davinci_grade'
+}
+
+export enum RenderingEngine {
+  RASTER_2D = 'raster_2d',
+  VECTOR_INFINITE = 'vector_infinite',
+  MERKABA_3D = 'merkaba_3d',
+  SACRED_GEOMETRY = 'sacred_geometry',
+  FREQUENCY_VISUAL = 'frequency_visual',
+  FUSION_HYBRID = 'fusion_hybrid'
+}
+
+export enum BrushType {
+  ROUND = 'round',
+  FLAT = 'flat',
+  FILBERT = 'filbert',
+  FAN = 'fan',
+  RIGGER = 'rigger',
+  LIVER = 'liver',
+  DAGGER = 'dagger',
+  ANGLED = 'angled'
+}
+
+export enum BrushDynamics {
+  PRESSURE_OPACITY = 'pressure_opacity',
+  PRESSURE_SIZE = 'pressure_size',
+  VELOCITY_SIZE = 'velocity_size',
+  TILT_ANGLE = 'tilt_angle',
+  ROTATION = 'rotation',
+  JITTER = 'jitter',
+  SCATTER = 'scatter'
+}
+
+export enum SacredGeometryPattern {
+  FLOWER_OF_LIFE = 'flower_of_life',
+  METATRON_CUBE = 'metatron_cube',
+  MERKABA = 'merkaba',
+  FIBONACCI_SPIRAL = 'fibonacci_spiral',
+  GOLDEN_RATIO = 'golden_ratio',
+  PENTAGRAM = 'pentagram',
+  HEXAGRAM = 'hexagram',
+  TORUS = 'torus',
+  FRACTAL_TREE = 'fractal_tree'
+}
+
+// ============================================================================
+// COLOR AND FREQUENCY SYSTEMS
+// ============================================================================
+
+export interface RGB {
+  r: number; // 0-1
+  g: number; // 0-1
+  b: number; // 0-1
+}
+
+export interface ColorPalette {
+  primary: RGB;
+  secondary: RGB;
+  tertiary: RGB;
+  aura: RGB;
+  divine: RGB;
+  infernal: RGB;
+  harmony: RGB;
+}
+
+export interface FrequencyRange {
+  min: number;
+  max: number;
+  base: number;
+  harmonic: number[];
+}
+
+export interface SolfeggioFrequency {
+  frequency: number;
+  meaning: string;
+  healingProperties: string[];
+  arcanaMapping: ArcanaType[];
+}
+
+// ============================================================================
+// DAIMON CHARACTER SYSTEM
+// ============================================================================
+
+export interface DaimonSettings {
+  id: string;
+  arcanaType: ArcanaType;
+  characterName: string;
+  frequencySignature: number; // Solfeggio frequency
+  divineAffinity: number; // 0.0 to 1.0
+  infernalAffinity: number; // 0.0 to 1.0
+  harmonyBalance: number; // Calculated from divine/infernal
+  
+  // Visual customization
+  primaryColor: RGB;
+  secondaryColor: RGB;
+  auraColor: RGB;
+  geometryPattern: SacredGeometryPattern;
+  
+  // Fusion Kink settings
+  fusionMode: FusionKinkMode;
+  fusionUnlocks: string[];
+  
+  // Tool preferences
+  preferredBrushes: string[];
+  preferredRendering: RenderingEngine;
+  customShortcuts: Record<string, string>;
+  
+  // Merkaba configuration
+  merkabaRotationSpeed: number;
+  merkabaDivineClockwise: boolean;
+  merkabaInfernalCounterclockwise: boolean;
+  
+  // Audio-reactive settings
+  frequencyResponse: number;
+  colorPhase: number;
+  
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+// Arcana frequency mappings (Solfeggio scale)
+export const ARCANA_FREQUENCIES: Record<ArcanaType, number> = {
+  [ArcanaType.THEMELA_FOOL]: 396.0,      // Liberation from Fear
+  [ArcanaType.MAGICIAN]: 528.0,          // Transformation & Miracles
+  [ArcanaType.HIGH_PRIESTESS]: 852.0,    // Spiritual Order
+  [ArcanaType.EMPRESS]: 639.0,           // Connection & Relationships
+  [ArcanaType.EMPEROR]: 417.0,           // Undo Situations & Change
+  [ArcanaType.HIEROPHANT]: 741.0,        // Awakening Intuition
+  [ArcanaType.LOVERS]: 639.0,            // Connection (shared with Empress)
+  [ArcanaType.CHARIOT]: 528.0,           // Transformation (shared with Magician)
+  [ArcanaType.STRENGTH]: 396.0,          // Liberation (shared with Themela)
+  [ArcanaType.HERMIT]: 852.0,            // Spiritual (shared with High Priestess)
+  [ArcanaType.WHEEL_OF_FORTUNE]: 963.0,  // Divine Consciousness
+  [ArcanaType.JUSTICE]: 741.0,           // Intuition (shared with Hierophant)
+  [ArcanaType.HANGED_ONE]: 417.0,        // Change (shared with Emperor)
+  [ArcanaType.DEATH]: 396.0,             // Liberation through transformation
+  [ArcanaType.TEMPERANCE]: 639.0,        // Balance and harmony
+  [ArcanaType.DEVIL]: 396.0,             // Shadow liberation
+  [ArcanaType.TOWER]: 417.0,             // Sudden change
+  [ArcanaType.STAR]: 852.0,              // Hope and spiritual connection
+  [ArcanaType.MOON]: 741.0,              // Intuition and subconscious
+  [ArcanaType.SUN]: 528.0,               // Vitality and transformation
+  [ArcanaType.JUDGEMENT]: 963.0,         // Higher calling
+  [ArcanaType.WORLD]: 963.0              // Completion and unity
+};
+
+// ============================================================================
+// MERKABA 3D SACRED GEOMETRY ENGINE
+// ============================================================================
+
+export interface MerkabaConfiguration {
+  size: number;
+  divineRotationSpeed: number; // Clockwise
+  infernalRotationSpeed: number; // Counter-clockwise
+  
+  // Vertex positions for two interlocking tetrahedrons
+  divineVertices: Vector3D[];
+  infernalVertices: Vector3D[];
+  
+  // Visual properties
+  divineColor: RGB;
+  infernalColor: RGB;
+  edgeThickness: number;
+  glowIntensity: number;
+  wireframe: boolean;
+  transparent: boolean;
+  
+  // Sacred geometry ratios
+  goldenRatio: number; // 1.618033988749
+  phiSquared: number; // 2.618033988749
+  
+  // Animation settings
+  rotationEnabled: boolean;
+  pulseEnabled: boolean;
+  frequencySync: boolean;
+}
+
+export interface Vector3D {
+  x: number;
+  y: number;
+  z: number;
+}
+
+export interface MerkabaAnimation {
+  frame: number;
+  time: number;
+  divineRotation: number;
+  infernalRotation: number;
+  divineVertices: Vector3D[];
+  infernalVertices: Vector3D[];
+  colorTransition: RGB[];
+}
+
+export interface MerkabaExport {
+  vertices: {
+    divine: Vector3D[];
+    infernal: Vector3D[];
+  };
+  faces: number[][];
+  colors: {
+    divine: RGB;
+    infernal: RGB;
+  };
+  animations: MerkabaAnimation[];
+  metadata: {
+    goldenRatio: number;
+    frequency: number;
+    harmony: number;
+  };
+}
+
+// ============================================================================
+// PROFESSIONAL BRUSH ENGINE
+// ============================================================================
+
+export interface FusionBrush {
+  id: string;
+  name: string;
+  brushType: BrushType;
+  
+  // Core properties
+  size: number; // pixels
+  opacity: number; // 0.0 to 1.0
+  flow: number; // 0.0 to 1.0
+  hardness: number; // 0.0 (soft) to 1.0 (hard)
+  spacing: number; // 0.0 to 1.0
+  
+  // Advanced dynamics
+  dynamics: Record<BrushDynamics, number>;
+  
+  // Texture and pattern
+  textureId?: string;
+  patternRotation: number;
+  textureBlend: 'normal' | 'multiply' | 'screen' | 'overlay';
+  
+  // Fusion Kink properties
+  divineLightResponse: number; // How brush responds to divine
+  infernalShadowResponse: number; // How brush responds to infernal
+  frequencyModulation: number; // Audio frequency affects brush
+  
+  // Color properties
+  colorJitter: number;
+  hueJitter: number;
+  saturationJitter: number;
+  lightnessJitter: number;
+  
+  // Pressure sensitivity
+  pressureCurve: 'linear' | 'ease_in' | 'ease_out' | 'ease_in_out';
+  tiltSensitivity: number;
+  velocitySensitivity: number;
+}
+
+export interface BrushStroke {
+  points: Vector2D[];
+  pressures: number[];
+  tilts: Vector2D[];
+  velocities: number[];
+  timestamps: number[];
+  color: RGB;
+  blendMode: BlendMode;
+  fusionInfluence: number; // -1.0 to 1.0
+  frequencyModulation: number;
+}
+
+export interface Vector2D {
+  x: number;
+  y: number;
+}
+
+export enum BlendMode {
+  NORMAL = 'normal',
+  MULTIPLY = 'multiply',
+  SCREEN = 'screen',
+  OVERLAY = 'overlay',
+  SOFT_LIGHT = 'soft_light',
+  HARD_LIGHT = 'hard_light',
+  COLOR_DODGE = 'color_dodge',
+  COLOR_BURN = 'color_burn',
+  DIFFERENCE = 'difference',
+  EXCLUSION = 'exclusion'
+}
+
+// ============================================================================
+// VECTOR GRAPHICS ENGINE
+// ============================================================================
+
+export interface VectorPath {
+  id: string;
+  points: Vector2D[]; // Control points
+  handlesIn: Vector2D[]; // Incoming handles
+  handlesOut: Vector2D[]; // Outgoing handles
+  closed: boolean;
+  
+  // Style properties
+  strokeColor?: RGB;
+  strokeWidth: number;
+  fillColor?: RGB;
+  strokeOpacity: number;
+  fillOpacity: number;
+  
+  // Sacred geometry metadata
+  geometryType?: SacredGeometryPattern;
+  goldenRatioAligned: boolean;
+  fibonacciSequence?: number[];
+  proportions: number[]; // Sacred ratio measurements
+}
+
+export interface BezierCurve {
+  startPoint: Vector2D;
+  startHandle: Vector2D;
+  endPoint: Vector2D;
+  endHandle: Vector2D;
+  type: 'cubic' | 'quadratic';
+}
+
+export interface SacredGeometryData {
+  pattern: SacredGeometryPattern;
+  centerPoint: Vector2D;
+  radius: number;
+  iterations: number;
+  angles: number[];
+  proportions: number[];
+  frequencies: number[];
+  harmonicRatios: number[];
+}
+
+// ============================================================================
+// FREQUENCY VISUALIZER - AUDIO-REACTIVE ART
+// ============================================================================
+
+export interface FrequencyVisualizer {
+  currentFrequency: number; // A4 default: 440.0 Hz
+  amplitude: number;
+  visualizationMode: 'waveform' | 'spectrum' | '3d' | 'sacred_geometry';
+  colorPhase: number;
+  brightness: number;
+  
+  // FFT Analysis
+  frequencyBins: number[];
+  magnitude: number[];
+  phase: number[];
+  
+  // Visualization settings
+  sensitivity: number;
+  smoothing: number;
+  colorMapping: 'rainbow' | 'solfeggio' | 'arcana' | 'chakra' | 'custom';
+  geometrySync: boolean;
+  frequencyMultiplier: number;
+}
+
+export interface WaveformData {
+  samples: number[];
+  sampleRate: number;
+  duration: number;
+  frequency: number;
+  amplitude: number;
+  phase: number;
+}
+
+export interface SpectrumData {
+  frequencies: number[];
+  magnitudes: number[];
+  peaks: FrequencyPeak[];
+  harmonicSeries: Harmonic[];
+}
+
+export interface FrequencyPeak {
+  frequency: number;
+  magnitude: number;
+  width: number;
+  quality: number; // Q factor
+}
+
+export interface Harmonic {
+  order: number;
+  frequency: number;
+  amplitude: number;
+  phase: number;
+  relativeIntensity: number;
+}
+
+// ============================================================================
+// PROFESSIONAL CANVAS SYSTEM
+// ============================================================================
+
+export interface CanvasConfiguration {
+  width: number;
+  height: number;
+  pixelRatio: number;
+  bitDepth: 8 | 16 | 32;
+  colorSpace: 'sRGB' | 'Adobe RGB' | 'ProPhoto RGB' | 'DCI-P3';
+  compressionLevel: number;
+  
+  // Canvas properties
+  backgroundColor: RGB;
+  antiAliasing: boolean;
+  highPrecision: boolean;
+  
+  // Performance settings
+  layersMax: number;
+  historyLimit: number;
+  autoSave: boolean;
+  saveInterval: number; // seconds
+}
+
+export interface CanvasLayer {
+  id: string;
+  name: string;
+  opacity: number;
+  blendMode: BlendMode;
+  visible: boolean;
+  locked: boolean;
+  masks: CanvasMask[];
+  effects: CanvasEffect[];
+  renderData: ImageData;
+}
+
+export interface CanvasMask {
+  id: string;
+  type: 'pixel' | 'vector' | 'alpha';
+  data: Uint8Array | VectorPath[];
+  inverted: boolean;
+}
+
+export interface CanvasEffect {
+  id: string;
+  type: 'blur' | 'sharpen' | 'color_adjust' | 'distort' | 'artistic';
+  parameters: Record<string, number | string | RGB>;
+  blendMode: BlendMode;
+  opacity: number;
+}
+
+// ============================================================================
+// GODOT EXPORT SYSTEM
+// ============================================================================
+
+export interface GodotExport {
+  daimonSettings: {
+    arcana: number;
+    characterName: string;
+    frequency: number;
+    divineAffinity: number;
+    infernalAffinity: number;
+    primaryColor: RGB;
+    secondaryColor: RGB;
+    auraColor: RGB;
+  };
+  
+  merkabaConfig: {
+    size: number;
+    divineRotationSpeed: number;
+    infernalRotationSpeed: number;
+    divineColor: RGB;
+    infernalColor: RGB;
+  };
+  
+  brushes: Record<string, {
+    name: string;
+    size: number;
+    opacity: number;
+    hardness: number;
+    dynamics: Record<BrushDynamics, number>;
+  }>;
+  
+  fusionMode: string;
+  sceneData: GodotSceneData;
+}
+
+export interface GodotSceneData {
+  nodes: GodotNode[];
+  resources: GodotResource[];
+  externalResources: GodotExternalResource[];
+  connections: GodotConnection[];
+}
+
+export interface GodotNode {
+  name: string;
+  type: string;
+  parent: string;
+  scripts: string[];
+  properties: Record<string, any>;
+  children: GodotNode[];
+}
+
+export interface GodotResource {
+  id: string;
+  type: string;
+  path: string;
+  data: Record<string, any>;
+}
+
+export interface GodotExternalResource {
+  type: string;
+  path: string;
+  id: number;
+}
+
+export interface GodotConnection {
+  source: string;
+  signal: string;
+  target: string;
+  method: string;
+  flags: number;
+}
+
+// ============================================================================
+// TRAUMA SAFETY AND ACCESSIBILITY
+// ============================================================================
+
+export interface TraumaSafeConfig {
+  emergencyExits: boolean;
+  motionReduction: boolean;
+  processingTime: number; // milliseconds
+  gentleDefaults: boolean;
+  sensoryControls: {
+    sound: 'full' | 'reduced' | 'none';
+    motion: 'full' | 'reduced' | 'none';
+    colorIntensity: 'full' | 'dimmed' | 'monochrome';
+    frequencyRange: 'full' | 'safe' | 'minimal';
+  };
+  accessibilityFeatures: {
+    keyboardNavigation: boolean;
+    screenReader: boolean;
+    highContrast: boolean;
+    fontScaling: boolean;
+    voiceControl: boolean;
+    eyeTracking: boolean;
+  };
+  harmonyBalance: {
+    divineLight: number; // 0.0 to 1.0
+    infernalShadow: number; // 0.0 to 1.0
+    neutral: number; // 0.0 to 1.0
+  };
+}
+
+// ============================================================================
+// SACRED MATHEMATICS AND GEOMETRY
+// ============================================================================
+
+export interface SacredMath {
+  goldenRatio: number; // 1.618033988749
+  phiSquared: number; // 2.618033988749
+  ratio144_99: number; // 1.454545...
+  fibonacciSequence: number[];
+  harmonicSeries: number[];
+  solfeggioFrequencies: SolfeggioFrequency[];
+  universalFrequency: number; // 432 Hz
+}
+
+export interface GeometryPrecision {
+  tolerance: number;
+  validation: boolean;
+  sacredRatios: Record<string, number>;
+  accuracy: number; // 0.0 to 1.0
+  errors: string[];
+  warnings: string[];
+}
+
+// ============================================================================
+// MAIN FUSION CREATIVE SUITE INTERFACE
+// ============================================================================
+
+export interface FusionCreativeSuite {
+  version: string;
+  trinityComponent: 'body';
+  daimonSettings: DaimonSettings | null;
+  canvas: CanvasConfiguration;
+  traumaSafe: TraumaSafeConfig;
+  sacredMath: SacredMath;
+  geometryPrecision: GeometryPrecision;
+  
+  // Core engines
+  merkaba: MerkabaConfiguration;
+  brushEngine: FusionBrush[];
+  vectorEngine: VectorPath[];
+  frequencyViz: FrequencyVisualizer;
+  
+  // Active project
+  activeProject: string | null;
+  activeLayer: CanvasLayer | null;
+  activeBrush: FusionBrush | null;
+  
+  // Export data
+  godotExport: GodotExport;
+  canvasData: ImageData;
+  vectorData: VectorPath[];
+  frequencyData: WaveformData;
+}
+
+export interface FusionAPI {
+  initializeArcanaCharacter(arcana: ArcanaType, characterName: string): Promise<DaimonSettings>;
+  createCustomCharacterArt(): Promise<any>;
+  exportForGodot(): Promise<GodotExport>;
+  exportSuiteManifest(): Promise<FusionCreativeSuite>;
+  updateMerkaba(config: Partial<MerkabaConfiguration>): Promise<void>;
+  setBrush(brushId: string): Promise<boolean>;
+  executeStroke(stroke: BrushStroke): Promise<any>;
+  generateSacredGeometry(pattern: SacredGeometryPattern, center: Vector2D, radius: number): Promise<VectorPath[]>;
+  visualizeFrequency(frequency: number): Promise<any>;
+  calculateHarmony(): Promise<number>;
+  validateSacredMath(): Promise<GeometryPrecision>;
+}
+
+export default FusionAPI;

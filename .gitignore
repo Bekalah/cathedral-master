@@ -1,0 +1,139 @@
+###############################################
+# Cathedral Real — Unified .gitignore (merged)
+###############################################
+
+# OS & editor
+.DS_Store
+Thumbs.db
+.idea
+.vscode/*
+!.vscode/extensions.json
+!.vscode/tasks.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sublime-project
+*.sublime-workspace
+*.sw?
+*.swp
+*.swo
+
+# Node/JS
+node_modules/
+package-lock.json
+yarn.lock
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.eslintcache
+.npm
+
+# Bun
+.bun/
+bun.lockb
+
+# Builds & caches
+dist/
+build/
+.cache
+.parcel-cache
+.turbo
+.next
+.nuxt
+public
+.out
+.storybook-out
+tmp/
+temp/
+logs
+*.log
+
+# Coverage/test
+coverage/
+*.lcov
+.nyc_output
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Godot
+.godot/
+
+# Cloud/Deploy
+.vercel
+.netlify
+.azure
+.wrangler
+
+# Env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archives & exports
+*.tgz
+*.zip
+*.bak
+*.old
+*.orig
+
+# Media (prefer LFS)
+*.wav
+*.aiff
+*.mp3
+*.mp4
+*.mov
+*.webm
+
+# Project-generated assets
+design-suite/outputs/
+agent_responses/
+/agent_responses/
+/agent_loop.log
+
+# Prevent root-level clutter
+/*.html
+/*.css
+/*.js
+!*.config.js
+/*.patch
+/_tmp_*
+/*.log
+/automation-log.txt
+
+# Archive (local only)
+/archive/
+BUILDING_CATHEDRALS_ARCHIVE/
+BUILDING_CATHEDRALS_ARCHIVE/**
+
+# Tooling & artifacts to keep out of VCS
+tools/history/work/
+tools/history/*.git
+*.vsix
+
+# Rust build outputs
+**/target/
+
+# Optional local data
+*.tmp
+*.temp
+*.json.export
+*.snapshot.json
+*.local.json
+stone-grimoire-*.json
+recovery/*
+secrets.json
+output/
+generated/
+cache/

@@ -1,0 +1,102 @@
+{
+  "version": "1.0.0",
+  "title": "Cathedral Real - Vertical Slice Room Catalog",
+  "description": "Canonical room registry for Cathedral Real vertical slice implementation",
+  "rooms": {
+    "R001": {
+      "id": "R001",
+      "name": "The Great Hall",
+      "description": "Main entrance to the Cathedral Real ecosystem",
+      "type": "entrance",
+      "phase": "A",
+      "godot_scene": "res://scenes/rooms/great_hall.tscn",
+      "web_interface": "hall",
+      "connections": ["R002", "R010", "R099"],
+      "arcana": ["The Fool", "The Magician"],
+      "studio_access": ["atelier", "synth_lab", "geometry_studio"],
+      "validation_required": true,
+      "vertical_slice_role": "archived_legacy"
+    },
+    "R002": {
+      "id": "R002",
+      "name": "Atelier Studio",
+      "description": "Professional art creation and manipulation space",
+      "type": "studio",
+      "phase": "A",
+      "godot_scene": "res://scenes/studios/atelier_studio.tscn",
+      "web_interface": "atelier",
+      "connections": ["R001", "R003"],
+      "arcana": ["The Empress", "Strength"],
+      "tools": ["canvas", "sacred_geometry", "color_palette", "character_customization"],
+      "validation_required": true,
+      "vertical_slice_role": "creator_suite_extended"
+    },
+    "R003": {
+      "id": "R003",
+      "name": "Synth Lab",
+      "description": "Professional audio synthesis and music composition",
+      "type": "studio",
+      "phase": "A",
+      "godot_scene": "res://scenes/studios/synth_lab.tscn",
+      "web_interface": "synth_lab",
+      "connections": ["R002", "R004"],
+      "arcana": ["The Lovers", "Temperance"],
+      "tools": ["solfeggio_synthesizer", "multi_track_composer", "sound_healing", "mixing_console"],
+      "validation_required": true,
+      "vertical_slice_role": "creator_suite_extended"
+    },
+    "R004": {
+      "id": "R004",
+      "name": "Geometry Studio",
+      "description": "Sacred mathematics and 3D visualization laboratory",
+      "type": "studio",
+      "phase": "A",
+      "godot_scene": "res://scenes/studios/geometry_studio.tscn",
+      "web_interface": "geometry",
+      "connections": ["R003", "R005"],
+      "arcana": ["The Hermit", "Wheel of Fortune"],
+      "tools": ["merkaba_builder", "codex_144_99_simulator", "circuitum_99_designer", "fibonacci_generator"],
+      "validation_required": true,
+      "vertical_slice_role": "creator_suite_extended"
+    },
+    "R010": {
+      "id": "R010",
+      "name": "Canon Atlas",
+      "description": "Main application hub for web-based tools",
+      "type": "atlas",
+      "phase": "B",
+      "godot_scene": null,
+      "web_interface": "main_atlas",
+      "connections": ["R001", "R011", "R012", "R013", "R014", "R015"],
+      "applications": ["palette_studio", "layout_designer", "symbolic_map_editor", "cosmogenesis_viewer", "stone_grimoire_viewer"],
+      "validation_required": true,
+      "vertical_slice_role": "creator_suite_extended"
+    },
+    "R099": {
+      "id": "R099",
+      "name": "Circuitum Nexus",
+      "description": "The ultimate integration and deployment nexus",
+      "type": "nexus",
+      "phase": "C",
+      "godot_scene": null,
+      "web_interface": "circuitum99",
+      "connections": ["R001"],
+      "deployment_targets": ["bekalah.github.io/circuitum99"],
+      "validation_required": true,
+      "vertical_slice_role": "creator_suite_extended"
+    }
+  },
+  "structural_rules": {
+    "trauma_aware": true,
+    "nd_safe": true,
+    "no_cultic_framing": true,
+    "professional_standards": true,
+    "museum_quality": true
+  },
+  "cathedral_business_compliance": {
+    "magnum_opus": true,
+    "free_local_first": true,
+    "no_ai_dependencies": true,
+    "open_source": true
+  }
+}

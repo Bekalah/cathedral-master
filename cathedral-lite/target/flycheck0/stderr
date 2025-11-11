@@ -1,0 +1,56 @@
+   5.657754034s  INFO prepare_target{force=false package_id=cathedral v5.0.0 (/Users/rebeccalemke/cathedral-real/cathedral-lite) target="cathedral"}: cargo::core::compiler::fingerprint: fingerprint error for cathedral v5.0.0 (/Users/rebeccalemke/cathedral-real/cathedral-lite)/Check { test: false }/TargetInner { name: "cathedral", doc: true, ..: with_path("/Users/rebeccalemke/cathedral-real/cathedral-lite/src/main.rs", Edition2021) }
+   5.659697112s  INFO prepare_target{force=false package_id=cathedral v5.0.0 (/Users/rebeccalemke/cathedral-real/cathedral-lite) target="cathedral"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/rebeccalemke/cathedral-real/cathedral-lite/target/debug/.fingerprint/cathedral-c0ad271b5ba15c9a/bin-cathedral`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: std::backtrace::Backtrace::capture
+   2: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   3: cargo_util::paths::read
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::cli::main
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+  18: <unknown>
+   5.777444001s  INFO prepare_target{force=false package_id=cathedral v5.0.0 (/Users/rebeccalemke/cathedral-real/cathedral-lite) target="cathedral"}: cargo::core::compiler::fingerprint: fingerprint error for cathedral v5.0.0 (/Users/rebeccalemke/cathedral-real/cathedral-lite)/Check { test: true }/TargetInner { name: "cathedral", doc: true, ..: with_path("/Users/rebeccalemke/cathedral-real/cathedral-lite/src/main.rs", Edition2021) }
+   5.777484099s  INFO prepare_target{force=false package_id=cathedral v5.0.0 (/Users/rebeccalemke/cathedral-real/cathedral-lite) target="cathedral"}: cargo::core::compiler::fingerprint:     err: failed to read `/Users/rebeccalemke/cathedral-real/cathedral-lite/target/debug/.fingerprint/cathedral-47b2f6c32e881077/test-bin-cathedral`
+
+Caused by:
+    No such file or directory (os error 2)
+
+Stack backtrace:
+   0: std::backtrace::Backtrace::create
+   1: std::backtrace::Backtrace::capture
+   2: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
+   3: cargo_util::paths::read
+   4: cargo::core::compiler::fingerprint::prepare_target
+   5: cargo::core::compiler::compile
+   6: <cargo::core::compiler::build_runner::BuildRunner>::compile
+   7: cargo::ops::cargo_compile::compile_ws
+   8: cargo::ops::cargo_compile::compile_with_exec
+   9: cargo::ops::cargo_compile::compile
+  10: cargo::commands::check::exec
+  11: <cargo::cli::Exec>::exec
+  12: cargo::cli::main
+  13: cargo::main
+  14: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
+  15: std::rt::lang_start::<()>::{closure#0}
+  16: std::rt::lang_start_internal
+  17: _main
+  18: <unknown>
+    Checking cathedral v5.0.0 (/Users/rebeccalemke/cathedral-real/cathedral-lite)
+error: could not compile `cathedral` (bin "cathedral" test) due to 6 previous errors; 4 warnings emitted
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `cathedral` (bin "cathedral") due to 6 previous errors; 4 warnings emitted

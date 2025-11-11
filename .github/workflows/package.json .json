@@ -1,0 +1,14 @@
+{
+  "name": "@openspec/magnum-opus",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=25.0.0",
+    "pnpm": ">=9.15.0"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.0.0"
+  }
+}

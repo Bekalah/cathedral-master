@@ -1,0 +1,13 @@
+{
+  "bg": "#071824",
+  "bgSoft": "#102a3c",
+  "ink": "#e7f5f9",
+  "muted": "#97adb8",
+  "inkMuted": "#97adb8",
+  "layers": ["#1b4d5c", "#6cb4b7", "#e2f1d0", "#f2c078", "#8ad7f6", "#c6b1ff"]
+  "bg": "#0b0b12",
+  "bgSoft": "#161626",
+  "ink": "#e8e8f0",
+  "inkMuted": "#a6a6c1",
+  "layers": ["#243a67", "#6fa0bf", "#e7f5f9", "#f0c987", "#91e0d6", "#c7b3ff"]
+}

@@ -1,0 +1,221 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // Ensure VS Code uses the project's venv so Pylance resolves imports
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  // Prefer workspace analysis for accuracy
+  "python.analysis.diagnosticMode": "workspace",
+  // Hint where venv lives
+  "python.analysis.venvPath": "${workspaceFolder}",
+  // Remove legacy python-envs configuration noise
+  "python-envs.pythonProjects": [
+    {
+      "path": "",
+      "envManager": "ms-python.python:system",
+      "packageManager": "ms-python.python:pip"
+    }
+  ],
+  "python.testing.unittestArgs": ["-v", "-s", "./tests", "-p", "*test.py"],
+  "python.testing.pytestEnabled": false,
+<<<<<<< Updated upstream
+  "python.testing.unittestEnabled": true
+=======
+  "python.testing.unittestEnabled": true,
+
+  // === CATHEDRAL CREATIVE SUITE GITLENS CONFIGURATION ===
+  // Professional game development and creative tools with sacred geometry integration
+
+  // Core GitLens behavior - Cathedral compliant
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotAheadWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false
+  },
+
+  // Fetch/Push/Unstash operations - Turbo Rules compliant
+  "gitlens.gitCommands.closeOnFocusOut": true,
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "pull:command",
+    "push:command",
+    "stash:command",
+    "stash-pop:command"
+  ],
+
+  // Auto-fetch for real-time collaboration (OpenSpec requirement)
+  "git.autofetch": true,
+  "git.autofetchPeriod": 180, // 3 minutes for active development
+
+  // Push settings - always push to current branch (Turbo Rules)
+  "git.confirmSync": false,
+  "git.postCommitCommand": "push",
+
+  // Git command aliases - Cathedral development workflow
+  "gitlens.gitCommands.aliases": {
+    "co": "checkout",
+    "ci": "commit",
+    "br": "branch",
+    "sta": "stash",
+    "unsta": "stash pop",
+    "st": "status",
+    "feat": "commit -m 'feat: '",
+    "fix": "commit -m 'fix: '",
+    "docs": "commit -m 'docs: '",
+    "refactor": "commit -m 'refactor: '"
+  },
+
+  // GitLens views - optimized for Cathedral monorepo structure
+  "gitlens.views.repositories.branches.layout": "list",
+  "gitlens.views.repositories.files.layout": "auto",
+  "gitlens.views.repositories.files.compact": true,
+  "gitlens.views.repositories.files.threshold": 1000,
+
+  // Blame annotations - professional development tracking
+  "gitlens.blame.avatars": true,
+  "gitlens.blame.compact": true,
+  "gitlens.blame.dateFormat": "relative",
+  "gitlens.blame.heatmap.enabled": true,
+  "gitlens.blame.heatmap.location": "right",
+  "gitlens.blame.heatmap.opacity": 0.7,
+
+  // GitLens menus - comprehensive Cathedral workflow support
+  "gitlens.menus": {
+    "editorGroup": {
+      "blame": true,
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "editor": {
+      "blame": true,
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "explorer": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "scmGroup": {
+      "compare": true,
+      "openClose": true,
+      "stash": true,
+      "stashInline": true
+    },
+    "scmItem": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true,
+      "stash": true
+    }
+  },
+
+  // Keybindings - chorded for efficiency (OpenSpec compliant)
+  "gitlens.keymap": "chorded",
+
+  // Status bar - comprehensive Cathedral status
+  "gitlens.statusBar.alignment": "right",
+  "gitlens.statusBar.command": "gitlens.showQuickRepoStatus",
+  "gitlens.statusBar.dateFormat": "short",
+  "gitlens.statusBar.enabled": true,
+  "gitlens.statusBar.format": "${author}, ${agoOrDate}${' via ${avatar}'}${' ⇧${pushedFormat}'}${ahead}${behind}${stashes}",
+
+  // Terminal links - enable for Git command integration
+  "gitlens.terminalLinks.enabled": true,
+
+  // Hovers - detailed commit information
+  "gitlens.hovers.avatars": true,
+  "gitlens.hovers.currentLine.enabled": true,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.hovers.detailsMarkdownFormat": "${avatar} &nbsp;__${author}__, ${agoOrDate} &nbsp; _(${date})_ \n\n${message}\n\n${commands}",
+
+  // Comparisons - auto mode for Cathedral workflow
+  "gitlens.views.compare.objects": "auto",
+
+  // Search - auto mode for Cathedral development
+  "gitlens.views.search.objects": "auto",
+
+  // Telemetry - disabled for privacy (Personal Work Manifest compliant)
+  "gitlens.telemetry.enabled": false,
+
+  // Output level - info for development visibility
+  "gitlens.outputLevel": "info",
+
+  // === CATHEDRAL CREATIVE SUITE INTEGRATIONS ===
+  // Professional game development and creative tools with sacred geometry
+
+  // Turbo monorepo awareness for cathedral builds
+  "gitlens.turbo.enabled": true,
+  "gitlens.turbo.buildCommand": "turbo build",
+  "gitlens.turbo.testCommand": "turbo test",
+
+  // Cathedral deployment tracking - mystical showcase
+  "gitlens.deployments.trackCathedral": true,
+  "gitlens.deployments.githubPagesUrl": "https://bekalah.github.io/cathedral",
+
+  // Sacred quality control - divine standards
+  "gitlens.quality.enabled": true,
+  "gitlens.quality.minResolution": 4096,
+  "gitlens.quality.colorDepth": 16,
+  "gitlens.quality.sacredRatios": true,
+
+  // Mystical collaboration with sacred geometry
+  "gitlens.collaboration.enabled": true,
+  "gitlens.collaboration.sacred": true,
+
+  // Archetypal figure integration - living characters
+  "gitlens.archetypes.enabled": true,
+  "gitlens.archetypes.figures": [
+    "Leonora Carrington",
+    "John Dee",
+    "Ada Lovelace",
+    "Mary Shelley",
+    "Isaac Newton",
+    "Dion Fortune",
+    "Carrington & Ernst",
+    "Elyria Nox",
+    "Georgia O'Keeffe",
+    "Orin Lantern",
+    "Game Designer",
+    "Judicial Scholar",
+    "Synthesis Teacher",
+    "Antonin Artaud",
+    "Alchemical Balance",
+    "Aleister Crowley",
+    "William Burroughs",
+    "Hilma af Klint",
+    "Golden Age Prophet",
+    "Universal Judge",
+    "Buckminster Fuller"
+  ],
+
+  // Game engine integration - Godot 4.5.0 mystical pipeline
+  "gitlens.godot.enabled": true,
+  "gitlens.godot.version": "4.5.0",
+  "gitlens.godot.trackExports": true,
+  "gitlens.godot.sacredGeometry": true,
+
+  // Sacred audio synthesis - Solfeggio frequencies
+  "gitlens.audio.enabled": true,
+  "gitlens.audio.sacred": true,
+  "gitlens.audio.frequencies": [396, 417, 432, 528, 741, 852, 963],
+  "gitlens.audio.solfeggio": true,
+
+  // Creative tools integration - Cathedral Forge replacement
+  "gitlens.creative.enabled": true,
+  "gitlens.creative.canvasSize": "4096x4096",
+  "gitlens.creative.colorDepth": 16,
+  "gitlens.creative.fusionKink": true,
+
+  // Mystical deployment pipeline
+  "gitlens.deployment.enabled": true,
+  "gitlens.deployment.platforms": ["vercel", "render", "github-pages", "fly"]
+>>>>>>> Stashed changes
+}
