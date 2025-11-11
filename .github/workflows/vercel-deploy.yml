@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "on": {
+    "push": {
+      "branches": ["v1_main"]
+    }
+  },
+  "jobs": {
+    "build": {
+      "buildCommand": "pnpm run build",
+      "devCommand": "pnpm run dev",
+      "installCommand": "pnpm install",
+      "framework": "nextjs",
+      "outputDirectory": "apps/web/.next",
+      "env": { "NODE_VERSION": "25.0.0", "PNPM_VERSION": "9.15.0" },
+      "build": { "env": { "NODE_ENV": "production" } }
+    }
+  }
+}

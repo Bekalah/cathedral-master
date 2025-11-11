@@ -1,0 +1,693 @@
+.cathedral-app {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Header Styles */
+.cathedral-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffd700, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.mode-selector {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.mode-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.mode-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 215, 0, 0.5);
+}
+
+.mode-button.active {
+  background: linear-gradient(45deg, #ffd700, #ff6b6b);
+  border-color: transparent;
+  color: #000;
+  font-weight: 600;
+}
+
+/* Main Content */
+.cathedral-main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Loading Screen */
+.loading-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  text-align: center;
+  padding: 2rem;
+}
+
+.loading-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffd700, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
+}
+
+.progress-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem 0;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(45deg, #ffd700, #ff6b6b);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+  position: relative;
+}
+
+.progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.loading-status {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 1rem;
+}
+
+/* Welcome Screen */
+.welcome-screen {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.welcome-title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffd700, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+}
+
+.welcome-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.welcome-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.welcome-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.welcome-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 215, 0, 0.5);
+  transform: translateY(-4px);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* Footer */
+.cathedral-footer {
+  background: rgba(10, 10, 10, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  margin-top: auto;
+}
+
+.cathedral-status {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ecdc4;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.mobile-badge {
+  background: rgba(78, 205, 196, 0.2);
+  color: #4ecdc4;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Component Base Styles */
+.cathedral-component {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.component-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+
+.component-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cathedral-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .mode-selector {
+    justify-content: center;
+  }
+  
+  .cathedral-main {
+    padding: 1rem;
+  }
+  
+  .welcome-title {
+    font-size: 2rem;
+  }
+  
+  .welcome-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cathedral-component {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mode-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .welcome-card {
+    padding: 1.5rem;
+  }
+  
+  .card-icon {
+    font-size: 2rem;
+  }
+}
+
+/* Mobile Interface Styles */
+.mobile-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.tab-button:hover,
+.tab-button.active {
+  background: linear-gradient(45deg, #ffd700, #ff6b6b);
+  color: #000;
+  border-color: transparent;
+}
+
+.mobile-content {
+  min-height: 400px;
+}
+
+.archetype-grid,
+.symbol-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.archetype-card,
+.symbol-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.archetype-card:hover,
+.symbol-card:hover {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.frequency-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.frequency-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+}
+
+/* Design Studio Styles */
+.design-toolbar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tool-button {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.tool-button:hover,
+.tool-button.active {
+  background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
+  color: #000;
+  border-color: transparent;
+}
+
+.design-workspace {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.design-canvas {
+  min-height: 400px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.design-properties {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.property-group {
+  margin-bottom: 1rem;
+}
+
+.property-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ffd700;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.design-canvas-content {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.canvas-area {
+  min-height: 200px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+/* Music Lab Styles */
+.audio-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.control-section {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.frequency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.frequency-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.frequency-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.note-name {
+  font-weight: 600;
+  color: #ffd700;
+  font-size: 1.1rem;
+}
+
+.frequency-value {
+  color: #4ecdc4;
+  font-weight: 500;
+}
+
+.frequency-description {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.frequency-play-button {
+  width: 100%;
+  padding: 0.5rem;
+  background: rgba(78, 205, 196, 0.2);
+  border: 1px solid #4ecdc4;
+  border-radius: 4px;
+  color: #4ecdc4;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.frequency-play-button:hover:not(:disabled) {
+  background: #4ecdc4;
+  color: #000;
+}
+
+.frequency-play-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.chakra-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.chakra-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.chakra-card:hover,
+.chakra-card.active {
+  background: rgba(78, 205, 196, 0.2);
+  border-color: #4ecdc4;
+  transform: scale(1.05);
+}
+
+.chakra-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.chakra-name {
+  font-weight: 600;
+  color: #ffd700;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.chakra-frequency {
+  font-size: 0.8rem;
+  color: #4ecdc4;
+}
+
+.archetype-sounds {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.archetype-sound-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.archetype-play-button {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 215, 0, 0.2);
+  border: 1px solid #ffd700;
+  border-radius: 4px;
+  color: #ffd700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+}
+
+.archetype-play-button:hover {
+  background: #ffd700;
+  color: #000;
+}
+
+.ambient-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ambient-button {
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.ambient-button:hover:not(:disabled) {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  border-color: transparent;
+}
+
+.ambient-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ambient-button.active {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  border-color: transparent;
+}
+
+.now-playing {
+  background: rgba(78, 205, 196, 0.1);
+  border: 1px solid #4ecdc4;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.frequency-visualizer {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.wave-bar {
+  width: 4px;
+  height: 20px;
+  background: #4ecdc4;
+  border-radius: 2px;
+  animation: wave 1s ease-in-out infinite alternate;
+}
+
+@keyframes wave {
+  0% { height: 10px; }
+  100% { height: 30px; }
+}
+
+.audio-info {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Responsive Design for New Components */
+@media (max-width: 768px) {
+  .design-workspace {
+    grid-template-columns: 1fr;
+  }
+  
+  .frequency-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chakra-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .archetype-sounds {
+    grid-template-columns: 1fr;
+  }
+  
+  .ambient-controls {
+    flex-direction: column;
+  }
+  
+  .mobile-tabs {
+    justify-content: center;
+  }
+  
+  .design-toolbar {
+    justify-content: center;
+  }
+}

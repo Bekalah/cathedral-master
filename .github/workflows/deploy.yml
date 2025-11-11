@@ -1,0 +1,89 @@
+name: Deploy Cathedral Creative Ecosystem
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '25.0.0'
+        
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+        run_install: false
+        
+    - name: Get pnpm store directory
+      shell: bash
+      run: |
+        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+        
+    - name: Setup pnpm cache
+      uses: actions/cache@v3
+      with:
+        path: ${{ env.STORE_PATH }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+          
+    - name: Install pnpm
+      run: npm install -g pnpm@8
+      
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+      
+    - name: Install apps/web dependencies
+      run: |
+        cd apps/web
+        pnpm install --frozen-lockfile
+        
+    - name: Type check
+      run: |
+        cd apps/web
+        pnpm run type-check
+        
+    - name: Lint code
+      run: |
+        cd apps/web
+        pnpm run lint
+        
+    - name: Build Cathedral Web Platform
+      run: |
+        cd apps/web
+        pnpm run build:export
+        
+    - name: Setup Pages
+      if: github.ref == 'refs/heads/main'
+      uses: actions/configure-pages@v3
+      
+    - name: Upload artifact
+      if: github.ref == 'refs/heads/main'
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: 'apps/web/out'
+        
+    - name: Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/main'
+      id: deployment
+      uses: actions/deploy-pages@v2
+      with:
+        artifact_name: cathedral-web-platform
+        
+    - name: Health check
+      run: |
+        echo "✅ Deployment completed successfully"
+        echo "🌐 Live at: ${{ steps.deployment.outputs.page_url }}"

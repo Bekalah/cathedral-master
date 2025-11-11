@@ -1,0 +1,18 @@
+<<<<<<< HEAD
+# Scripts
+
+Utility scripts for build, deploy, and maintenance.
+=======
+# scripts/
+Tooling for Circuitum 99: Alpha et Omega.
+
+- `moonchild_diff.py` -- proposes PATCH blocks for headers, gate badges, and minimal structure fixes (non-destructive).
+- `visionary_dream.py` -- generates a spiral mandala with an Alex Grey-inspired palette.
+- `pillar_audit.py` -- audits registry/pillars for completeness and naming coherence.
+- (future) `symbol_coherence.py`
+- `dedupe_lines.py` -- strips consecutive duplicate lines from files.
+
+Location (fixed coordinate):
+_Registry Node: Circuitum 99 -- Alpha et Omega / system:scripts / coord: SYS-SCRIPTS
+
+>>>>>>> circuitum99/main

@@ -1,0 +1,46 @@
+name = "avalon-labs"
+
+compatibility_date = "2024-12-01"
+
+node_compat = true
+
+[build]
+  command = "pnpm turbo run build --filter=apps/web"
+  cwd = "../.."
+  watch_dir = "."
+
+[build_upload]
+  format = "modules"
+
+[[build_upload_rules]]
+type = "ESModule"
+globs = ["**/*.js"]
+[[build_upload_rules]]
+type = "CommonJS"
+globs = ["**/*.cjs"]
+
+[vars]
+  NODE_VERSION = "25.0.0"
+  PLATFORM = "cloudflare"
+  PNPM_VERSION = "9.15.0"
+  TURBO_VERSION = "2.0.0"
+
+[env]
+  [env.production]
+    vars = {"NODE_ENV":"production","NODE_VERSION":"25.0.0","PLATFORM":"cloudflare"}
+  [env.staging]
+    vars = {"NODE_ENV":"staging","PLATFORM":"cloudflare-staging"}
+  [env.development]
+    vars = {"NODE_ENV":"development","PLATFORM":"cloudflare-dev"}
+
+[functions]
+  directory = "functions/"
+
+[[kv_namespaces]]
+binding = "CATHEDRAL_NODES"
+id = "cathedral_nodes_kv"
+preview_id = "cathedral_nodes_kv_preview"
+
+[durable_objects]
+  bindings = [{"name":"CATHEDRAL_ROOMS","class_name":"CathedralRoom"},{"name":"GAMESTATE","class_name":"GameState"}]
+

@@ -1,0 +1,92 @@
+{
+  "version": "1.0.0",
+  "title": "Cathedral Real - Style Packs Vertical Slice",
+  "description": "Professional design style system for Cathedral Real",
+  "style_packs": {
+    "renaissance_classical": {
+      "id": "renaissance_classical",
+      "name": "Renaissance Classical",
+      "description": "Museum-quality Renaissance aesthetics with divine/infernal palettes",
+      "phase": "A",
+      "vertical_slice_role": "archived_legacy",
+      "primary_colors": {
+        "divine": ["#FFD700", "#FFFFFF", "#E6E6FA", "#F0E68C"],
+        "infernal": ["#8B0000", "#2F1B14", "#800080", "#A0522D"],
+        "neutral": ["#F5F5DC", "#2F4F4F", "#696969", "#8B4513"]
+      },
+      "typography": {
+        "primary": "Cinzel",
+        "secondary": "Libre Baskerville", 
+        "accent": "Crimson Text"
+      },
+      "design_elements": {
+        "sacred_geometry": true,
+        "gothic_arches": true,
+        "ornate_borders": true,
+        "gold_foil_accents": true
+      },
+      "applications": ["atelier", "web_interface", "game_ui"]
+    },
+    "professional_design": {
+      "id": "professional_design",
+      "name": "Professional Design Suite",
+      "description": "Modern professional design standards for business applications",
+      "phase": "B",
+      "vertical_slice_role": "creator_suite_extended",
+      "primary_colors": {
+        "primary": ["#007BFF", "#28A745", "#FFC107", "#DC3545"],
+        "secondary": ["#6C757D", "#17A2B8", "#20C997", "#6610F2"],
+        "neutral": ["#F8F9FA", "#E9ECEF", "#DEE2E6", "#CED4DA"]
+      },
+      "typography": {
+        "primary": "Inter",
+        "secondary": "Source Sans Pro",
+        "code": "JetBrains Mono"
+      },
+      "design_elements": {
+        "clean_lines": true,
+        "minimalist_icons": true,
+        "consistent_spacing": true,
+        "accessibility_focused": true
+      },
+      "applications": ["design_suite", "web_apps", "business_tools"]
+    },
+    "synth_electronic": {
+      "id": "synth_electronic",
+      "name": "Synth Electronic",
+      "description": "High-end audio interface aesthetics matching NIN/Aphex Twin standards",
+      "phase": "A",
+      "vertical_slice_role": "creator_suite_extended",
+      "primary_colors": {
+        "synth": ["#00FFFF", "#FF00FF", "#FFFF00", "#00FF00"],
+        "dark": ["#000000", "#1A1A1A", "#333333", "#4D4D4D"],
+        "neon": ["#39FF14", "#FF073A", "#FF10F0", "#08F7FE"]
+      },
+      "typography": {
+        "primary": "Orbitron",
+        "secondary": "Rajdhani",
+        "display": "Audiowide"
+      },
+      "design_elements": {
+        "synthwave_grid": true,
+        "neon_glows": true,
+        "retro_futurism": true,
+        "pulse_animations": true
+      },
+      "applications": ["synth_lab", "audio_interfaces", "electronic_music"]
+    }
+  },
+  "structural_rules": {
+    "trauma_aware": true,
+    "nd_safe": true,
+    "no_cultic_framing": true,
+    "professional_standards": true,
+    "accessibility_compliant": true
+  },
+  "cathedral_business_compliance": {
+    "magnum_opus": true,
+    "free_local_first": true,
+    "no_ai_dependencies": true,
+    "open_source": true
+  }
+}

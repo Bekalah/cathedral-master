@@ -1,0 +1,86 @@
+# Cathedral Real - LFS Cleanup & Push Instructions
+**Task**: Clean up LFS objects and push 1908 commits  
+**Date**: 2025-11-11  
+**Status**: Ready for cleanup
+
+## 📋 **CURRENT ISSUE**
+Your 1908 commits are blocked by Git LFS objects that don't exist in the repository:
+- 6 missing LFS files (mp3, png images)
+- These were removed locally but still referenced in commit history
+- Need to remove from entire commit history for successful push
+
+## 🔧 **STEP-BY-STEP CLEANUP**
+
+### 1. **Backup Current State**
+
+```bash
+git branch backup-before-lfs-cleanup
+```
+
+### 2. **Remove LFS from History** (CRITICAL)
+
+```bash
+# Set environment variable to suppress warnings
+export FILTER_BRANCH_SQUELCH_WARNING=1
+
+# Remove problematic files from entire history
+git filter-branch --force --tag-name-filter cat -- --all -- \
+  '*.mp3' '*.png' 'real_skills/*' 'site/assets/*'
+
+# Force cleanup
+rm -rf .git/refs/original/
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive
+```
+
+### 3. **Force Push to Clean Branch**
+
+```bash
+# Push the cleaned history
+git push v1_master_origin main --force
+
+# If still issues, push to separate branch first
+git push v1_master_origin lfs-cleaned-history:fix-lfs-issues
+```
+
+### 4. **Alternative: Cherry-Pick Clean Commits**
+
+```bash
+# If filter-branch fails, create new branch with clean commits
+git checkout v1_master_origin/main
+git checkout -b clean-cathedral-real
+git cherry-pick --no-commit main..HEAD
+git push v1_master_origin clean-cathedral-real:main
+```
+
+## ✅ **VERIFICATION COMMANDS**
+
+```bash
+# Check commit count
+git rev-list --count v1_master_origin/main..HEAD
+
+# Verify LFS files removed from history
+git log --all --pretty=format:"%H %s" | grep -E "(real_skills|site/assets)" | head -5
+
+# Test push without LFS
+git push --dry-run v1_master_origin main
+```
+
+## 🚀 **MODERN DEPLOYMENT STACK READY**
+Once LFS cleaned, your **1908 commits** will push successfully for:
+- **Vercel** (React/Next.js apps)
+- **Render** (Backend services)  
+- **Vite** (Build system)
+- **React** (Frontend)
+- **Bevy** (Game engine integration)
+- **Cloudflare** (CDN/Hosting)
+- **Godot 4.6** (Game development)
+
+## ⚠️ **IMPORTANT NOTES**
+- **Don't** use `git lfs push --all` - these files don't exist
+- **Do** use `git filter-branch` to remove from history
+- **Backup** before doing any destructive operations
+- **Your v1_main** will stay clean after this cleanup
+
+---
+**Ready to execute this cleanup plan to unjamb your 1908 commits!**

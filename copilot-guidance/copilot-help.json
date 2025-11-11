@@ -1,0 +1,48 @@
+{
+  "overview": {
+    "project": "Cathedral v1.0 Master - Turbo OpenSpec",
+    "naming_convention": "v1_main, v1_master, master-cathedral",
+    "tech_stack": ["Godot 4.5", "Rust", "Bevy", "React", "Turbo", "pnpm"],
+    "deployment": ["Render", "Vercel", "GitHub Actions"]
+  },
+  "build_system": {
+    "package_manager": "pnpm@9.15.0",
+    "node_version": "20",
+    "turbo_version": "2.6.0",
+    "build_command": "pnpm run build:all",
+    "verify_command": "pnpm run verify:builds"
+  },
+  "godot_integration": {
+    "version": "4.5",
+    "rust_crate": "cathedral-game-engine",
+    "bevy_version": "0.14",
+    "integration_pattern": "GDNative + Bevy systems"
+  },
+  "missing_pieces": {
+    "package_builder": "Real build system that actually creates packages",
+    "godot_rust_bindings": "Proper GDNative bindings for Rust integration",
+    "bevy_plugin": "Bevy plugin for Cathedral systems",
+    "deployment_scripts": "Working Render + Vercel deployment",
+    "naming_enforcement": "Consistent v1.0 naming throughout"
+  },
+  "co_pilot_help": {
+    "what-to-create": "Package builder, Godot bindings, Bevy plugins, deployment configs",
+    "use-this-naming": "Always use v1_main, v1_master, master-cathedral",
+    "turbo-reference": "This is turbo openspec v1.0",
+    "build-problem": "Packages never got built - need real build system"
+  },
+  "naming_system": {
+    "branches": {
+      "development": "v1_main",
+      "integration": "v1_master",
+      "production": "master-cathedral"
+    },
+    "packages": {
+      "core": "@cathedral/core-v1.0",
+      "engines": "@cathedral/engines-v1.0",
+      "applications": "@cathedral/apps-v1.0",
+      "godot": "@cathedral/godot-v1.0",
+      "bevy": "@cathedral/bevy-v1.0"
+    }
+  }
+}
