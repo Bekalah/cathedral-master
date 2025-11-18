@@ -16,7 +16,7 @@ npm run repair
 ```
 
 This will:
-- ✅ Check Node.js version (requires v22+, recommends v25)
+- ✅ Check Node.js version (requires v25+)
 - ✅ Install/verify pnpm
 - ✅ Clean old installations
 - ✅ Install all dependencies
@@ -27,7 +27,7 @@ This will:
 
 ## 📋 System Requirements
 
-- **Node.js**: v22+ (v25 recommended for built-in SQLite)
+- **Node.js**: v25+ (required for built-in SQLite and optimal performance)
 - **pnpm**: v9+ (will be auto-installed if missing)
 - **Git**: For version control
 - **Godot 4.6**: For game development (optional)

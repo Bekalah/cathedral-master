@@ -68,12 +68,18 @@ else
     echo -e "${YELLOW}  ⚠️  Design Suite dist not found${NC}"
 fi
 
-# Copy main website
-if [ -d "apps/web/dist" ]; then
+# Copy main website (Next.js outputs to .next or out)
+if [ -d "apps/web/out" ]; then
+    cp -r apps/web/out/* "$MAIN_SITE_DIR/"
+    echo -e "${GREEN}  ✅ Main website copied (from out/)${NC}"
+elif [ -d "apps/web/.next" ]; then
+    cp -r apps/web/.next/standalone/* "$MAIN_SITE_DIR/" 2>/dev/null || cp -r apps/web/.next/* "$MAIN_SITE_DIR/"
+    echo -e "${GREEN}  ✅ Main website copied (from .next/)${NC}"
+elif [ -d "apps/web/dist" ]; then
     cp -r apps/web/dist/* "$MAIN_SITE_DIR/"
-    echo -e "${GREEN}  ✅ Main website copied${NC}"
+    echo -e "${GREEN}  ✅ Main website copied (from dist/)${NC}"
 else
-    echo -e "${YELLOW}  ⚠️  Main website dist not found${NC}"
+    echo -e "${YELLOW}  ⚠️  Main website build output not found (checked out/, .next/, dist/)${NC}"
 fi
 
 # Create index.html if it doesn't exist

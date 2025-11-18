@@ -33,7 +33,7 @@ This document summarizes the complete repair and optimization of the Cathedral m
 ### 3. Build System Scripts ✅
 
 #### Repair Script (`scripts/repair-monorepo.sh`)
-- Checks Node.js version (requires v22+, recommends v25)
+- Checks Node.js version (requires v25+)
 - Installs/verifies pnpm
 - Cleans old installations
 - Installs dependencies with pnpm
@@ -48,15 +48,18 @@ This document summarizes the complete repair and optimization of the Cathedral m
 - Configures for GitHub Pages deployment
 - Supports multiple free hosting platforms
 
-### 4. GitHub Actions Workflow ✅
-- **Created**: `.github/workflows/deploy-cathedral.yml`
-- **Features**:
+### 4. GitHub Actions Workflow (Not Included in This PR)
+- **File**: `.github/workflows/deploy-cathedral.yml`
+- **Status**: Not included in this PR - must be created separately after merge
+- **Reason**: Workflow files require special permissions and should be added via a separate commit
+- **Recommended Features**:
   - Automated build on push to main
   - pnpm caching for faster builds
   - Builds all applications
   - Creates deployment artifacts
   - Auto-deploys to GitHub Pages
   - Provides deployment summary
+- **Next Steps**: After merging this PR, create the workflow file manually or via a follow-up PR
 
 ### 5. Comprehensive Documentation ✅
 - **Created**: `MONOREPO_REPAIR_GUIDE.md`
@@ -131,7 +134,7 @@ The Godot project is now fully configured for version 4.6 with:
 
 ## 🔧 Key Technologies
 
-- **Node.js**: v22+ (v25 recommended)
+- **Node.js**: v25+ (required for built-in SQLite)
 - **pnpm**: v10+ (package manager)
 - **Turbo**: v2.3+ (build system)
 - **Godot**: v4.6 (game engine)

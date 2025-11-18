@@ -15,8 +15,8 @@ NC='\033[0m' # No Color
 # Check Node.js version
 echo -e "${BLUE}📋 Checking Node.js version...${NC}"
 NODE_VERSION=$(node --version | cut -d'v' -f2 | cut -d'.' -f1)
-if [ "$NODE_VERSION" -lt 22 ]; then
-    echo -e "${RED}❌ Node.js version 22+ required. Current: $(node --version)${NC}"
+if [ "$NODE_VERSION" -lt 25 ]; then
+    echo -e "${RED}❌ Node.js version 25+ required. Current: $(node --version)${NC}"
     echo -e "${YELLOW}💡 Install Node.js 25 with: nvm install 25 && nvm use 25${NC}"
     exit 1
 fi
