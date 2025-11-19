@@ -6,7 +6,7 @@
     "pnpm": "9.15.0",
     "npm": "10.0.0",
     "turbo": "2.0.0",
-    "godot": "4.5.0",
+    "godot": "4.6.0",
     "rust": "1.75.0",
     "bevy": "0.14.0"
   },
@@ -36,8 +36,8 @@
     },
     "godot": {
       "status": "configured",
-      "version": "4.5.0",
-      "features": "4.5.0"
+      "version": "4.6.0",
+      "features": "4.6"
     },
     "rust_bevy": {
       "status": "configured",
