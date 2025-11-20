@@ -14,8 +14,9 @@
     "typescript": "5.3.0"
   },
   "game_engines": {
-    "godot": "4.5.0",
+    "godot": "4.6.0",
     "godot_features": [
+      "4.6",
       "Forward+",
       "Text-to-Speech",
       "Screen Reader",
@@ -110,7 +111,7 @@
     "package_json": "✅ pnpm configured",
     "vite_config": "✅ modern setup",
     "tsconfig": "✅ local configs",
-    "godot_project": "✅ v4.5.0 configured",
+    "godot_project": "✅ v4.6.0 configured",
     "cargo_toml": "✅ bevy v0.14.0"
   },
   "platform_integration": {
